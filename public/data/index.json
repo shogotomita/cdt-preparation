@@ -1,0 +1,45 @@
+{
+  "subjects": [
+    {
+      "id": "hou",
+      "label": "旅行業法・施行規則",
+      "shortLabel": "旅行業法",
+      "passThreshold": 60
+    },
+    {
+      "id": "yakkan",
+      "label": "約款",
+      "shortLabel": "約款",
+      "passThreshold": 60
+    },
+    {
+      "id": "jitsumu",
+      "label": "国内旅行実務",
+      "shortLabel": "実務",
+      "passThreshold": 60
+    }
+  ],
+  "years": [
+    {
+      "id": "sample",
+      "label": "サンプル（テンプレ確認用）",
+      "subjects": [
+        {
+          "subject": "hou",
+          "file": "questions/sample-hou.json",
+          "questionCount": 3
+        },
+        {
+          "subject": "yakkan",
+          "file": "questions/sample-yakkan.json",
+          "questionCount": 2
+        },
+        {
+          "subject": "jitsumu",
+          "file": "questions/sample-jitsumu.json",
+          "questionCount": 2
+        }
+      ]
+    }
+  ]
+}

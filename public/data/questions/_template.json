@@ -1,0 +1,36 @@
+{
+  "_comment": "このファイルをコピーして questions/<年度>-<科目>.json を作成してください。科目 id: hou | yakkan | jitsumu",
+  "questions": [
+    {
+      "id": "YYYY-hou-01",
+      "number": 1,
+      "year": "YYYY",
+      "subject": "hou",
+      "stem": "問題文をここに書きます。",
+      "choices": [
+        {
+          "key": "A",
+          "text": "選択肢A",
+          "explanation": "Aが不正解（または正解）である理由。"
+        },
+        {
+          "key": "B",
+          "text": "選択肢B",
+          "explanation": "Bが不正解（または正解）である理由。"
+        },
+        {
+          "key": "C",
+          "text": "選択肢C",
+          "explanation": "Cが不正解（または正解）である理由。"
+        },
+        {
+          "key": "D",
+          "text": "選択肢D",
+          "explanation": "Dが不正解（または正解）である理由。"
+        }
+      ],
+      "correctKey": "B",
+      "overallExplanation": "【前提知識】\n関連する用語・制度の説明。\n\n【解説】\n正解に至る考え方のまとめ。"
+    }
+  ]
+}
