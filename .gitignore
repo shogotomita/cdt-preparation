@@ -29,3 +29,6 @@ quiz-feedback.png
 
 # Raw screenshots / source scans (crop into public/images/)
 raw/
+
+# Local scratch / draft question notes
+public/data/questions/tmp.md
