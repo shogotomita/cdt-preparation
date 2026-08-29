@@ -1,12 +1,13 @@
 {
-  "_comment": "このファイルをコピーして questions/<年度>-<科目>.json を作成してください。科目 id: hou | yakkan | jitsumu",
+  "_comment": "このファイルをコピーして questions/<年度>-<科目>.json を作成してください。科目 id: hou | yakkan | jitsumu。図がある場合は images に public 配下のパスを列挙し、stem 内の差し込み位置に <図> を書く（例: \"/images/2025/jitsumu/q51.png\"）。図が無い問は images を省略してよい。",
   "questions": [
     {
       "id": "YYYY-hou-01",
       "number": 1,
       "year": "YYYY",
       "subject": "hou",
-      "stem": "問題文をここに書きます。",
+      "stem": "問題文をここに書きます。\n\n<図>\n\n続きの文（資料など）。",
+      "images": [],
       "choices": [
         {
           "key": "A",
@@ -29,8 +30,10 @@
           "explanation": "Dが不正解（または正解）である理由。"
         }
       ],
-      "correctKey": "B",
-      "overallExplanation": "【前提知識】\n関連する用語・制度の説明。\n\n【解説】\n正解に至る考え方のまとめ。"
+      "overallExplanation": "【前提知識】\n関連する用語・制度の説明。\n\n【解説】\n正解に至る考え方のまとめ。",
+      "correctKeys": [
+        "B"
+      ]
     }
   ]
 }

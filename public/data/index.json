@@ -21,23 +21,23 @@
   ],
   "years": [
     {
-      "id": "sample",
-      "label": "サンプル（テンプレ確認用）",
+      "id": "2025",
+      "label": "令和7年度",
       "subjects": [
         {
           "subject": "hou",
-          "file": "questions/sample-hou.json",
-          "questionCount": 3
+          "file": "questions/2025-hou.json",
+          "questionCount": 25
         },
         {
           "subject": "yakkan",
-          "file": "questions/sample-yakkan.json",
-          "questionCount": 2
+          "file": "questions/2025-yakkan.json",
+          "questionCount": 25
         },
         {
           "subject": "jitsumu",
-          "file": "questions/sample-jitsumu.json",
-          "questionCount": 2
+          "file": "questions/2025-jitsumu.json",
+          "questionCount": 38
         }
       ]
     }
