@@ -26,3 +26,6 @@ dist-ssr
 # Local / agent artifacts
 .playwright-mcp/
 quiz-feedback.png
+
+# Raw screenshots / source scans (crop into public/images/)
+raw/

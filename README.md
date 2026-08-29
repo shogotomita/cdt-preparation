@@ -60,6 +60,7 @@ npm run dev
       "year": "2024",
       "subject": "hou",
       "stem": "問題文",
+      "images": ["/images/2024/jitsumu/q51-1.webp"],
       "choices": [
         { "key": "A", "text": "...", "explanation": "なぜ正解/不正解か" },
         { "key": "B", "text": "...", "explanation": "..." },
@@ -72,6 +73,11 @@ npm run dev
   ]
 }
 ```
+
+- `images`（任意）: 問題文中に表示する図。パスは `public` 配下をルートにした絶対パス（例: `/images/2025/jitsumu/q51.png`）
+- 問題文 `stem` 内の `<図>` の位置に画像を差し込む（`tmp.md` の `<図>` と同じ）。マーカーが無い場合は問題文の直後に表示する
+- 下線付き箇所は `stem` 内で `<u>文言</u>` と書く（例: `（ａ）<u>保津峡</u>`）
+- 生スクショは `raw/<年度>-<科目>/` に置き（gitignore 済み）、図部分だけを `public/images/...` に切り出して参照する
 
 解説の書き方・品質基準は [docs/explanation-guidelines.md](docs/explanation-guidelines.md) を参照してください。
 

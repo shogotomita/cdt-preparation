@@ -33,6 +33,11 @@
           "subject": "yakkan",
           "file": "questions/2025-yakkan.json",
           "questionCount": 25
+        },
+        {
+          "subject": "jitsumu",
+          "file": "questions/2025-jitsumu.json",
+          "questionCount": 38
         }
       ]
     }
