@@ -29,8 +29,10 @@
           "explanation": "Dが不正解（または正解）である理由。"
         }
       ],
-      "correctKey": "B",
-      "overallExplanation": "【前提知識】\n関連する用語・制度の説明。\n\n【解説】\n正解に至る考え方のまとめ。"
+      "overallExplanation": "【前提知識】\n関連する用語・制度の説明。\n\n【解説】\n正解に至る考え方のまとめ。",
+      "correctKeys": [
+        "B"
+      ]
     }
   ]
 }

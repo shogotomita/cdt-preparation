@@ -15,7 +15,8 @@ export interface Question {
   subject: SubjectId
   stem: string
   choices: Choice[]
-  correctKey: ChoiceKey
+  /** 正解の選択肢（複数可。「すべて選びなさい」は2つ以上） */
+  correctKeys: ChoiceKey[]
   overallExplanation: string
 }
 
@@ -45,7 +46,7 @@ export interface DataIndex {
 
 export interface AttemptRecord {
   correct: boolean
-  selectedKey: ChoiceKey
+  selectedKeys: ChoiceKey[]
   at: string
 }
 

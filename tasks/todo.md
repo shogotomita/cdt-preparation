@@ -31,3 +31,12 @@
 - 正答率は年度×科目、合格ライン60%表示
 - 問題追加: `public/data/questions/_template.json` をコピーし `index.json` に登録
 - 次: 実過去問 JSON の投入、GitHub リポジトリ作成・Pages 有効化
+
+## Progress
+- [x] 令和7年度 旅行業法（`2025-hou.json`）25問を転記（正解・解説は空欄）
+- [x] 令和7年度 約款（`2025-yakkan.json`）問26〜50を転記（正解・解説は空欄）
+- [x] 令和7年度 旅行業法の正解を記入（`correctKeys`）
+- [x] 複数選択問題の UI / 採点対応（`correctKeys` 配列）
+- [ ] 令和7年度 実務の投入
+- [ ] 約款・実務の正解記入
+- [ ] 解説の記入

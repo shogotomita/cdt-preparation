@@ -66,7 +66,7 @@ npm run dev
         { "key": "C", "text": "...", "explanation": "..." },
         { "key": "D", "text": "...", "explanation": "..." }
       ],
-      "correctKey": "B",
+      "correctKeys": ["B"],
       "overallExplanation": "【前提知識】\n...\n\n【解説】\n..."
     }
   ]

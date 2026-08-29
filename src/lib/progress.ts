@@ -32,7 +32,7 @@ export function recordAttempt(
   year: string,
   subject: SubjectId,
   questionId: string,
-  selectedKey: ChoiceKey,
+  selectedKeys: ChoiceKey[],
   correct: boolean,
 ): ProgressStore {
   const next: ProgressStore = structuredClone(store)
@@ -43,7 +43,7 @@ export function recordAttempt(
   }
   qp.attempts.push({
     correct,
-    selectedKey,
+    selectedKeys,
     at: new Date().toISOString(),
   })
   next[year][subject][questionId] = qp

@@ -29,7 +29,7 @@ interface AppState {
     year: string,
     subject: SubjectId,
     questionId: string,
-    selectedKey: ChoiceKey,
+    selectedKeys: ChoiceKey[],
     correct: boolean,
   ) => void
   clearSubject: (year: string, subject: SubjectId) => void
@@ -70,11 +70,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
       year: string,
       subject: SubjectId,
       questionId: string,
-      selectedKey: ChoiceKey,
+      selectedKeys: ChoiceKey[],
       correct: boolean,
     ) => {
       setProgress((prev) =>
-        recordAttempt(prev, year, subject, questionId, selectedKey, correct),
+        recordAttempt(prev, year, subject, questionId, selectedKeys, correct),
       )
     },
     [],

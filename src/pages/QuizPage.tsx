@@ -7,6 +7,7 @@ import { ResultBanner } from '../components/ResultBanner'
 import { useApp } from '../context/AppContext'
 import { fetchQuestions, findYear, subjectFile } from '../lib/data'
 import { getUnansweredOrWrongIds } from '../lib/progress'
+import { isAnswerCorrect, isMultiSelect } from '../lib/quiz'
 import type { ChoiceKey, Question, SubjectId } from '../types'
 
 export function QuizPage() {
@@ -23,7 +24,7 @@ export function QuizPage() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [indexQ, setIndexQ] = useState(0)
-  const [selected, setSelected] = useState<ChoiceKey | null>(null)
+  const [selected, setSelected] = useState<ChoiceKey[]>([])
   const [submitted, setSubmitted] = useState(false)
   const [sessionCorrect, setSessionCorrect] = useState(0)
   const [sessionAnswered, setSessionAnswered] = useState(0)
@@ -72,23 +73,33 @@ export function QuizPage() {
   const question = allQuestions[indexQ]
   const subjectMeta = index?.subjects.find((s) => s.id === subject)
   const yearMeta = index ? findYear(index, yearId) : undefined
+  const multi = question ? isMultiSelect(question) : false
 
   const isCorrect = useMemo(
     () =>
-      submitted && selected !== null && question
-        ? selected === question.correctKey
-        : false,
+      submitted && question ? isAnswerCorrect(question, selected) : false,
     [submitted, selected, question],
   )
 
   function resetQuestionState() {
-    setSelected(null)
+    setSelected([])
     setSubmitted(false)
   }
 
+  function handleToggle(key: ChoiceKey) {
+    if (submitted) return
+    if (multi) {
+      setSelected((prev) =>
+        prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key],
+      )
+      return
+    }
+    setSelected([key])
+  }
+
   function handleCheck() {
-    if (!question || selected === null) return
-    const ok = selected === question.correctKey
+    if (!question || selected.length === 0) return
+    const ok = isAnswerCorrect(question, selected)
     record(yearId, subject, question.id, selected, ok)
     setSubmitted(true)
     setSessionAnswered((n) => n + 1)
@@ -164,12 +175,17 @@ export function QuizPage() {
         <p className="mb-6 text-[15px] leading-relaxed whitespace-pre-wrap text-gray-900">
           {question.stem}
         </p>
+        {multi && !submitted && (
+          <p className="-mt-4 mb-6 text-xs text-muted">
+            ※ 当てはまるものをすべて選択
+          </p>
+        )}
 
         <ChoiceList
           question={question}
           selected={selected}
           submitted={submitted}
-          onSelect={setSelected}
+          onToggle={handleToggle}
         />
 
         {submitted && (
@@ -199,7 +215,7 @@ export function QuizPage() {
           {!submitted ? (
             <button
               type="button"
-              disabled={selected === null}
+              disabled={selected.length === 0}
               onClick={handleCheck}
               className="rounded-lg bg-brand px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-hover disabled:cursor-not-allowed disabled:opacity-40"
             >
