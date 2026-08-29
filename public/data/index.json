@@ -40,6 +40,27 @@
           "questionCount": 38
         }
       ]
+    },
+    {
+      "id": "2024",
+      "label": "令和6年度",
+      "subjects": [
+        {
+          "subject": "hou",
+          "file": "questions/2024-hou.json",
+          "questionCount": 25
+        },
+        {
+          "subject": "yakkan",
+          "file": "questions/2024-yakkan.json",
+          "questionCount": 25
+        },
+        {
+          "subject": "jitsumu",
+          "file": "questions/2024-jitsumu.json",
+          "questionCount": 38
+        }
+      ]
     }
   ]
 }

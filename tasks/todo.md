@@ -47,3 +47,16 @@
 - [x] 令和7再レビュー修正（法・解説書き出し統一、約款問35/47/48、実務問51ひっかけ算数・問73宍道湖混同）
 
 解説の書き方は [`docs/explanation-guidelines.md`](../docs/explanation-guidelines.md) を参照。
+
+## Progress（令和6）
+- [x] 令和6年度 旅行業法（`2024-hou.json`）問1〜25を転記
+- [x] 令和6年度 旅行業法の正解を記入（`correctKeys`）
+- [x] 令和6年度 旅行業法の解説（問1〜25）
+- [x] `index.json` に令和6・hou を登録
+- [x] 令和6年度 約款（`2024-yakkan.json`）問26〜50を転記
+- [x] 令和6年度 約款の正解を記入（`correctKeys`）
+- [x] 令和6年度 約款の解説（問26〜50）
+- [x] `index.json` に令和6・yakkan を登録
+- [x] 令和6年度 実務（`2024-jitsumu.json`）問51〜84（細問込み38問）を転記
+- [x] 令和6年度 実務の正解・解説を記入（計算過程含む）
+- [x] `index.json` に令和6・jitsumu を登録（図は q55/56/57/60）
