@@ -61,6 +61,17 @@
           "questionCount": 38
         }
       ]
+    },
+    {
+      "id": "2023",
+      "label": "令和5年度",
+      "subjects": [
+        {
+          "subject": "hou",
+          "file": "questions/2023-hou.json",
+          "questionCount": 25
+        }
+      ]
     }
   ]
 }
