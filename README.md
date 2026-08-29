@@ -73,6 +73,8 @@ npm run dev
 }
 ```
 
+解説の書き方・品質基準は [docs/explanation-guidelines.md](docs/explanation-guidelines.md) を参照してください。
+
 ## 正答率
 
 - ブラウザの `localStorage` に保存（端末・ブラウザごと）
