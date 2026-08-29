@@ -13,9 +13,9 @@ npm run dev
 
 ## 問題データの追加
 
-1. `public/data/questions/_template.json` をコピーして、例: `public/data/questions/2024-hou.json` を作成
+1. `public/data/questions/_template.json`（または `sample-*.json`）をコピーして、例: `public/data/questions/2024-hou.json` を作成
 2. 問題・選択肢・正解・解説を記入
-3. `public/data/index.json` に年度・科目を登録
+3. `public/data/index.json` に年度・科目を登録（`sample-*.json` は参考用のため index には載せない）
 
 ```json
 {

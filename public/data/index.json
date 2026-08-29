@@ -35,27 +35,6 @@
           "questionCount": 25
         }
       ]
-    },
-    {
-      "id": "sample",
-      "label": "サンプル（テンプレ確認用）",
-      "subjects": [
-        {
-          "subject": "hou",
-          "file": "questions/sample-hou.json",
-          "questionCount": 3
-        },
-        {
-          "subject": "yakkan",
-          "file": "questions/sample-yakkan.json",
-          "questionCount": 2
-        },
-        {
-          "subject": "jitsumu",
-          "file": "questions/sample-jitsumu.json",
-          "questionCount": 2
-        }
-      ]
     }
   ]
 }
