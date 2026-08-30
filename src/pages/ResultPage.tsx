@@ -57,9 +57,11 @@ export function ResultPage() {
   const stats = calcSubjectAccuracy(progress, yearId, subject, questions)
   const wrongIds = getWrongQuestionIds(progress, yearId, subject, questions)
   const sessionRate =
-    session.answered && session.answered > 0
-      ? Math.round(((session.correct ?? 0) / session.answered) * 100)
-      : null
+    session.total && session.total > 0 && (session.answered ?? 0) > 0
+      ? Math.round(((session.correct ?? 0) / session.total) * 100)
+      : session.answered && session.answered > 0
+        ? Math.round(((session.correct ?? 0) / session.answered) * 100)
+        : null
   const passed = stats.rate !== null && stats.rate >= threshold
 
   if (loading || !index) {
@@ -82,8 +84,14 @@ export function ResultPage() {
             {sessionRate}%
           </p>
           <p className="mt-1 text-sm text-gray-600">
-            {session.correct}/{session.answered} 問正解
-            {session.total ? `（出題 ${session.total} 問）` : ''}
+            {session.correct}/{session.total ?? session.answered} 問正解
+            {session.answered != null &&
+            session.total != null &&
+            session.answered < session.total
+              ? `（解答 ${session.answered} / ${session.total} 問）`
+              : session.total
+                ? `（全 ${session.total} 問）`
+                : ''}
           </p>
         </div>
       )}

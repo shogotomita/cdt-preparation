@@ -7,7 +7,12 @@ import { QuizToc } from '../components/QuizToc'
 import { ResultBanner } from '../components/ResultBanner'
 import { useApp } from '../context/AppContext'
 import { fetchQuestions, findYear, subjectFile } from '../lib/data'
-import { getUnansweredOrWrongIds } from '../lib/progress'
+import {
+  calcQueueSessionStats,
+  getUnansweredOrWrongIds,
+  latestAttempt,
+  loadProgress,
+} from '../lib/progress'
 import { isAnswerCorrect, isMultiSelect } from '../lib/quiz'
 import type { ChoiceKey, Question, SubjectId } from '../types'
 
@@ -103,8 +108,6 @@ export function QuizPage() {
   const [indexQ, setIndexQ] = useState(0)
   const [selected, setSelected] = useState<ChoiceKey[]>([])
   const [submitted, setSubmitted] = useState(false)
-  const [sessionCorrect, setSessionCorrect] = useState(0)
-  const [sessionAnswered, setSessionAnswered] = useState(0)
 
   const subject = subjectId as SubjectId
 
@@ -152,16 +155,27 @@ export function QuizPage() {
   const yearMeta = index ? findYear(index, yearId) : undefined
   const multi = question ? isMultiSelect(question) : false
 
+  // 問題切替時: 保存済みの直近解答があれば復元（結果画面で手動リセットするまで保持）
+  useEffect(() => {
+    if (!question) return
+    const latest = latestAttempt(
+      progress[yearId]?.[subject]?.[question.id],
+    )
+    if (latest) {
+      setSelected([...latest.selectedKeys])
+      setSubmitted(true)
+    } else {
+      setSelected([])
+      setSubmitted(false)
+    }
+    // progress は復元のソース。record 直後も同じ選択で上書きされるだけ
+  }, [question, yearId, subject, progress])
+
   const isCorrect = useMemo(
     () =>
       submitted && question ? isAnswerCorrect(question, selected) : false,
     [submitted, selected, question],
   )
-
-  function resetQuestionState() {
-    setSelected([])
-    setSubmitted(false)
-  }
 
   function handleToggle(key: ChoiceKey) {
     if (submitted) return
@@ -175,46 +189,45 @@ export function QuizPage() {
   }
 
   function handleCheck() {
-    if (!question || selected.length === 0) return
+    if (!question || selected.length === 0 || submitted) return
     const ok = isAnswerCorrect(question, selected)
     record(yearId, subject, question.id, selected, ok)
     setSubmitted(true)
-    setSessionAnswered((n) => n + 1)
-    if (ok) setSessionCorrect((n) => n + 1)
+  }
+
+  function navigateToResult() {
+    // recordAttempt は localStorage に同期書き込み済みなので、最新状態から集計
+    const stats = calcQueueSessionStats(
+      loadProgress(),
+      yearId,
+      subject,
+      allQuestions,
+    )
+    navigate(`/result/${yearId}/${subject}`, {
+      state: {
+        ...stats,
+        mode,
+      },
+    })
   }
 
   function handleNext() {
     if (indexQ >= allQuestions.length - 1) {
-      navigate(`/result/${yearId}/${subject}`, {
-        state: {
-          correct: sessionCorrect,
-          answered: sessionAnswered,
-          total: allQuestions.length,
-          mode,
-        },
-      })
+      navigateToResult()
       return
     }
     setIndexQ((i) => i + 1)
-    resetQuestionState()
+    window.scrollTo(0, 0)
   }
 
   function handleJump(i: number) {
     if (i === indexQ) return
     setIndexQ(i)
-    resetQuestionState()
     window.scrollTo(0, 0)
   }
 
   function handleFinish() {
-    navigate(`/result/${yearId}/${subject}`, {
-      state: {
-        correct: sessionCorrect,
-        answered: sessionAnswered,
-        total: allQuestions.length,
-        mode,
-      },
-    })
+    navigateToResult()
   }
 
   if (loading) {
