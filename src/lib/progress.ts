@@ -51,12 +51,15 @@ export function recordAttempt(
   return next
 }
 
-function latestAttempt(qp: QuestionProgress | undefined) {
+export function latestAttempt(qp: QuestionProgress | undefined) {
   if (!qp?.attempts.length) return null
   return qp.attempts[qp.attempts.length - 1]
 }
 
-/** 直近1回の解答に基づく年度×科目の正答率 */
+/**
+ * 直近1回の解答に基づく年度×科目の正答率。
+ * 分母は科目の全問数（未解答は不正解扱い）。解答0件のとき rate は null。
+ */
 export function calcSubjectAccuracy(
   store: ProgressStore,
   year: string,
@@ -66,6 +69,7 @@ export function calcSubjectAccuracy(
   const subjectProg = store[year]?.[subject] ?? {}
   let answered = 0
   let correct = 0
+  const total = questions.length
 
   for (const q of questions) {
     const latest = latestAttempt(subjectProg[q.id])
@@ -77,9 +81,28 @@ export function calcSubjectAccuracy(
   return {
     answered,
     correct,
-    rate: answered === 0 ? null : Math.round((correct / answered) * 100),
-    total: questions.length,
+    rate: answered === 0 || total === 0 ? null : Math.round((correct / total) * 100),
+    total,
   }
+}
+
+/** 指定問題セットについて、直近解答からの正解数・解答数を集計 */
+export function calcQueueSessionStats(
+  store: ProgressStore,
+  year: string,
+  subject: SubjectId,
+  questions: Question[],
+): { correct: number; answered: number; total: number } {
+  const subjectProg = store[year]?.[subject] ?? {}
+  let answered = 0
+  let correct = 0
+  for (const q of questions) {
+    const latest = latestAttempt(subjectProg[q.id])
+    if (!latest) continue
+    answered += 1
+    if (latest.correct) correct += 1
+  }
+  return { correct, answered, total: questions.length }
 }
 
 /** 累計（全試行）の正答率 */
