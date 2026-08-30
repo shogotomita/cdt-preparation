@@ -70,6 +70,16 @@
           "subject": "hou",
           "file": "questions/2023-hou.json",
           "questionCount": 25
+        },
+        {
+          "subject": "yakkan",
+          "file": "questions/2023-yakkan.json",
+          "questionCount": 25
+        },
+        {
+          "subject": "jitsumu",
+          "file": "questions/2023-jitsumu.json",
+          "questionCount": 19
         }
       ]
     }
