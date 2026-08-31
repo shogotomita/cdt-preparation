@@ -6,6 +6,8 @@ export interface Choice {
   key: ChoiceKey
   text: string
   explanation: string
+  /** 選択肢内の図。public 配下のパス。例: "/images/2023/jitsumu/3-1-a.png" */
+  image?: string
 }
 
 export interface Question {

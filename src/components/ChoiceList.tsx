@@ -146,6 +146,13 @@ export function ChoiceList({
                     <span className="font-semibold">{choice.key}. </span>
                     {choice.text}
                   </p>
+                  {choice.image && (
+                    <img
+                      src={choice.image}
+                      alt={`選択肢${choice.key}の図`}
+                      className="mt-3 h-auto w-full max-w-full rounded-md border border-gray-200 bg-white"
+                    />
+                  )}
                   {submitted && (
                     <div className="mt-3 border-t border-black/5 pt-3">
                       <p className="mb-1 text-xs font-semibold text-gray-500">
