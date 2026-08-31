@@ -33,6 +33,7 @@
 - 次: 実過去問 JSON の投入、GitHub リポジトリ作成・Pages 有効化
 
 ## Progress
+- [x] UX: 正答率を correct/total（科目全体）に変更、演習中の回答保持（PR #3）
 - [x] 令和7年度 旅行業法（`2025-hou.json`）25問を転記
 - [x] 令和7年度 約款（`2025-yakkan.json`）問26〜50を転記（正解・解説は空欄のまま）
 - [x] 令和7年度 旅行業法の正解を記入（`correctKeys`）
