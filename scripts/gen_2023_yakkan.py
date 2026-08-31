@@ -54,8 +54,9 @@ def ocr_fix(raw: str) -> str:
     s = s.replace("1 集型", "1 募集型")
     # Unify dash in article titles
     s = s.replace("−", "－")
-    # Missing inpatient-days digit in Q17-b (unreadable in OCR)
-    s = re.sub(r"傷害による\s*日間の入院", "傷害による○日間の入院", s)
+    # Inpatient-days digit in Q17-b (OCR often drops it; official text is 7日間)
+    s = re.sub(r"傷害による\s*日間の入院", "傷害による7日間の入院", s)
+    s = s.replace("傷害による○日間の入院", "傷害による7日間の入院")
     # Halfwidth "1つ" → fullwidth (match other year JSONs)
     s = s.replace("1つ", "１つ")
     # Collapse OCR spaces around Arabic numerals in Japanese prose
