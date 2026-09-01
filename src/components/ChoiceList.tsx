@@ -1,4 +1,5 @@
 import type { Choice, ChoiceKey, Question } from '../types'
+import { publicUrl } from '../lib/data'
 import { isMultiSelect } from '../lib/quiz'
 
 interface Props {
@@ -148,7 +149,7 @@ export function ChoiceList({
                   </p>
                   {choice.image && (
                     <img
-                      src={choice.image}
+                      src={publicUrl(choice.image)}
                       alt={`選択肢${choice.key}の図`}
                       className="mt-3 h-auto w-full max-w-full rounded-md border border-gray-200 bg-white"
                     />

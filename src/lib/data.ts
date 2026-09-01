@@ -1,9 +1,15 @@
 import type { DataIndex, Question, SubjectId, YearMeta } from '../types'
 
-function dataUrl(path: string): string {
+/** public 配下のパスを Vite `base` 付き URL にする（GitHub Pages のサブパス対応） */
+export function publicUrl(path: string): string {
+  if (/^https?:\/\//.test(path)) return path
   const base = import.meta.env.BASE_URL
   const normalized = base.endsWith('/') ? base : `${base}/`
-  return `${normalized}data/${path}`
+  return `${normalized}${path.replace(/^\/+/, '')}`
+}
+
+function dataUrl(path: string): string {
+  return publicUrl(`data/${path}`)
 }
 
 export async function fetchIndex(): Promise<DataIndex> {
