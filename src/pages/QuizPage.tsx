@@ -6,7 +6,7 @@ import { QuizHeader } from '../components/QuizHeader'
 import { QuizToc } from '../components/QuizToc'
 import { ResultBanner } from '../components/ResultBanner'
 import { useApp } from '../context/AppContext'
-import { fetchQuestions, findYear, subjectFile } from '../lib/data'
+import { fetchQuestions, findYear, publicUrl, subjectFile } from '../lib/data'
 import {
   calcQueueSessionStats,
   getUnansweredOrWrongIds,
@@ -57,7 +57,7 @@ function QuestionStem({ question }: { question: Question }) {
         {images.map((src, i) => (
           <img
             key={src}
-            src={src}
+            src={publicUrl(src)}
             alt={`問題${question.number}の図${i + 1}`}
             className="h-auto w-full max-w-full rounded-md border border-gray-200 bg-white"
           />

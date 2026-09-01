@@ -33,6 +33,7 @@
 - 次: 実過去問 JSON の投入、GitHub リポジトリ作成・Pages 有効化
 
 ## Progress
+- [x] GitHub Pages で問題図が 404 になる不具合（`/images/...` がオリジン直下を指す）→ `publicUrl` で `BASE_URL` を付与（ブランチ `fix/github-pages-image-base`）
 - [x] UX: 正答率を correct/total（科目全体）に変更、演習中の回答保持（PR #3）
 - [x] 令和7年度 旅行業法（`2025-hou.json`）25問を転記
 - [x] 令和7年度 約款（`2025-yakkan.json`）問26〜50を転記（正解・解説は空欄のまま）
