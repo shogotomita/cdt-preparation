@@ -103,6 +103,27 @@
           "questionCount": 37
         }
       ]
+    },
+    {
+      "id": "2021",
+      "label": "令和3年度",
+      "subjects": [
+        {
+          "subject": "hou",
+          "file": "questions/2021-hou.json",
+          "questionCount": 25
+        },
+        {
+          "subject": "yakkan",
+          "file": "questions/2021-yakkan.json",
+          "questionCount": 25
+        },
+        {
+          "subject": "jitsumu",
+          "file": "questions/2021-jitsumu.json",
+          "questionCount": 38
+        }
+      ]
     }
   ]
 }
