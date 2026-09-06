@@ -115,7 +115,7 @@ export function QuizPage() {
   const [indexQ, setIndexQ] = useState(0)
   const [selected, setSelected] = useState<ChoiceKey[]>([])
   const [submitted, setSubmitted] = useState(false)
-  const mainRef = useRef<HTMLElement>(null)
+  const mainRef = useRef<HTMLDivElement>(null)
 
   const subject = subjectId as SubjectId
 
@@ -295,43 +295,45 @@ export function QuizPage() {
         <QuizTocSidebar {...tocProps} />
 
         <div className="flex min-h-0 min-w-0 flex-1 flex-col">
-          <main
+          <div
             ref={mainRef}
-            className="mx-auto w-full max-w-2xl min-h-0 flex-1 overflow-y-auto px-4 py-6"
+            className="min-h-0 flex-1 overflow-y-auto"
           >
-            <p className="mb-1 text-xs font-medium text-muted">
-              {yearMeta?.label} · {subjectMeta?.label}
-              {mode === 'weak' ? ' · 苦手優先' : ''}
-            </p>
-            <h1 className="mb-4 flex items-start gap-2 text-base font-bold text-gray-900">
-              <span aria-hidden className="mt-0.5 text-brand">
-                ▸
-              </span>
-              <span>問題 {question.displayNumber ?? question.number}</span>
-            </h1>
-
-            {submitted && <ResultBanner isCorrect={isCorrect} />}
-
-            <QuestionStem question={question} />
-            {multi && !submitted && (
-              <p className="mb-6 -mt-2 text-xs text-muted">
-                ※ 当てはまるものをすべて選択
+            <main className="mx-auto w-full max-w-2xl px-4 py-6">
+              <p className="mb-1 text-xs font-medium text-muted">
+                {yearMeta?.label} · {subjectMeta?.label}
+                {mode === 'weak' ? ' · 苦手優先' : ''}
               </p>
-            )}
+              <h1 className="mb-4 flex items-start gap-2 text-base font-bold text-gray-900">
+                <span aria-hidden className="mt-0.5 text-brand">
+                  ▸
+                </span>
+                <span>問題 {question.displayNumber ?? question.number}</span>
+              </h1>
 
-            <ChoiceList
-              question={question}
-              selected={selected}
-              submitted={submitted}
-              onToggle={handleToggle}
-            />
+              {submitted && <ResultBanner isCorrect={isCorrect} />}
 
-            {submitted && (
-              <div className="mt-6">
-                <OverallExplanation question={question} />
-              </div>
-            )}
-          </main>
+              <QuestionStem question={question} />
+              {multi && !submitted && (
+                <p className="mb-6 -mt-2 text-xs text-muted">
+                  ※ 当てはまるものをすべて選択
+                </p>
+              )}
+
+              <ChoiceList
+                question={question}
+                selected={selected}
+                submitted={submitted}
+                onToggle={handleToggle}
+              />
+
+              {submitted && (
+                <div className="mt-6">
+                  <OverallExplanation question={question} />
+                </div>
+              )}
+            </main>
+          </div>
 
           <footer className="shrink-0 border-t border-gray-200 bg-white">
             <div className="mx-auto flex max-w-2xl items-center justify-between gap-3 px-4 py-3">
