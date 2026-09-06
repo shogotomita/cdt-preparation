@@ -22,7 +22,8 @@ interface Props {
   onSelect: (index: number) => void
 }
 
-export function QuizToc({
+/** Mobile: horizontal strip under header */
+export function QuizTocStrip({
   questions,
   currentIndex,
   yearId,
@@ -31,49 +32,57 @@ export function QuizToc({
   onSelect,
 }: Props) {
   return (
-    <>
-      {/* Mobile: horizontal strip under header */}
-      <nav
-        aria-label="問題一覧"
-        className="sticky top-[53px] z-[9] border-b border-gray-200 bg-white/95 backdrop-blur lg:hidden"
-      >
-        <ul className="flex gap-1.5 overflow-x-auto px-4 py-2">
-          {questions.map((q, i) => (
-            <li key={q.id} className="shrink-0">
-              <TocButton
-                label={`問${q.displayNumber ?? q.number}`}
-                status={latestStatus(progress, yearId, subject, q.id)}
-                active={i === currentIndex}
-                onClick={() => onSelect(i)}
-                compact
-              />
-            </li>
-          ))}
-        </ul>
-      </nav>
+    <nav
+      aria-label="問題一覧"
+      className="shrink-0 border-b border-gray-200 bg-white lg:hidden"
+    >
+      <ul className="flex gap-1.5 overflow-x-auto px-4 py-2">
+        {questions.map((q, i) => (
+          <li key={q.id} className="shrink-0">
+            <TocButton
+              label={`問${q.displayNumber ?? q.number}`}
+              status={latestStatus(progress, yearId, subject, q.id)}
+              active={i === currentIndex}
+              onClick={() => onSelect(i)}
+              compact
+            />
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}
 
-      {/* Desktop: left sidebar */}
-      <aside
-        aria-label="問題目次"
-        className="fixed top-[53px] bottom-[61px] left-0 z-20 hidden w-44 overflow-y-auto border-r border-gray-200 bg-white px-3 py-4 lg:block"
-      >
-        <p className="mb-3 px-1 text-xs font-semibold tracking-wide text-muted">
-          目次
-        </p>
-        <ul className="flex flex-col gap-1">
-          {questions.map((q, i) => (
-            <li key={q.id}>
-              <TocButton
-                label={`問 ${q.displayNumber ?? q.number}`}
-                status={latestStatus(progress, yearId, subject, q.id)}
-                active={i === currentIndex}
-                onClick={() => onSelect(i)}
-              />
-            </li>
-          ))}
-        </ul>
-      </aside>
-    </>
+/** Desktop: left sidebar (in-flow, not fixed) */
+export function QuizTocSidebar({
+  questions,
+  currentIndex,
+  yearId,
+  subject,
+  progress,
+  onSelect,
+}: Props) {
+  return (
+    <aside
+      aria-label="問題目次"
+      className="hidden w-44 shrink-0 overflow-y-auto border-r border-gray-200 bg-white px-3 py-4 lg:block"
+    >
+      <p className="mb-3 px-1 text-xs font-semibold tracking-wide text-muted">
+        目次
+      </p>
+      <ul className="flex flex-col gap-1">
+        {questions.map((q, i) => (
+          <li key={q.id}>
+            <TocButton
+              label={`問 ${q.displayNumber ?? q.number}`}
+              status={latestStatus(progress, yearId, subject, q.id)}
+              active={i === currentIndex}
+              onClick={() => onSelect(i)}
+            />
+          </li>
+        ))}
+      </ul>
+    </aside>
   )
 }
 
