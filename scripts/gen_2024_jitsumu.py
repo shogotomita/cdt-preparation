@@ -21,6 +21,39 @@ def join_jp(s: str) -> str:
     return s
 
 
+def format_stem(stem: str) -> str:
+    """Restore structural line breaks after join_jp flattens OCR/markdown text."""
+    if not stem:
+        return stem
+    s = stem.replace("＜図＞", "<図>")
+    s = re.sub(r"(選びなさい[。．])(?!\n)", r"\1\n\n", s)
+    s = re.sub(r"(?<!\n)(?=[（(]注[０-９0-9一二三四五六七八九十]*[）)])", "\n", s)
+    s = re.sub(r"(?<!\n)(?=[＜<](?:行程|資料|図)[＞>])", "\n\n", s)
+    s = re.sub(r"([＜<](?:行程|資料|図)[＞>])(?!\n)", r"\1\n", s)
+    s = re.sub(r"(?<!\n)(?=<図>)", "\n\n", s)
+    s = re.sub(r"(<図>)(?!\n)", r"\1\n", s)
+    s = re.sub(r"(?<=[。．＞>])(?=[①-⑩])", "\n", s)
+    s = re.sub(
+        r"(?<!\n)(?=・(?:[0-9０-９一二三四五六七八九十]+日|[１２]日にわたる))",
+        "\n",
+        s,
+    )
+    s = re.sub(r"(?<!\n)(?=●)", "\n\n", s)
+    if re.search(r"[＜<]資料[＞>]|●", s):
+        for lab in (
+            "基本宿泊料",
+            "サービス料",
+            "消費税",
+            "入湯税",
+            "チェックイン",
+            "チェックアウト",
+        ):
+            s = re.sub(rf"(?<!\n)(?={re.escape(lab)}：)", "\n", s)
+        s = re.sub(r"(?<!\n)(?=宿泊契約解除)", "\n", s)
+    s = re.sub(r"\n{3,}", "\n\n", s)
+    return s.strip()
+
+
 def clean_choice_text(text: str) -> str:
     # Section headers glued after the last choice of the previous question
     text = re.split(
@@ -50,7 +83,9 @@ def parse_choices(body: str) -> dict[str, str]:
 
 
 def stem_before_choices(body: str) -> str:
-    return join_jp(re.split(r"ア．", body, maxsplit=1)[0]).replace("＜図＞", "<図>")
+    return format_stem(
+        join_jp(re.split(r"ア．", body, maxsplit=1)[0]).replace("＜図＞", "<図>")
+    )
 
 
 ANSWERS: dict = {

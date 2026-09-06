@@ -14,6 +14,7 @@ import { QuizTocSidebar, QuizTocStrip } from '../components/QuizToc'
 import { ResultBanner } from '../components/ResultBanner'
 import { useApp } from '../context/AppContext'
 import { fetchQuestions, findYear, publicUrl, subjectFile } from '../lib/data'
+import { formatStem } from '../lib/formatStem'
 import {
   calcQueueSessionStats,
   getUnansweredOrWrongIds,
@@ -51,7 +52,8 @@ function renderRichText(text: string) {
 
 function QuestionStem({ question }: { question: Question }) {
   const images = question.images ?? []
-  const parts = question.stem.split(IMAGE_MARKER)
+  const stem = formatStem(question.stem)
+  const parts = stem.split(IMAGE_MARKER)
   const hasMarker = parts.length > 1
 
   const textClass =
@@ -81,7 +83,7 @@ function QuestionStem({ question }: { question: Question }) {
   if (!hasMarker) {
     return (
       <div className="mb-6 flex flex-col gap-4">
-        {renderText(question.stem)}
+        {renderText(stem)}
         {renderImages()}
       </div>
     )
