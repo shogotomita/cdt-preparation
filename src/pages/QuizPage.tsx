@@ -104,7 +104,7 @@ export function QuizPage() {
     yearId: string
     subjectId: SubjectId
   }>()
-  const [searchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams()
   const mode = searchParams.get('mode') // 'weak' | null
   const navigate = useNavigate()
   const { index, progress, record } = useApp()
@@ -146,7 +146,10 @@ export function QuizPage() {
           }
         }
 
+        const qId = searchParams.get('q')
+        const restored = qId ? queue.findIndex((q) => q.id === qId) : -1
         setAllQuestions(queue)
+        setIndexQ(restored >= 0 ? restored : 0)
         setLoading(false)
       } catch (e) {
         if (!cancelled) {
@@ -158,7 +161,8 @@ export function QuizPage() {
     return () => {
       cancelled = true
     }
-    // progress intentionally omitted: queue is fixed at session start
+    // progress / searchParams.q intentionally omitted: queue is fixed at session start;
+    // q is read once for initial restore, then kept in sync via the effect below.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [index, yearId, subject, mode])
 
@@ -166,6 +170,15 @@ export function QuizPage() {
   const subjectMeta = index?.subjects.find((s) => s.id === subject)
   const yearMeta = index ? findYear(index, yearId) : undefined
   const multi = question ? isMultiSelect(question) : false
+
+  // 現在の問題を URL に残し、再読み込み後も同じ問題を表示する
+  useEffect(() => {
+    if (!question) return
+    if (searchParams.get('q') === question.id) return
+    const next = new URLSearchParams(searchParams)
+    next.set('q', question.id)
+    setSearchParams(next, { replace: true })
+  }, [question, searchParams, setSearchParams])
 
   // 問題切替時: 保存済みの直近解答があれば復元（結果画面で手動リセットするまで保持）
   useEffect(() => {

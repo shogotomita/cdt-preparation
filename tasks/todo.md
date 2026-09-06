@@ -134,3 +134,4 @@
 
 ## Progress（UI）
 - [x] Android Firefox で上部 TOC 移動後に下部ナビが消える不具合を修正（`fixed` フッター廃止 → `h-dvh` + main スクロール）
+- [x] クイズ再読み込み時に URL の `q` から直前の問題を復元
