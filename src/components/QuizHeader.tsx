@@ -8,7 +8,7 @@ export function QuizHeader({ current, total, onFinish }: Props) {
   const pct = total === 0 ? 0 : (current / total) * 100
 
   return (
-    <header className="sticky top-0 z-10 border-b border-gray-200 bg-white/95 backdrop-blur">
+    <header className="shrink-0 border-b border-gray-200 bg-white">
       <div className="mx-auto flex max-w-2xl items-center gap-3 px-4 py-3">
         <span className="shrink-0 text-sm font-semibold tabular-nums text-gray-700">
           {current}/{total}

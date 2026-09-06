@@ -1,9 +1,16 @@
-import { Fragment, useEffect, useMemo, useState, type ReactNode } from 'react'
+import {
+  Fragment,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type ReactNode,
+} from 'react'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { ChoiceList } from '../components/ChoiceList'
 import { OverallExplanation } from '../components/OverallExplanation'
 import { QuizHeader } from '../components/QuizHeader'
-import { QuizToc } from '../components/QuizToc'
+import { QuizTocSidebar, QuizTocStrip } from '../components/QuizToc'
 import { ResultBanner } from '../components/ResultBanner'
 import { useApp } from '../context/AppContext'
 import { fetchQuestions, findYear, publicUrl, subjectFile } from '../lib/data'
@@ -108,8 +115,13 @@ export function QuizPage() {
   const [indexQ, setIndexQ] = useState(0)
   const [selected, setSelected] = useState<ChoiceKey[]>([])
   const [submitted, setSubmitted] = useState(false)
+  const mainRef = useRef<HTMLElement>(null)
 
   const subject = subjectId as SubjectId
+
+  function scrollMainToTop() {
+    mainRef.current?.scrollTo(0, 0)
+  }
 
   useEffect(() => {
     if (!index) return
@@ -217,13 +229,13 @@ export function QuizPage() {
       return
     }
     setIndexQ((i) => i + 1)
-    window.scrollTo(0, 0)
+    scrollMainToTop()
   }
 
   function handleJump(i: number) {
     if (i === indexQ) return
     setIndexQ(i)
-    window.scrollTo(0, 0)
+    scrollMainToTop()
   }
 
   function handleFinish() {
@@ -247,98 +259,107 @@ export function QuizPage() {
     )
   }
 
+  const tocProps = {
+    questions: allQuestions,
+    currentIndex: indexQ,
+    yearId,
+    subject,
+    progress,
+    onSelect: handleJump,
+  }
+
   return (
-    <div className="flex min-h-full flex-col pb-24">
+    <div className="flex h-dvh max-h-dvh flex-col overflow-hidden">
       <QuizHeader
         current={indexQ + 1}
         total={allQuestions.length}
         onFinish={handleFinish}
       />
 
-      <QuizToc
-        questions={allQuestions}
-        currentIndex={indexQ}
-        yearId={yearId}
-        subject={subject}
-        progress={progress}
-        onSelect={handleJump}
-      />
+      <QuizTocStrip {...tocProps} />
 
-      <div className="flex min-h-0 flex-1 flex-col lg:pl-44">
-        <main className="mx-auto w-full max-w-2xl flex-1 px-4 py-6">
-          <p className="mb-1 text-xs font-medium text-muted">
-            {yearMeta?.label} · {subjectMeta?.label}
-            {mode === 'weak' ? ' · 苦手優先' : ''}
-          </p>
-          <h1 className="mb-4 flex items-start gap-2 text-base font-bold text-gray-900">
-            <span aria-hidden className="mt-0.5 text-brand">
-              ▸
-            </span>
-            <span>問題 {question.displayNumber ?? question.number}</span>
-          </h1>
+      <div className="flex min-h-0 flex-1">
+        <QuizTocSidebar {...tocProps} />
 
-          {submitted && <ResultBanner isCorrect={isCorrect} />}
-
-          <QuestionStem question={question} />
-          {multi && !submitted && (
-            <p className="mb-6 -mt-2 text-xs text-muted">
-              ※ 当てはまるものをすべて選択
-            </p>
-          )}
-
-          <ChoiceList
-            question={question}
-            selected={selected}
-            submitted={submitted}
-            onToggle={handleToggle}
-          />
-
-          {submitted && (
-            <div className="mt-6">
-              <OverallExplanation question={question} />
-            </div>
-          )}
-        </main>
-      </div>
-
-      <footer className="fixed inset-x-0 bottom-0 border-t border-gray-200 bg-white/95 backdrop-blur lg:left-44">
-        <div className="mx-auto flex max-w-2xl items-center justify-between gap-3 px-4 py-3">
-          <button
-            type="button"
-            onClick={() => {
-              if (indexQ === 0) {
-                navigate('/')
-                return
-              }
-              handleJump(indexQ - 1)
-            }}
-            className="text-sm font-medium text-gray-600 hover:text-gray-900"
+        <div className="flex min-h-0 min-w-0 flex-1 flex-col">
+          <main
+            ref={mainRef}
+            className="mx-auto w-full max-w-2xl min-h-0 flex-1 overflow-y-auto px-4 py-6"
           >
-            {indexQ === 0 ? 'ホーム' : '戻る'}
-          </button>
+            <p className="mb-1 text-xs font-medium text-muted">
+              {yearMeta?.label} · {subjectMeta?.label}
+              {mode === 'weak' ? ' · 苦手優先' : ''}
+            </p>
+            <h1 className="mb-4 flex items-start gap-2 text-base font-bold text-gray-900">
+              <span aria-hidden className="mt-0.5 text-brand">
+                ▸
+              </span>
+              <span>問題 {question.displayNumber ?? question.number}</span>
+            </h1>
 
-          {!submitted ? (
-            <button
-              type="button"
-              disabled={selected.length === 0}
-              onClick={handleCheck}
-              className="rounded-lg bg-brand px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-hover disabled:cursor-not-allowed disabled:opacity-40"
-            >
-              答えを確認 →
-            </button>
-          ) : (
-            <button
-              type="button"
-              onClick={handleNext}
-              className="rounded-lg bg-brand px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-hover"
-            >
-              {indexQ >= allQuestions.length - 1
-                ? '結果を見る →'
-                : '次の問題 →'}
-            </button>
-          )}
+            {submitted && <ResultBanner isCorrect={isCorrect} />}
+
+            <QuestionStem question={question} />
+            {multi && !submitted && (
+              <p className="mb-6 -mt-2 text-xs text-muted">
+                ※ 当てはまるものをすべて選択
+              </p>
+            )}
+
+            <ChoiceList
+              question={question}
+              selected={selected}
+              submitted={submitted}
+              onToggle={handleToggle}
+            />
+
+            {submitted && (
+              <div className="mt-6">
+                <OverallExplanation question={question} />
+              </div>
+            )}
+          </main>
+
+          <footer className="shrink-0 border-t border-gray-200 bg-white">
+            <div className="mx-auto flex max-w-2xl items-center justify-between gap-3 px-4 py-3">
+              <button
+                type="button"
+                onClick={() => {
+                  if (indexQ === 0) {
+                    navigate('/')
+                    return
+                  }
+                  handleJump(indexQ - 1)
+                }}
+                className="text-sm font-medium text-gray-600 hover:text-gray-900"
+              >
+                {indexQ === 0 ? 'ホーム' : '戻る'}
+              </button>
+
+              {!submitted ? (
+                <button
+                  type="button"
+                  disabled={selected.length === 0}
+                  onClick={handleCheck}
+                  className="rounded-lg bg-brand px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-hover disabled:cursor-not-allowed disabled:opacity-40"
+                >
+                  答えを確認 →
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  className="rounded-lg bg-brand px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-hover"
+                >
+                  {indexQ >= allQuestions.length - 1
+                    ? '結果を見る →'
+                    : '次の問題 →'}
+                </button>
+              )}
+            </div>
+          </footer>
         </div>
-      </footer>
+      </div>
     </div>
   )
 }
