@@ -29,6 +29,7 @@ export function ResultPage() {
 
   const [questions, setQuestions] = useState<Question[]>([])
   const [loading, setLoading] = useState(true)
+  const [confirmReset, setConfirmReset] = useState(false)
 
   useEffect(() => {
     if (!index) return
@@ -63,6 +64,13 @@ export function ResultPage() {
         ? Math.round(((session.correct ?? 0) / session.answered) * 100)
         : null
   const passed = stats.rate !== null && stats.rate >= threshold
+
+  function handleConfirmReset() {
+    clearSubject(yearId, subject)
+    setConfirmReset(false)
+    // セッション表示も消して、リセット結果が一目で分かるようにする
+    navigate('.', { replace: true, state: null })
+  }
 
   if (loading || !index) {
     return (
@@ -147,21 +155,39 @@ export function ResultPage() {
         >
           苦手・未解答だけ復習
         </Link>
-        <button
-          type="button"
-          onClick={() => {
-            if (
-              confirm(
-                'この科目の学習記録をリセットしますか？（他の科目・年度には影響しません）',
-              )
-            ) {
-              clearSubject(yearId, subject)
-            }
-          }}
-          className="rounded-lg px-4 py-3 text-center text-sm font-medium text-muted hover:bg-gray-100"
-        >
-          この科目の記録をリセット
-        </button>
+
+        {confirmReset ? (
+          <div className="rounded-lg border border-incorrect-border bg-incorrect-bg/40 p-4">
+            <p className="text-sm font-medium text-gray-800">
+              この科目の学習記録をリセットしますか？（他の科目・年度には影響しません）
+            </p>
+            <div className="mt-3 flex gap-2">
+              <button
+                type="button"
+                onClick={handleConfirmReset}
+                className="flex-1 rounded-lg bg-incorrect px-3 py-2.5 text-sm font-semibold text-white hover:opacity-90"
+              >
+                リセットする
+              </button>
+              <button
+                type="button"
+                onClick={() => setConfirmReset(false)}
+                className="flex-1 rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50"
+              >
+                キャンセル
+              </button>
+            </div>
+          </div>
+        ) : (
+          <button
+            type="button"
+            onClick={() => setConfirmReset(true)}
+            className="rounded-lg px-4 py-3 text-center text-sm font-medium text-muted hover:bg-gray-100"
+          >
+            この科目の記録をリセット
+          </button>
+        )}
+
         <button
           type="button"
           onClick={() => navigate('/')}

@@ -136,3 +136,4 @@
 - [x] Android Firefox で上部 TOC 移動後に下部ナビが消える不具合を修正（`fixed` フッター廃止 → `h-dvh` + main スクロール）
 - [x] クイズ再読み込み時に URL の `q` から直前の問題を復元
 - [x] 問題文 stem の改行整形（表示 `formatStem` ＋全 JSON 一括整形＋2024生成スクリプト）
+- [x] iPhone Safari で科目リセットが効かない問題（`window.confirm` 廃止→インライン確認）
