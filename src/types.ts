@@ -72,3 +72,38 @@ export interface AccuracyStats {
   rate: number | null
   total: number
 }
+
+export type GeographyFactType =
+  | 'place'
+  | 'onsen'
+  | 'festival'
+  | 'specialty'
+  | 'heritage'
+  | 'park'
+  | 'course'
+
+export interface GeographyFact {
+  type: GeographyFactType
+  label: string
+  hooks: string[]
+  sources: string[]
+}
+
+export interface GeographyPrefecture {
+  id: string
+  name: string
+  region: string
+  facts: GeographyFact[]
+}
+
+export interface GeographyTypeMeta {
+  id: GeographyFactType
+  label: string
+}
+
+export interface GeographyData {
+  version: number
+  description: string
+  types: GeographyTypeMeta[]
+  prefectures: GeographyPrefecture[]
+}

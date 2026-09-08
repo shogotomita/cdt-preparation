@@ -1,4 +1,10 @@
-import type { DataIndex, Question, SubjectId, YearMeta } from '../types'
+import type {
+  DataIndex,
+  GeographyData,
+  Question,
+  SubjectId,
+  YearMeta,
+} from '../types'
 
 /** public 配下のパスを Vite `base` 付き URL にする（GitHub Pages のサブパス対応） */
 export function publicUrl(path: string): string {
@@ -23,6 +29,12 @@ export async function fetchQuestions(file: string): Promise<Question[]> {
   if (!res.ok) throw new Error(`問題データの読み込みに失敗: ${file}`)
   const json = (await res.json()) as { questions: Question[] }
   return json.questions
+}
+
+export async function fetchGeography(): Promise<GeographyData> {
+  const res = await fetch(dataUrl('geography.json'))
+  if (!res.ok) throw new Error('地理データの読み込みに失敗しました')
+  return res.json() as Promise<GeographyData>
 }
 
 export function findYear(index: DataIndex, yearId: string): YearMeta | undefined {
