@@ -33,27 +33,50 @@ function factMatches(
   )
 }
 
+function prefMatches(
+  pref: GeographyPrefecture,
+  query: string,
+  typeFilter: GeographyFactType | 'all',
+): boolean {
+  if (!query) {
+    return pref.facts.some((f) => factMatches(f, '', typeFilter))
+  }
+  const q = query.toLowerCase()
+  if (pref.name.toLowerCase().includes(q) || pref.region.toLowerCase().includes(q)) {
+    return typeFilter === 'all' || pref.facts.some((f) => f.type === typeFilter)
+  }
+  return pref.facts.some((f) => factMatches(f, query, typeFilter))
+}
+
 function PrefDetail({
   pref,
   typeLabels,
+  typeOrder,
   typeFilter,
   query,
 }: {
   pref: GeographyPrefecture
   typeLabels: Record<string, string>
+  typeOrder: GeographyFactType[]
   typeFilter: GeographyFactType | 'all'
   query: string
 }) {
   const byType = useMemo(() => {
     const facts = pref.facts.filter((f) => factMatches(f, query, typeFilter))
     const map = new Map<string, GeographyFact[]>()
+    for (const t of typeOrder) {
+      map.set(t, [])
+    }
     for (const f of facts) {
       const list = map.get(f.type) ?? []
       list.push(f)
       map.set(f.type, list)
     }
-    return { facts, map }
-  }, [pref, query, typeFilter])
+    return {
+      facts,
+      sections: [...map.entries()].filter(([, list]) => list.length > 0),
+    }
+  }, [pref, query, typeFilter, typeOrder])
 
   if (byType.facts.length === 0) {
     return (
@@ -65,7 +88,7 @@ function PrefDetail({
 
   return (
     <div className="space-y-5">
-      {[...byType.map.entries()].map(([type, list]) => (
+      {byType.sections.map(([type, list]) => (
         <section key={type}>
           <h3 className="mb-2 text-sm font-bold text-brand">
             {typeLabels[type] ?? type}
@@ -126,12 +149,16 @@ export function GeographyPage() {
     return map
   }, [data])
 
+  const typeOrder = useMemo(
+    () => (data?.types.map((t) => t.id) ?? []) as GeographyFactType[],
+    [data],
+  )
+
   const filteredPrefs = useMemo(() => {
     if (!data) return []
     return data.prefectures.filter((p) => {
       if (regionFilter !== 'all' && p.region !== regionFilter) return false
-      const hits = p.facts.filter((f) => factMatches(f, query, typeFilter))
-      if (query || typeFilter !== 'all') return hits.length > 0
+      if (query || typeFilter !== 'all') return prefMatches(p, query, typeFilter)
       return true
     })
   }, [data, query, typeFilter, regionFilter])
@@ -276,6 +303,7 @@ export function GeographyPage() {
               <PrefDetail
                 pref={selected}
                 typeLabels={typeLabels}
+                typeOrder={typeOrder}
                 typeFilter={typeFilter}
                 query={query}
               />
