@@ -1,0 +1,1751 @@
+{
+  "version": 1,
+  "description": "国内旅行実務向け。過去問解説から抽出・整理した都道府県別の地名・祭り・特産・温泉等。",
+  "types": [
+    {
+      "id": "place",
+      "label": "名所・地形"
+    },
+    {
+      "id": "onsen",
+      "label": "温泉"
+    },
+    {
+      "id": "festival",
+      "label": "祭り・行事"
+    },
+    {
+      "id": "specialty",
+      "label": "特産・郷土料理"
+    },
+    {
+      "id": "heritage",
+      "label": "世界遺産・史跡"
+    },
+    {
+      "id": "park",
+      "label": "国立公園・湿地"
+    },
+    {
+      "id": "course",
+      "label": "モデルコース"
+    }
+  ],
+  "prefectures": [
+    {
+      "id": "hokkaido",
+      "name": "北海道",
+      "region": "北海道",
+      "facts": [
+        {
+          "type": "place",
+          "label": "オシンコシンの滝",
+          "hooks": [
+            "知床",
+            "双美の滝"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "定山渓",
+          "hooks": [
+            "札幌の奥座敷",
+            "豊平川"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "積丹半島・神威岬",
+          "hooks": [
+            "積丹ブルー"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "羊ヶ丘展望台",
+          "hooks": [
+            "クラーク像",
+            "少年よ大志を抱け",
+            "札幌"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "野付半島",
+          "hooks": [
+            "道東"
+          ],
+          "sources": [
+            "curated",
+            "2023-jitsumu-5-6"
+          ]
+        },
+        {
+          "type": "onsen",
+          "label": "登別温泉",
+          "hooks": [
+            "洞爺・大沼コース"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "park",
+          "label": "釧路湿原",
+          "hooks": [
+            "ラムサール第1号",
+            "タンチョウ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "course",
+          "label": "函館―大沼―洞爺／昭和新山―支笏―新千歳",
+          "hooks": [
+            "道南〜道央コース"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aomori",
+      "name": "青森県",
+      "region": "東北",
+      "facts": [
+        {
+          "type": "place",
+          "label": "せんべい汁",
+          "hooks": [],
+          "sources": [
+            "2022-jitsumu-10-2"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "三内丸山遺跡",
+          "hooks": [
+            "縄文遺跡群",
+            "青森市"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "奥入瀬渓流",
+          "hooks": [
+            "十和田湖の排水河川"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "弘前城",
+          "hooks": [
+            "ねぷた"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "発荷峠",
+          "hooks": [
+            "十和田湖南の玄関",
+            "八甲田展望"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "白神山地",
+          "hooks": [
+            "自然遺産",
+            "青森＋秋田",
+            "岩手は含まない",
+            "青森南西部"
+          ],
+          "sources": [
+            "curated",
+            "2021-jitsumu-7-1"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "ねぶた／ねぷた",
+          "hooks": [
+            "青森市はねぶた",
+            "弘前はねぷた"
+          ],
+          "sources": [
+            "curated",
+            "2023-jitsumu-6-1"
+          ]
+        },
+        {
+          "type": "park",
+          "label": "十和田八幡平国立公園",
+          "hooks": [
+            "青森・秋田・岩手",
+            "田沢湖は外"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "iwate",
+      "name": "岩手県",
+      "region": "東北",
+      "facts": [
+        {
+          "type": "place",
+          "label": "碁石海岸",
+          "hooks": [
+            "しょっつる鍋（秋田）と県違いひっかけ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "龍泉洞",
+          "hooks": [
+            "三陸",
+            "秋芳洞と混同注意",
+            "岩手・三陸"
+          ],
+          "sources": [
+            "curated",
+            "2024-jitsumu-64"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "miyagi",
+      "name": "宮城県",
+      "region": "東北",
+      "facts": [
+        {
+          "type": "place",
+          "label": "伊豆沼・内沼",
+          "hooks": [
+            "ラムサール",
+            "ハス・ガンカモ",
+            "豊岡のコウノトリと混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "松島",
+          "hooks": [
+            "日本三景"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "蔵王山",
+          "hooks": [
+            "宮城・山形"
+          ],
+          "sources": [
+            "2021-jitsumu-9-1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "akita",
+      "name": "秋田県",
+      "region": "東北",
+      "facts": [
+        {
+          "type": "place",
+          "label": "田沢湖",
+          "hooks": [
+            "十和田八幡平国立公園外がひっかけ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "角館",
+          "hooks": [
+            "盛岡―田沢湖コース"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "しょっつる鍋",
+          "hooks": [
+            "秋田",
+            "岩手名所とクロス注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "稲庭うどん",
+          "hooks": [],
+          "sources": [
+            "2021-jitsumu-9-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yamagata",
+      "name": "山形県",
+      "region": "東北",
+      "facts": [
+        {
+          "type": "onsen",
+          "label": "銀山温泉",
+          "hooks": [
+            "花笠まつりとセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "花笠まつり",
+          "hooks": [
+            "銀山温泉とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fukushima",
+      "name": "福島県",
+      "region": "東北",
+      "facts": [
+        {
+          "type": "park",
+          "label": "尾瀬",
+          "hooks": [
+            "福島・群馬・新潟",
+            "釧路湿原と第1号混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ibaraki",
+      "name": "茨城県",
+      "region": "関東",
+      "facts": [
+        {
+          "type": "place",
+          "label": "偕楽園",
+          "hooks": [
+            "日本三名園",
+            "好文亭",
+            "水戸"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "弘道館",
+          "hooks": [
+            "水戸"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "袋田の滝・花貫渓谷",
+          "hooks": [
+            "県北",
+            "水戸周遊コース"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tochigi",
+      "name": "栃木県",
+      "region": "関東",
+      "facts": [
+        {
+          "type": "specialty",
+          "label": "しもつかれ",
+          "hooks": [
+            "東尋坊（福井）とクロスひっかけ"
+          ],
+          "sources": [
+            "curated",
+            "2024-jitsumu-81"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gunma",
+      "name": "群馬県",
+      "region": "関東",
+      "facts": [
+        {
+          "type": "place",
+          "label": "吹割の滝",
+          "hooks": [
+            "東洋のナイアガラ",
+            "群馬・東洋のナイアガラ"
+          ],
+          "sources": [
+            "curated",
+            "2025-jitsumu-68"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "茂林寺",
+          "hooks": [
+            "ぶんぶく茶釜",
+            "館林"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "park",
+          "label": "上信越高原国立公園",
+          "hooks": [
+            "浅間山"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saitama",
+      "name": "埼玉県",
+      "region": "関東",
+      "facts": [
+        {
+          "type": "place",
+          "label": "長瀞",
+          "hooks": [
+            "岩畳",
+            "寳登山神社",
+            "秩父"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chiba",
+      "name": "千葉県",
+      "region": "関東",
+      "facts": [
+        {
+          "type": "place",
+          "label": "九十九里",
+          "hooks": [
+            "鴨川シーワールドとセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "鴨川シーワールド",
+          "hooks": [
+            "九十九里とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tokyo",
+      "name": "東京都",
+      "region": "関東",
+      "facts": [
+        {
+          "type": "place",
+          "label": "猿島",
+          "hooks": [
+            "横須賀",
+            "東京湾",
+            "旧軍施設"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "park",
+          "label": "秩父多摩甲斐国立公園",
+          "hooks": [
+            "西沢渓谷",
+            "大菩薩",
+            "三峯",
+            "浅間は上信越"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kanagawa",
+      "name": "神奈川県",
+      "region": "関東",
+      "facts": [
+        {
+          "type": "place",
+          "label": "箱根・芦ノ湖",
+          "hooks": [
+            "富士箱根伊豆国立公園"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "niigata",
+      "name": "新潟県",
+      "region": "中部",
+      "facts": [
+        {
+          "type": "heritage",
+          "label": "佐渡島の金山",
+          "hooks": [
+            "2024登録",
+            "西三川",
+            "北沢浮遊選鉱場は構成外のひっかけ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "toyama",
+      "name": "富山県",
+      "region": "中部",
+      "facts": [
+        {
+          "type": "onsen",
+          "label": "宇奈月温泉",
+          "hooks": [
+            "お水送り（福井）とクロス注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "ます寿し",
+          "hooks": [
+            "鮒ずし（滋賀）と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ishikawa",
+      "name": "石川県",
+      "region": "中部",
+      "facts": [
+        {
+          "type": "place",
+          "label": "九十九湾",
+          "hooks": [
+            "能登",
+            "蓬莱島",
+            "英虞湾と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "兼六園",
+          "hooks": [
+            "日本三名園"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "那谷寺",
+          "hooks": [
+            "加賀",
+            "白山信仰",
+            "遊仙境",
+            "奥の細道"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "park",
+          "label": "白山国立公園",
+          "hooks": [
+            "御前峰",
+            "お池巡り",
+            "禅定道",
+            "4県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fukui",
+      "name": "福井県",
+      "region": "中部",
+      "facts": [
+        {
+          "type": "place",
+          "label": "東尋坊",
+          "hooks": [
+            "しもつかれ（栃木）とクロス注意"
+          ],
+          "sources": [
+            "curated",
+            "2024-jitsumu-81"
+          ]
+        },
+        {
+          "type": "onsen",
+          "label": "あわら温泉",
+          "hooks": [
+            "お水送りとセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "お水送り",
+          "hooks": [
+            "小浜",
+            "お水取り（奈良）と混同注意",
+            "あわら温泉とセット"
+          ],
+          "sources": [
+            "curated",
+            "2023-jitsumu-9-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yamanashi",
+      "name": "山梨県",
+      "region": "中部",
+      "facts": [
+        {
+          "type": "place",
+          "label": "恵林寺・身延山久遠寺",
+          "hooks": [
+            "善光寺（長野）と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "昇仙峡",
+          "hooks": [
+            "富士箱根伊豆国立公園外のひっかけ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nagano",
+      "name": "長野県",
+      "region": "中部",
+      "facts": [
+        {
+          "type": "place",
+          "label": "善光寺",
+          "hooks": [
+            "びんずる",
+            "御開帳"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "妻籠宿",
+          "hooks": [
+            "重要伝統的建造物群",
+            "御柱と同県設問"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "松本城",
+          "hooks": [
+            "北アルプス借景",
+            "御柱とセット"
+          ],
+          "sources": [
+            "curated",
+            "2023-jitsumu-6-3"
+          ]
+        },
+        {
+          "type": "onsen",
+          "label": "浅間温泉",
+          "hooks": [
+            "鹿教湯・湯田中とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "onsen",
+          "label": "湯田中温泉",
+          "hooks": [
+            "浅間・鹿教湯とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "onsen",
+          "label": "鹿教湯温泉",
+          "hooks": [
+            "浅間・湯田中とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "御柱祭",
+          "hooks": [
+            "諏訪",
+            "松本城と同県"
+          ],
+          "sources": [
+            "curated",
+            "2021-jitsumu-9-4"
+          ]
+        },
+        {
+          "type": "course",
+          "label": "善光寺―飯綱―戸隠―妙高",
+          "hooks": [
+            "長野北郊"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gifu",
+      "name": "岐阜県",
+      "region": "中部",
+      "facts": [
+        {
+          "type": "place",
+          "label": "犬山城",
+          "hooks": [
+            "国宝天守",
+            "木曽川",
+            "白帝城"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "郡上おどり",
+          "hooks": [
+            "御柱（長野）と隣接県ひっかけ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shizuoka",
+      "name": "静岡県",
+      "region": "中部",
+      "facts": [
+        {
+          "type": "place",
+          "label": "三保松原",
+          "hooks": [
+            "世界遺産構成",
+            "久能山東照宮コース"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "登呂遺跡",
+          "hooks": [
+            "弥生水田",
+            "岩宿と対比"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "course",
+          "label": "静岡―三保―久能山―三島SW―熱海",
+          "hooks": [],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aichi",
+      "name": "愛知県",
+      "region": "中部",
+      "facts": [
+        {
+          "type": "place",
+          "label": "ジブリパーク",
+          "hooks": [
+            "赤目四十八滝（三重）とクロス注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mie",
+      "name": "三重県",
+      "region": "近畿",
+      "facts": [
+        {
+          "type": "place",
+          "label": "英虞湾",
+          "hooks": [
+            "志摩",
+            "真珠",
+            "九十九湾と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "赤目四十八滝",
+          "hooks": [
+            "ジブリパーク（愛知）とクロス注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shiga",
+      "name": "滋賀県",
+      "region": "近畿",
+      "facts": [
+        {
+          "type": "place",
+          "label": "彦根城",
+          "hooks": [
+            "琵琶湖八景",
+            "鮒ずし"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "鮒ずし",
+          "hooks": [
+            "ます寿しと混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "course",
+          "label": "米原―彦根―百済寺―近江八幡―大津",
+          "hooks": [
+            "湖東"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kyoto",
+      "name": "京都府",
+      "region": "近畿",
+      "facts": [
+        {
+          "type": "place",
+          "label": "保津峡",
+          "hooks": [
+            "トロッコ",
+            "保津川下り",
+            "千枚漬"
+          ],
+          "sources": [
+            "curated",
+            "2025-jitsumu-70-3"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "鞍馬・貴船",
+          "hooks": [
+            "牛若丸"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "千枚漬",
+          "hooks": [
+            "保津峡・嵐山エリアと同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "heritage",
+          "label": "古都京都の文化財",
+          "hooks": [
+            "京都・宇治・大津",
+            "延暦寺は滋賀だが構成"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "osaka",
+      "name": "大阪府",
+      "region": "近畿",
+      "facts": [
+        {
+          "type": "place",
+          "label": "天王寺・USJ",
+          "hooks": [
+            "同府セット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hyogo",
+      "name": "兵庫県",
+      "region": "近畿",
+      "facts": [
+        {
+          "type": "place",
+          "label": "姫路城",
+          "hooks": [
+            "世界遺産",
+            "出石焼"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "淡路島",
+          "hooks": [
+            "花さじき",
+            "大鳴門・明石海峡"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "玄武洞",
+          "hooks": [
+            "島根と混同注意",
+            "兵庫を島根と混同しない"
+          ],
+          "sources": [
+            "curated",
+            "2025-jitsumu-84"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "竹田城",
+          "hooks": [
+            "但馬",
+            "有馬・淡路とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "onsen",
+          "label": "有馬温泉",
+          "hooks": [
+            "淡路・竹田城とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "出石焼",
+          "hooks": [
+            "豊岡・出石",
+            "姫路と同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nara",
+      "name": "奈良県",
+      "region": "近畿",
+      "facts": [
+        {
+          "type": "festival",
+          "label": "お水取り",
+          "hooks": [
+            "東大寺",
+            "お水送り（福井）と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "course",
+          "label": "興福寺―東大寺―若草山―春日大社",
+          "hooks": [],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wakayama",
+      "name": "和歌山県",
+      "region": "近畿",
+      "facts": [
+        {
+          "type": "place",
+          "label": "潮岬",
+          "hooks": [
+            "アドベンチャーワールドとセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "白浜・道成寺",
+          "hooks": [],
+          "sources": [
+            "2022-jitsumu-10-1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tottori",
+      "name": "鳥取県",
+      "region": "中国",
+      "facts": [
+        {
+          "type": "onsen",
+          "label": "三朝温泉",
+          "hooks": [
+            "鷺舞（山口）とクロス注意",
+            "皆生・岩井も鳥取"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "onsen",
+          "label": "皆生温泉",
+          "hooks": [
+            "米子の奥座敷",
+            "弓ヶ浜・美保湾"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shimane",
+      "name": "島根県",
+      "region": "中国",
+      "facts": [
+        {
+          "type": "place",
+          "label": "松江城（千鳥城）",
+          "hooks": [
+            "宍道湖",
+            "鯉城・霞ヶ城と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "足立美術館",
+          "hooks": [
+            "出雲―宍道湖―皆生コース"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "隠岐",
+          "hooks": [
+            "島後＋島前",
+            "国賀海岸・ローソク島"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "heritage",
+          "label": "石見銀山",
+          "hooks": [
+            "2007",
+            "玉造温泉は構成外"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "okayama",
+      "name": "岡山県",
+      "region": "中国",
+      "facts": [
+        {
+          "type": "place",
+          "label": "後楽園",
+          "hooks": [
+            "日本三名園"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "onsen",
+          "label": "湯郷温泉",
+          "hooks": [
+            "皆生（鳥取）と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hiroshima",
+      "name": "広島県",
+      "region": "中国",
+      "facts": [
+        {
+          "type": "place",
+          "label": "宮島（厳島）",
+          "hooks": [
+            "ラムサール",
+            "ミヤジマトンボ",
+            "宍道湖説明の混入ひっかけ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "鯉城（広島城）",
+          "hooks": [
+            "千鳥城と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yamaguchi",
+      "name": "山口県",
+      "region": "中国",
+      "facts": [
+        {
+          "type": "place",
+          "label": "秋芳洞",
+          "hooks": [
+            "龍泉洞と混同注意",
+            "山口と混同しやすい"
+          ],
+          "sources": [
+            "curated",
+            "2024-jitsumu-64"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "鷺舞",
+          "hooks": [
+            "津和野",
+            "三朝温泉とクロス注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "course",
+          "label": "新山口―防府天満宮―錦帯橋―宮島―広島",
+          "hooks": [],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tokushima",
+      "name": "徳島県",
+      "region": "四国",
+      "facts": [
+        {
+          "type": "place",
+          "label": "脇町（うだつの町並み）",
+          "hooks": [
+            "藍商人",
+            "祖谷そばと同県設問"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "阿波おどり",
+          "hooks": [
+            "大谷焼とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "大谷焼",
+          "hooks": [
+            "阿波おどりとセット"
+          ],
+          "sources": [
+            "curated",
+            "2024-jitsumu-82"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "祖谷そば",
+          "hooks": [
+            "脇町と同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kagawa",
+      "name": "香川県",
+      "region": "四国",
+      "facts": [
+        {
+          "type": "place",
+          "label": "丸亀城",
+          "hooks": [
+            "扇の勾配",
+            "寒霞渓と同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "寒霞渓",
+          "hooks": [
+            "小豆島",
+            "丸亀城と同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "金刀比羅宮",
+          "hooks": [
+            "こんぴらさん",
+            "石段",
+            "うどん"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ehime",
+      "name": "愛媛県",
+      "region": "四国",
+      "facts": [
+        {
+          "type": "course",
+          "label": "松山―子規堂―琴弾公園―金刀比羅―高松",
+          "hooks": [
+            "香川への接続"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kochi",
+      "name": "高知県",
+      "region": "四国",
+      "facts": [
+        {
+          "type": "place",
+          "label": "石鎚山",
+          "hooks": [
+            "西日本最高峰",
+            "修験",
+            "宮之浦岳と対比"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fukuoka",
+      "name": "福岡県",
+      "region": "九州・沖縄",
+      "facts": [
+        {
+          "type": "onsen",
+          "label": "原鶴温泉",
+          "hooks": [
+            "日田（大分）と同県ひっかけ注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saga",
+      "name": "佐賀県",
+      "region": "九州・沖縄",
+      "facts": [
+        {
+          "type": "place",
+          "label": "吉野ヶ里",
+          "hooks": [
+            "嬉野・祐徳稲荷とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "祐徳稲荷",
+          "hooks": [
+            "嬉野・吉野ヶ里とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "onsen",
+          "label": "嬉野温泉",
+          "hooks": [
+            "吉野ヶ里・祐徳稲荷とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "onsen",
+          "label": "武雄温泉",
+          "hooks": [
+            "唐津くんちとセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "唐津くんち",
+          "hooks": [
+            "武雄温泉とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nagasaki",
+      "name": "長崎県",
+      "region": "九州・沖縄",
+      "facts": [
+        {
+          "type": "place",
+          "label": "雲仙",
+          "hooks": [
+            "発荷峠（十和田）と展望ひっかけ",
+            "島原半島"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kumamoto",
+      "name": "熊本県",
+      "region": "九州・沖縄",
+      "facts": [
+        {
+          "type": "place",
+          "label": "通潤橋",
+          "hooks": [
+            "放水",
+            "国宝",
+            "高千穂ルート",
+            "熊本・放水・国宝"
+          ],
+          "sources": [
+            "curated",
+            "2024-jitsumu-67"
+          ]
+        },
+        {
+          "type": "park",
+          "label": "阿蘇くじゅう国立公園",
+          "hooks": [
+            "カルデラ",
+            "菊池渓谷",
+            "内牧温泉"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oita",
+      "name": "大分県",
+      "region": "九州・沖縄",
+      "facts": [
+        {
+          "type": "place",
+          "label": "日田",
+          "hooks": [
+            "天領",
+            "日田祇園",
+            "鉄輪温泉と同県"
+          ],
+          "sources": [
+            "curated",
+            "2022-jitsumu-10-3"
+          ]
+        },
+        {
+          "type": "onsen",
+          "label": "鉄輪温泉",
+          "hooks": [
+            "別府",
+            "日田と同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "日田祇園の曳山行事",
+          "hooks": [
+            "日田"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "miyazaki",
+      "name": "宮崎県",
+      "region": "九州・沖縄",
+      "facts": [
+        {
+          "type": "place",
+          "label": "高千穂",
+          "hooks": [
+            "通潤橋ルート",
+            "神話・峡谷"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kagoshima",
+      "name": "鹿児島県",
+      "region": "九州・沖縄",
+      "facts": [
+        {
+          "type": "place",
+          "label": "与論島",
+          "hooks": [
+            "指宿・霧島とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "屋久島・宮之浦岳",
+          "hooks": [
+            "自然遺産",
+            "石鎚と対比"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "霧島神宮",
+          "hooks": [
+            "指宿・与論とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "onsen",
+          "label": "指宿温泉",
+          "hooks": [
+            "与論・霧島神宮とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "okinawa",
+      "name": "沖縄県",
+      "region": "九州・沖縄",
+      "facts": [
+        {
+          "type": "place",
+          "label": "糸満",
+          "hooks": [
+            "ひめゆり",
+            "平和祈念公園",
+            "最南端"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "heritage",
+          "label": "琉球王国のグスク及び関連遺産群",
+          "hooks": [
+            "首里・今帰仁・座喜味・中城・玉陵・識名園など",
+            "宮良殿内は含まない"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "course",
+          "label": "那覇―識名園―座喜味―万座毛―本部",
+          "hooks": [
+            "南→北"
+          ],
+          "sources": [
+            "curated"
+          ]
+        }
+      ]
+    }
+  ]
+}
