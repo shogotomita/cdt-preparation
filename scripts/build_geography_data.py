@@ -289,7 +289,7 @@ CURATED: list[tuple[str, str, str, list[str]]] = [
     ("tokushima", "place", "大塚国際美術館", ["鳴門", "陶板名画"]),
     ("ehime", "specialty", "砥部焼", ["内子座と同県"]),
     ("ehime", "place", "内子座", ["砥部焼と同県"]),
-    ("fukuoka", "festival", "玉取祭（玉せせり）", ["久留米", "柳川と同県"]),
+    ("fukuoka", "festival", "玉取祭（玉せせり）", ["筥崎宮（福岡市東区）", "柳川と同県"]),
     ("fukuoka", "place", "太宰府天満宮", ["北九州〜柳川コース"]),
     ("fukuoka", "place", "柳川", ["北原白秋", "太宰府と同県コース"]),
     ("nagasaki", "place", "西海橋", ["針尾瀬戸", "佐世保〜西彼杵", "重要文化財"]),
@@ -322,7 +322,7 @@ CURATED: list[tuple[str, str, str, list[str]]] = [
     ("nara", "course", "興福寺―東大寺―若草山―春日大社", []),
     ("wakayama", "place", "潮岬", ["アドベンチャーワールドとセット"]),
     # 中国
-    ("tottori", "onsen", "三朝温泉", ["鷺舞（山口）とクロス注意", "皆生・岩井も鳥取"]),
+    ("tottori", "onsen", "三朝温泉", ["鷺舞（島根）とクロス注意", "皆生・岩井も鳥取"]),
     ("tottori", "onsen", "皆生温泉", ["米子の奥座敷", "弓ヶ浜・美保湾"]),
     ("shimane", "place", "松江城（千鳥城）", ["宍道湖", "鯉城・霞ヶ城と混同注意"]),
     ("shimane", "heritage", "石見銀山", ["2007", "玉造温泉は構成外"]),
@@ -332,7 +332,7 @@ CURATED: list[tuple[str, str, str, list[str]]] = [
     ("okayama", "onsen", "湯郷温泉", ["皆生（鳥取）と混同注意"]),
     ("hiroshima", "place", "宮島（厳島）", ["ラムサール", "ミヤジマトンボ", "宍道湖説明の混入ひっかけ"]),
     ("hiroshima", "place", "鯉城（広島城）", ["千鳥城と混同注意"]),
-    ("yamaguchi", "festival", "鷺舞", ["津和野", "三朝温泉とクロス注意"]),
+    ("shimane", "festival", "鷺舞", ["津和野", "三朝温泉（鳥取）とクロス注意"]),
     ("yamaguchi", "place", "秋芳洞", ["龍泉洞と混同注意"]),
     ("yamaguchi", "course", "新山口―防府天満宮―錦帯橋―宮島―広島", []),
     # 四国
