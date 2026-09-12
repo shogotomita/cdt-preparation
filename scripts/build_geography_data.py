@@ -120,17 +120,12 @@ BARE_SHORT = {
     "東山",
     "三保",
     "宮之浦岳",
-    "きときと空港",
-    "桃太郎空港",
-    "阿波おどり空港",
     "安比",
-    "金華山",
     "作並・五大堂",
     "小田原",
     "奥津",
     "鈍川",
     "杖立",
-    "金丸座",
     "蓮台寺・石廊崎",
 }
 
@@ -146,7 +141,16 @@ def is_bad_label(label: str) -> bool:
 
 
 def dedupe_facts(facts: list[dict]) -> list[dict]:
-    facts = sorted(facts, key=lambda f: (-len(f["label"]), f["label"]))
+    # Prefer curated entries as merge hosts so auto labels like「奥津・鷲羽山」
+    # do not swallow curated「鷲羽山」.
+    facts = sorted(
+        facts,
+        key=lambda f: (
+            0 if "curated" in f.get("sources", []) else 1,
+            -len(f["label"]),
+            f["label"],
+        ),
+    )
     kept: list[dict] = []
     for f in facts:
         host = next(
@@ -155,7 +159,11 @@ def dedupe_facts(facts: list[dict]) -> list[dict]:
                 for k in kept
                 if k["type"] == f["type"]
                 and k["label"] != f["label"]
-                and (k["label"].startswith(f["label"]) or f["label"] in k["label"])
+                and (
+                    k["label"].startswith(f["label"])
+                    or f["label"] in k["label"]
+                    or k["label"] in f["label"]
+                )
             ),
             None,
         )
@@ -198,7 +206,7 @@ CURATED: list[tuple[str, str, str, list[str]]] = [
     ("akita", "place", "角館", ["盛岡―田沢湖コース"]),
     ("yamagata", "festival", "花笠まつり", ["銀山温泉とセット"]),
     ("yamagata", "onsen", "銀山温泉", ["花笠まつりとセット"]),
-    ("fukushima", "park", "尾瀬", ["福島・群馬・新潟", "釧路湿原と第1号混同注意"]),
+    ("fukushima", "park", "尾瀬", ["福島・栃木・群馬・新潟", "釧路湿原と第1号混同注意"]),
     # 関東
     ("ibaraki", "place", "偕楽園", ["日本三名園", "好文亭", "水戸"]),
     ("ibaraki", "place", "弘道館", ["水戸"]),
@@ -209,12 +217,13 @@ CURATED: list[tuple[str, str, str, list[str]]] = [
     ("saitama", "place", "長瀞", ["岩畳", "寳登山神社", "秩父"]),
     ("chiba", "place", "九十九里", ["鴨川シーワールドとセット"]),
     ("chiba", "place", "鴨川シーワールド", ["九十九里とセット"]),
-    ("tokyo", "place", "猿島", ["横須賀", "東京湾", "旧軍施設"]),
+    ("kanagawa", "place", "猿島", ["横須賀", "東京湾", "旧軍施設", "利島・初島・八景島と混同注意"]),
     ("kanagawa", "place", "箱根・芦ノ湖", ["富士箱根伊豆国立公園"]),
     # 中部
     ("niigata", "heritage", "佐渡島の金山", ["2024登録", "西三川", "北沢浮遊選鉱場は構成外のひっかけ"]),
     ("toyama", "onsen", "宇奈月温泉", ["お水送り（福井）とクロス注意"]),
-    ("toyama", "specialty", "ます寿し", ["鮒ずし（滋賀）と混同注意"]),
+    ("toyama", "place", "きときと空港", ["富山空港", "方言で新鮮", "ます寿しと同県", "新潟と混同注意"]),
+    ("toyama", "specialty", "ます寿し", ["きときと空港と同県", "鮒ずし（滋賀）・へぎそば（新潟）と混同注意"]),
     ("ishikawa", "place", "兼六園", ["日本三名園"]),
     ("ishikawa", "place", "那谷寺", ["加賀", "白山信仰", "遊仙境", "奥の細道"]),
     ("ishikawa", "place", "九十九湾", ["能登", "蓬莱島", "英虞湾と混同注意"]),
@@ -226,7 +235,7 @@ CURATED: list[tuple[str, str, str, list[str]]] = [
     ("nagano", "place", "善光寺", ["びんずる", "御開帳"]),
     ("nagano", "festival", "御柱祭", ["諏訪", "松本城と同県"]),
     ("nagano", "place", "松本城", ["北アルプス借景", "御柱とセット"]),
-    ("nagano", "place", "妻籠宿", ["重要伝統的建造物群", "御柱と同県設問"]),
+    ("nagano", "place", "妻籠宿", ["重要伝統的建造物群", "長野・中山道", "馬籠（岐阜）と隣接・県違い", "御柱と同県設問"]),
     ("nagano", "onsen", "浅間温泉", ["鹿教湯・湯田中とセット"]),
     ("nagano", "onsen", "鹿教湯温泉", ["浅間・湯田中とセット"]),
     ("nagano", "onsen", "湯田中温泉", ["浅間・鹿教湯とセット"]),
@@ -238,11 +247,15 @@ CURATED: list[tuple[str, str, str, list[str]]] = [
     ("shizuoka", "course", "静岡―三保―久能山―三島SW―熱海", []),
     ("hokkaido", "place", "屈斜路湖", ["国内最大カルデラ湖", "御神渡り", "白鳥"]),
     ("hokkaido", "place", "支笏湖", ["深度国内2位", "チップ料理", "田沢湖と深度対比"]),
+    ("hokkaido", "specialty", "三平汁", ["北海道の郷土料理", "ます寿しと混同注意"]),
     ("aomori", "specialty", "せんべい汁", ["川越（埼玉）とクロスひっかけ"]),
+    ("aomori", "specialty", "いちご煮", ["八戸", "ウニとアワビ", "宮城と混同注意"]),
     ("iwate", "onsen", "つなぎ温泉", ["猊鼻渓と同県", "盛岡周辺"]),
     ("iwate", "place", "猊鼻渓", ["一関", "つなぎ温泉と同県"]),
     ("miyagi", "place", "蔵王", ["御釜など"]),
+    ("miyagi", "place", "金華山", ["石巻・牡鹿半島沖", "稲庭うどん（秋田）とクロスひっかけ", "山形と混同注意"]),
     ("fukushima", "place", "大内宿", ["会津", "鶴ヶ城コース"]),
+    ("fukushima", "onsen", "東山温泉", ["会津若松", "大内宿・鶴ヶ城と同県", "福井と混同注意"]),
     ("ibaraki", "specialty", "あんこう鍋", ["潮来と同県セット"]),
     ("tochigi", "place", "足利学校", ["渋沢栄一記念館（埼玉）とクロスひっかけ"]),
     ("tochigi", "course", "湯西川温泉―霧降高原―輪王寺", ["日光・鬼怒川エリア"]),
@@ -256,6 +269,7 @@ CURATED: list[tuple[str, str, str, list[str]]] = [
     ("yamanashi", "place", "忍野八海", ["河口湖・富士北麓コース"]),
     ("gifu", "place", "養老", ["白浜・道成寺（和歌山）とクロスひっかけ"]),
     ("gifu", "place", "郡上八幡", ["郡上おどり"]),
+    ("gifu", "place", "馬籠宿", ["中山道", "岐阜", "妻籠（長野）と隣接・県違い"]),
     ("shizuoka", "place", "三嶋大社", ["伊豆一の宮", "蒔絵手箱", "総けやき本殿"]),
     ("shizuoka", "place", "登呂遺跡", ["弥生水田", "岩宿と対比"]),
     ("aichi", "place", "ジブリパーク", ["赤目四十八滝（三重）とクロス注意"]),
@@ -277,6 +291,7 @@ CURATED: list[tuple[str, str, str, list[str]]] = [
     ("tottori", "place", "鳥取砂丘", ["山陰海岸", "らくだ"]),
     ("miyazaki", "place", "青島", ["神話", "鬼の洗濯板"]),
     ("kyoto", "place", "天龍寺", ["嵐山", "保津川下り終点付近", "古都京都構成資産"]),
+    ("kyoto", "onsen", "湯の花温泉", ["亀岡", "但馬・兵庫と混同注意"]),
     ("kyoto", "place", "鞍馬寺", ["牛若丸", "毘沙門天"]),
     ("wakayama", "place", "那智の滝", ["熊野那智大社", "紀伊山地の霊場と参詣道"]),
     ("wakayama", "place", "橋杭岩", ["串本", "紀南海岸"]),
@@ -289,13 +304,15 @@ CURATED: list[tuple[str, str, str, list[str]]] = [
     ("tokushima", "place", "大塚国際美術館", ["鳴門", "陶板名画"]),
     ("ehime", "specialty", "砥部焼", ["内子座と同県"]),
     ("ehime", "place", "内子座", ["砥部焼と同県"]),
+    ("ehime", "place", "天赦園", ["宇和島", "島根・松江と混同注意"]),
     ("fukuoka", "festival", "玉取祭（玉せせり）", ["筥崎宮（福岡市東区）", "柳川と同県"]),
     ("fukuoka", "place", "太宰府天満宮", ["北九州〜柳川コース"]),
     ("fukuoka", "place", "柳川", ["北原白秋", "太宰府と同県コース"]),
     ("nagasaki", "place", "西海橋", ["針尾瀬戸", "佐世保〜西彼杵", "重要文化財"]),
     ("nagasaki", "place", "雲仙", ["仁田峠", "島原", "発荷峠と展望ひっかけ"]),
     ("nagasaki", "onsen", "小浜温泉", ["雲仙周辺", "日田の鉄輪と混同注意"]),
-    ("nagasaki", "heritage", "原城跡", ["島原の乱", "天草キリシタンコース"]),
+    ("nagasaki", "heritage", "大浦天主堂", ["長崎市南山手", "潜伏キリシタン遺産", "五島と混同注意"]),
+    ("nagasaki", "heritage", "原城跡", ["長崎・南島原", "島原の乱", "天草＝熊本と混同注意"]),
     ("kumamoto", "place", "大江天主堂", ["天草", "原城・雲仙コース"]),
     ("oita", "place", "城島高原", ["別府周辺", "誤肢になりやすい"]),
     ("miyazaki", "place", "西都原", ["古墳群"]),
@@ -322,8 +339,10 @@ CURATED: list[tuple[str, str, str, list[str]]] = [
     ("nara", "course", "興福寺―東大寺―若草山―春日大社", []),
     ("wakayama", "place", "潮岬", ["アドベンチャーワールドとセット"]),
     # 中国
-    ("tottori", "onsen", "三朝温泉", ["鷺舞（島根）とクロス注意", "皆生・岩井も鳥取"]),
+    ("tottori", "onsen", "三朝温泉", ["三朝町・三徳山", "鷺舞（島根）とクロス注意", "皆生・岩井も鳥取", "東郷湖周辺ではない"]),
     ("tottori", "onsen", "皆生温泉", ["米子の奥座敷", "弓ヶ浜・美保湾"]),
+    ("tottori", "place", "弓ヶ浜", ["米子", "美保湾", "香川・琴平と混同注意"]),
+    ("tottori", "place", "鍵掛峠", ["江府町・大山町", "鳥取県内", "岡山県境ではない", "発荷峠と混同注意"]),
     ("shimane", "place", "松江城（千鳥城）", ["宍道湖", "鯉城・霞ヶ城と混同注意"]),
     ("shimane", "heritage", "石見銀山", ["2007", "玉造温泉は構成外"]),
     ("shimane", "place", "足立美術館", ["出雲―宍道湖―皆生コース"]),
@@ -333,6 +352,7 @@ CURATED: list[tuple[str, str, str, list[str]]] = [
     ("hiroshima", "place", "宮島（厳島）", ["ラムサール", "ミヤジマトンボ", "宍道湖説明の混入ひっかけ"]),
     ("hiroshima", "place", "鯉城（広島城）", ["千鳥城と混同注意"]),
     ("shimane", "festival", "鷺舞", ["津和野", "三朝温泉（鳥取）とクロス注意"]),
+    ("yamaguchi", "place", "赤間神宮", ["下関", "安徳天皇", "福岡・門司と混同注意"]),
     ("yamaguchi", "place", "秋芳洞", ["龍泉洞と混同注意"]),
     ("yamaguchi", "course", "新山口―防府天満宮―錦帯橋―宮島―広島", []),
     # 四国
@@ -341,10 +361,11 @@ CURATED: list[tuple[str, str, str, list[str]]] = [
     ("tokushima", "specialty", "大谷焼", ["阿波おどりとセット"]),
     ("tokushima", "festival", "阿波おどり", ["大谷焼とセット"]),
     ("kagawa", "place", "金刀比羅宮", ["こんぴらさん", "石段", "うどん"]),
+    ("kagawa", "place", "金丸座", ["旧金毘羅大芝居", "琴平", "高知と混同注意"]),
     ("kagawa", "place", "丸亀城", ["扇の勾配", "寒霞渓と同県"]),
     ("kagawa", "place", "寒霞渓", ["小豆島", "丸亀城と同県"]),
     ("ehime", "course", "松山―子規堂―琴弾公園―金刀比羅―高松", ["香川への接続"]),
-    ("kochi", "place", "石鎚山", ["西日本最高峰", "修験", "宮之浦岳と対比"]),
+    ("ehime", "place", "石鎚山", ["西日本最高峰", "愛媛", "修験", "宮之浦岳と対比"]),
     # 九州・沖縄
     ("fukuoka", "onsen", "原鶴温泉", ["日田（大分）と同県ひっかけ注意"]),
     ("saga", "festival", "唐津くんち", ["武雄温泉とセット"]),
@@ -362,7 +383,7 @@ CURATED: list[tuple[str, str, str, list[str]]] = [
     ("kagoshima", "onsen", "指宿温泉", ["与論・霧島神宮とセット"]),
     ("kagoshima", "place", "与論島", ["指宿・霧島とセット"]),
     ("kagoshima", "place", "霧島神宮", ["指宿・与論とセット"]),
-    ("kagoshima", "place", "屋久島・宮之浦岳", ["自然遺産", "石鎚と対比"]),
+    ("kagoshima", "place", "屋久島・宮之浦岳", ["自然遺産", "石鎚（愛媛）と対比"]),
     ("okinawa", "place", "糸満", ["ひめゆり", "平和祈念公園", "最南端"]),
     ("okinawa", "heritage", "琉球王国のグスク及び関連遺産群", ["首里・今帰仁・座喜味・中城・玉陵・識名園など", "宮良殿内は含まない"]),
     ("okinawa", "course", "那覇―識名園―座喜味―万座毛―本部", ["南→北"]),
@@ -381,10 +402,14 @@ def add_fact(
     label: str,
     hooks: list[str] | None = None,
     sources: list[str] | None = None,
+    *,
+    curated: bool = False,
 ) -> None:
     label = normalize_label(label)
     valid_ids = {p[0] for p in PREFECTURES}
-    if not label or is_bad_label(label) or pref_id not in valid_ids:
+    if not label or pref_id not in valid_ids:
+        return
+    if not curated and is_bad_label(label):
         return
     key = f"{typ}::{label}"
     bucket = store[pref_id]
@@ -398,8 +423,11 @@ def add_fact(
     entry = bucket[key]
     for h in hooks or []:
         h = h.strip()
-        if h and h not in entry["hooks"] and not is_bad_label(h):
-            entry["hooks"].append(h)
+        if not h or h in entry["hooks"]:
+            continue
+        if not curated and is_bad_label(h):
+            continue
+        entry["hooks"].append(h)
     for s in sources or []:
         if s and s not in entry["sources"]:
             entry["sources"].append(s)
@@ -448,7 +476,7 @@ def main() -> None:
     store: dict[str, dict[str, dict]] = defaultdict(dict)
 
     for pref_id, typ, label, hooks in CURATED:
-        add_fact(store, pref_id, typ, label, hooks=hooks, sources=["curated"])
+        add_fact(store, pref_id, typ, label, hooks=hooks, sources=["curated"], curated=True)
 
     for path in sorted(DATA.glob("20*-jitsumu.json")):
         questions = json.loads(path.read_text(encoding="utf-8"))["questions"]
