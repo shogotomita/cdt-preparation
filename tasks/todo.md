@@ -228,3 +228,12 @@
 - 補完: 鶴岡八幡宮・屈斜路湖・那智の滝・英虞湾・西海橋・川平湾など過去問正解地を追加（facts 190）
 - UI: 種別セクションを `data.types` 順、検索で県名・地方名もヒット
 - 検証: `python3 scripts/build_geography_data.py` / `npm run build` OK
+
+## Progress（フラッシュカード永続化）
+- [x] `src/lib/flashcardProgress.ts`（numbers / geography の known ID を localStorage 保存）
+- [x] 数字・観光地理カードで「覚えた」復元／「もう一周」でフィルタ内クリア
+
+## Review（フラッシュカード「覚えた」永続化）
+- 原因: `knownCount` / `queue` が React state のみでリロードで消えていた
+- 対応: `cdt-flashcards-known-v1` に ID 集合を保存。フィルタ切替でも known は維持
+- 検証: `npm run build` OK。preview でリロード後「覚えた」復元と「もう一周」リセットを確認

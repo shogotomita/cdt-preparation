@@ -1,7 +1,12 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FilterChip } from '../components/FilterChip'
 import { fetchGeography } from '../lib/data'
+import {
+  addKnownId,
+  clearKnownIds,
+  loadKnownIds,
+} from '../lib/flashcardProgress'
 import type {
   GeographyData,
   GeographyFact,
@@ -64,10 +69,13 @@ export function GeographyFlashcardsPage() {
   const [typeFilter, setTypeFilter] = useState<GeographyFactType | 'all'>('all')
   const [regionFilter, setRegionFilter] = useState<string>('all')
   const [queue, setQueue] = useState<CardItem[]>([])
+  const [knownIds, setKnownIds] = useState(() => loadKnownIds('geography'))
   const [knownCount, setKnownCount] = useState(0)
   const [sessionTotal, setSessionTotal] = useState(0)
   const [flipped, setFlipped] = useState(false)
   const [deckKey, setDeckKey] = useState(0)
+  const knownIdsRef = useRef(knownIds)
+  knownIdsRef.current = knownIds
 
   useEffect(() => {
     let cancelled = false
@@ -90,9 +98,10 @@ export function GeographyFlashcardsPage() {
   useEffect(() => {
     if (!data) return
     const deck = buildDeck(data, regionFilter, typeFilter)
-    setQueue(deck)
-    setKnownCount(0)
+    const known = knownIdsRef.current
+    setQueue(deck.filter((item) => !known.has(item.id)))
     setSessionTotal(deck.length)
+    setKnownCount(deck.filter((item) => known.has(item.id)).length)
     setFlipped(false)
   }, [data, regionFilter, typeFilter, deckKey])
 
@@ -108,6 +117,9 @@ export function GeographyFlashcardsPage() {
 
   const markKnown = () => {
     if (!current) return
+    const next = addKnownId('geography', current.id)
+    knownIdsRef.current = next
+    setKnownIds(next)
     setQueue((q) => q.slice(1))
     setKnownCount((n) => n + 1)
     setFlipped(false)
@@ -123,7 +135,16 @@ export function GeographyFlashcardsPage() {
     setFlipped(false)
   }
 
-  const restart = () => setDeckKey((k) => k + 1)
+  const restart = () => {
+    if (!data) return
+    const filteredIds = buildDeck(data, regionFilter, typeFilter).map(
+      (item) => item.id,
+    )
+    const cleared = clearKnownIds('geography', filteredIds)
+    knownIdsRef.current = cleared
+    setKnownIds(cleared)
+    setDeckKey((k) => k + 1)
+  }
 
   if (error) {
     return (
