@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { FilterChip } from '../components/FilterChip'
 import { fetchGeography } from '../lib/data'
 import type {
   GeographyData,
@@ -197,13 +198,24 @@ export function GeographyPage() {
 
       <header className="mb-6">
         <p className="mb-1 text-sm font-medium text-brand">国内旅行実務</p>
-        <h1 className="text-2xl font-bold tracking-tight text-gray-900">
-          観光地理ドリル
-        </h1>
-        <p className="mt-2 text-sm leading-relaxed text-muted">
-          過去問解説から整理した都道府県別の名所・温泉・祭り・特産など（{totalFacts}
-          項目）。県を選んで集中暗記、種別・検索で横断復習できます。
-        </p>
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <h1 className="text-2xl font-bold tracking-tight text-gray-900">
+              観光地理ドリル
+            </h1>
+            <p className="mt-2 text-sm leading-relaxed text-muted">
+              過去問解説から整理した都道府県別の名所・温泉・祭り・特産など（
+              {totalFacts}
+              項目）。県を選んで集中暗記、種別・検索で横断復習できます。
+            </p>
+          </div>
+          <Link
+            to="/study/geography/cards"
+            className="inline-flex shrink-0 items-center rounded-xl bg-brand px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-hover"
+          >
+            フラッシュカード →
+          </Link>
+        </div>
       </header>
 
       <div className="mb-4 flex flex-col gap-3">
@@ -317,26 +329,3 @@ export function GeographyPage() {
   )
 }
 
-function FilterChip({
-  active,
-  onClick,
-  label,
-}: {
-  active: boolean
-  onClick: () => void
-  label: string
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={`rounded-full px-3 py-1 text-xs font-medium ${
-        active
-          ? 'bg-brand text-white'
-          : 'bg-white text-gray-700 ring-1 ring-gray-200 hover:bg-gray-50'
-      }`}
-    >
-      {label}
-    </button>
-  )
-}

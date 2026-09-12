@@ -125,12 +125,20 @@ export function HomePage() {
           <span className="font-semibold text-gray-800">60%</span>{' '}
           以上を目指して繰り返し学習しましょう。
         </p>
-        <Link
-          to="/study/geography"
-          className="mt-4 inline-flex items-center rounded-xl border border-brand bg-brand-soft px-4 py-2.5 text-sm font-semibold text-brand hover:bg-brand hover:text-white"
-        >
-          観光地理ドリル（都道府県別） →
-        </Link>
+        <div className="mt-4 flex flex-wrap gap-2">
+          <Link
+            to="/study/geography"
+            className="inline-flex items-center rounded-xl border border-brand bg-brand-soft px-4 py-2.5 text-sm font-semibold text-brand hover:bg-brand hover:text-white"
+          >
+            観光地理ドリル →
+          </Link>
+          <Link
+            to="/study/geography/cards"
+            className="inline-flex items-center rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-sm font-semibold text-gray-800 hover:bg-gray-50"
+          >
+            フラッシュカード →
+          </Link>
+        </div>
       </header>
 
       <div className="space-y-8">
