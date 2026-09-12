@@ -1,6 +1,7 @@
 import type {
   DataIndex,
   GeographyData,
+  NumbersData,
   Question,
   SubjectId,
   YearMeta,
@@ -35,6 +36,12 @@ export async function fetchGeography(): Promise<GeographyData> {
   const res = await fetch(dataUrl('geography.json'))
   if (!res.ok) throw new Error('地理データの読み込みに失敗しました')
   return res.json() as Promise<GeographyData>
+}
+
+export async function fetchNumbers(): Promise<NumbersData> {
+  const res = await fetch(dataUrl('numbers.json'))
+  if (!res.ok) throw new Error('数字データの読み込みに失敗しました')
+  return res.json() as Promise<NumbersData>
 }
 
 export function findYear(index: DataIndex, yearId: string): YearMeta | undefined {
