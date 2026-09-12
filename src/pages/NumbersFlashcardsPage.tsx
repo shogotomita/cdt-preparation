@@ -1,7 +1,12 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FilterChip } from '../components/FilterChip'
 import { fetchNumbers } from '../lib/data'
+import {
+  addKnownId,
+  clearKnownIds,
+  loadKnownIds,
+} from '../lib/flashcardProgress'
 import type {
   NumbersCategoryId,
   NumbersData,
@@ -52,10 +57,13 @@ export function NumbersFlashcardsPage() {
   >('all')
   const [subjectFilter, setSubjectFilter] = useState<SubjectId | 'all'>('all')
   const [queue, setQueue] = useState<NumbersItem[]>([])
+  const [knownIds, setKnownIds] = useState(() => loadKnownIds('numbers'))
   const [knownCount, setKnownCount] = useState(0)
   const [sessionTotal, setSessionTotal] = useState(0)
   const [flipped, setFlipped] = useState(false)
   const [deckKey, setDeckKey] = useState(0)
+  const knownIdsRef = useRef(knownIds)
+  knownIdsRef.current = knownIds
 
   useEffect(() => {
     let cancelled = false
@@ -78,9 +86,10 @@ export function NumbersFlashcardsPage() {
   useEffect(() => {
     if (!data) return
     const deck = buildDeck(data, categoryFilter, subjectFilter)
-    setQueue(deck)
-    setKnownCount(0)
+    const known = knownIdsRef.current
+    setQueue(deck.filter((item) => !known.has(item.id)))
     setSessionTotal(deck.length)
+    setKnownCount(deck.filter((item) => known.has(item.id)).length)
     setFlipped(false)
   }, [data, categoryFilter, subjectFilter, deckKey])
 
@@ -102,6 +111,9 @@ export function NumbersFlashcardsPage() {
 
   const markKnown = () => {
     if (!current) return
+    const next = addKnownId('numbers', current.id)
+    knownIdsRef.current = next
+    setKnownIds(next)
     setQueue((q) => q.slice(1))
     setKnownCount((n) => n + 1)
     setFlipped(false)
@@ -117,7 +129,16 @@ export function NumbersFlashcardsPage() {
     setFlipped(false)
   }
 
-  const restart = () => setDeckKey((k) => k + 1)
+  const restart = () => {
+    if (!data) return
+    const filteredIds = buildDeck(data, categoryFilter, subjectFilter).map(
+      (item) => item.id,
+    )
+    const cleared = clearKnownIds('numbers', filteredIds)
+    knownIdsRef.current = cleared
+    setKnownIds(cleared)
+    setDeckKey((k) => k + 1)
+  }
 
   if (error) {
     return (
