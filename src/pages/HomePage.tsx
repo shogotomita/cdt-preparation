@@ -125,19 +125,43 @@ export function HomePage() {
           <span className="font-semibold text-gray-800">60%</span>{' '}
           以上を目指して繰り返し学習しましょう。
         </p>
-        <div className="mt-4 flex flex-wrap gap-2">
-          <Link
-            to="/study/geography"
-            className="inline-flex items-center rounded-xl border border-brand bg-brand-soft px-4 py-2.5 text-sm font-semibold text-brand hover:bg-brand hover:text-white"
-          >
-            観光地理ドリル →
-          </Link>
-          <Link
-            to="/study/geography/cards"
-            className="inline-flex items-center rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-sm font-semibold text-gray-800 hover:bg-gray-50"
-          >
-            フラッシュカード →
-          </Link>
+        <div className="mt-4 space-y-3">
+          <div>
+            <p className="mb-1.5 text-xs font-semibold text-muted">観光地理</p>
+            <div className="flex flex-wrap gap-2">
+              <Link
+                to="/study/geography"
+                className="inline-flex items-center rounded-xl border border-brand bg-brand-soft px-4 py-2.5 text-sm font-semibold text-brand hover:bg-brand hover:text-white"
+              >
+                観光地理ドリル →
+              </Link>
+              <Link
+                to="/study/geography/cards"
+                className="inline-flex items-center rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-sm font-semibold text-gray-800 hover:bg-gray-50"
+              >
+                地理フラッシュカード →
+              </Link>
+            </div>
+          </div>
+          <div>
+            <p className="mb-1.5 text-xs font-semibold text-muted">
+              数字・期限・金額
+            </p>
+            <div className="flex flex-wrap gap-2">
+              <Link
+                to="/study/numbers"
+                className="inline-flex items-center rounded-xl border border-brand bg-brand-soft px-4 py-2.5 text-sm font-semibold text-brand hover:bg-brand hover:text-white"
+              >
+                数字暗記ドリル →
+              </Link>
+              <Link
+                to="/study/numbers/cards"
+                className="inline-flex items-center rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-sm font-semibold text-gray-800 hover:bg-gray-50"
+              >
+                数字フラッシュカード →
+              </Link>
+            </div>
+          </div>
         </div>
       </header>
 

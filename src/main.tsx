@@ -6,6 +6,8 @@ import './index.css'
 import { HomePage } from './pages/HomePage'
 import { GeographyFlashcardsPage } from './pages/GeographyFlashcardsPage'
 import { GeographyPage } from './pages/GeographyPage'
+import { NumbersFlashcardsPage } from './pages/NumbersFlashcardsPage'
+import { NumbersPage } from './pages/NumbersPage'
 import { QuizPage } from './pages/QuizPage'
 import { ResultPage } from './pages/ResultPage'
 
@@ -19,6 +21,11 @@ createRoot(document.getElementById('root')!).render(
           <Route
             path="/study/geography/cards"
             element={<GeographyFlashcardsPage />}
+          />
+          <Route path="/study/numbers" element={<NumbersPage />} />
+          <Route
+            path="/study/numbers/cards"
+            element={<NumbersFlashcardsPage />}
           />
           <Route path="/quiz/:yearId/:subjectId" element={<QuizPage />} />
           <Route path="/result/:yearId/:subjectId" element={<ResultPage />} />

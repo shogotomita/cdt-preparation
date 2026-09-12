@@ -107,3 +107,36 @@ export interface GeographyData {
   types: GeographyTypeMeta[]
   prefectures: GeographyPrefecture[]
 }
+
+export type NumbersCategoryId =
+  | 'hou_registration'
+  | 'hou_guarantee'
+  | 'yakkan_deadlines'
+  | 'yakkan_compensation'
+  | 'hotel'
+  | 'ferry'
+  | 'bus'
+  | 'jr'
+  | 'ana'
+
+export interface NumbersCategoryMeta {
+  id: NumbersCategoryId
+  label: string
+  subject: SubjectId
+}
+
+export interface NumbersItem {
+  id: string
+  category: NumbersCategoryId
+  title: string
+  bullets: string[]
+  traps?: string[]
+  sources?: string[]
+}
+
+export interface NumbersData {
+  version: number
+  description: string
+  categories: NumbersCategoryMeta[]
+  items: NumbersItem[]
+}
