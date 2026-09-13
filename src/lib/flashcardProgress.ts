@@ -50,3 +50,10 @@ export function clearKnownIds(
   saveStore(store)
   return new Set(next)
 }
+
+export function clearAllKnownIds(deck: FlashcardDeck): Set<string> {
+  const store = loadStore()
+  store[deck] = []
+  saveStore(store)
+  return new Set()
+}
