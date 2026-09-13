@@ -50,6 +50,18 @@
         },
         {
           "type": "place",
+          "label": "五稜郭",
+          "hooks": [
+            "函館",
+            "星形堡塁",
+            "箱館戦争"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "函館",
           "hooks": [
             "五稜郭",
@@ -147,8 +159,7 @@
             "道東"
           ],
           "sources": [
-            "curated",
-            "2023-jitsumu-5-6"
+            "curated"
           ]
         },
         {
@@ -324,6 +335,19 @@
       "facts": [
         {
           "type": "place",
+          "label": "毛越寺",
+          "hooks": [
+            "平泉",
+            "浄土庭園",
+            "中尊寺とセット",
+            "文化遺産構成"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "浄土ヶ浜",
           "hooks": [
             "宮古",
@@ -386,6 +410,18 @@
             "文化遺産",
             "金色堂",
             "毛越寺とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "heritage",
+          "label": "平泉—仏国土（浄土）を表す建築・庭園及び考古学的遺跡群",
+          "hooks": [
+            "中尊寺・毛越寺・無量光院跡",
+            "文化遺産",
+            "2011登録"
           ],
           "sources": [
             "curated"
@@ -723,6 +759,18 @@
         },
         {
           "type": "place",
+          "label": "日光二荒山神社",
+          "hooks": [
+            "男体山",
+            "日光三社寺",
+            "東照宮・輪王寺とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "日光東照宮",
           "hooks": [
             "陽明門",
@@ -756,6 +804,17 @@
           ]
         },
         {
+          "type": "place",
+          "label": "輪王寺",
+          "hooks": [
+            "日光三社寺",
+            "東照宮・二荒山とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
           "type": "onsen",
           "label": "鬼怒川温泉",
           "hooks": [
@@ -774,6 +833,17 @@
           "sources": [
             "curated",
             "2024-jitsumu-81"
+          ]
+        },
+        {
+          "type": "heritage",
+          "label": "日光の社寺",
+          "hooks": [
+            "東照宮・輪王寺・二荒山神社",
+            "文化遺産"
+          ],
+          "sources": [
+            "curated"
           ]
         },
         {
@@ -883,8 +953,7 @@
           "type": "place",
           "label": "川越",
           "hooks": [
-            "せんべい汁（青森）とクロスひっかけ",
-            "埼玉で一致しない"
+            "せんべい汁（青森）とクロスひっかけ"
           ],
           "sources": [
             "curated",
@@ -1033,6 +1102,31 @@
           "hooks": [
             "江戸城跡",
             "二重橋"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "heritage",
+          "label": "国立西洋美術館",
+          "hooks": [
+            "ル・コルビュジエ作品群",
+            "上野",
+            "世界遺産構成"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "heritage",
+          "label": "小笠原諸島",
+          "hooks": [
+            "自然遺産",
+            "父島・母島",
+            "固有種",
+            "東京だが本土外"
           ],
           "sources": [
             "curated"
@@ -1317,6 +1411,18 @@
           ]
         },
         {
+          "type": "place",
+          "label": "金沢城",
+          "hooks": [
+            "兼六園とセット",
+            "菱櫓",
+            "加賀藩"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
           "type": "onsen",
           "label": "和倉温泉",
           "hooks": [
@@ -1484,6 +1590,18 @@
           "sources": [
             "curated"
           ]
+        },
+        {
+          "type": "heritage",
+          "label": "富士山—信仰の対象と芸術の源泉",
+          "hooks": [
+            "山梨・静岡",
+            "三保松原は構成資産",
+            "浅間神社"
+          ],
+          "sources": [
+            "curated"
+          ]
         }
       ]
     },
@@ -1614,8 +1732,7 @@
           "type": "place",
           "label": "郡上八幡",
           "hooks": [
-            "郡上おどり",
-            "岐阜で一致しない"
+            "郡上おどり"
           ],
           "sources": [
             "curated",
@@ -1917,6 +2034,19 @@
       "facts": [
         {
           "type": "place",
+          "label": "延暦寺",
+          "hooks": [
+            "比叡山",
+            "天台宗総本山",
+            "古都京都構成だが滋賀",
+            "京都市内と県違いひっかけ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "彦根城",
           "hooks": [
             "琵琶湖八景",
@@ -1978,6 +2108,19 @@
       "facts": [
         {
           "type": "place",
+          "label": "二条城",
+          "hooks": [
+            "徳川",
+            "大政奉還",
+            "古都京都構成",
+            "世界遺産"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "伏見稲荷大社",
           "hooks": [
             "千本鳥居",
@@ -2005,7 +2148,7 @@
           "label": "天橋立",
           "hooks": [
             "日本三景",
-            "与謝野",
+            "宮津",
             "松島・宮島とセット"
           ],
           "sources": [
@@ -2065,6 +2208,19 @@
           "hooks": [
             "鹿苑寺",
             "舎利殿",
+            "古都京都構成"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "銀閣寺",
+          "hooks": [
+            "慈照寺",
+            "東山文化",
+            "金閣と対比",
             "古都京都構成"
           ],
           "sources": [
@@ -2174,6 +2330,18 @@
           "sources": [
             "curated"
           ]
+        },
+        {
+          "type": "heritage",
+          "label": "百舌鳥・古市古墳群",
+          "hooks": [
+            "仁徳天皇陵など",
+            "堺・羽曳野・藤井寺",
+            "2019登録"
+          ],
+          "sources": [
+            "curated"
+          ]
         }
       ]
     },
@@ -2182,18 +2350,6 @@
       "name": "兵庫県",
       "region": "近畿",
       "facts": [
-        {
-          "type": "place",
-          "label": "城崎温泉",
-          "hooks": [
-            "外湯めぐり",
-            "但馬",
-            "有馬と混同注意"
-          ],
-          "sources": [
-            "curated"
-          ]
-        },
         {
           "type": "place",
           "label": "姫路城",
@@ -2220,8 +2376,7 @@
           "type": "place",
           "label": "玄武洞",
           "hooks": [
-            "島根と混同注意",
-            "兵庫を島根と混同しない"
+            "島根と混同注意"
           ],
           "sources": [
             "curated",
@@ -2246,6 +2401,18 @@
           "hooks": [
             "但馬",
             "有馬・淡路とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "onsen",
+          "label": "城崎温泉",
+          "hooks": [
+            "外湯めぐり",
+            "但馬",
+            "有馬と混同注意"
           ],
           "sources": [
             "curated"
@@ -2315,11 +2482,48 @@
           ]
         },
         {
+          "type": "place",
+          "label": "興福寺",
+          "hooks": [
+            "五重塔",
+            "阿修羅",
+            "古都奈良",
+            "東大寺・春日とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "薬師寺",
+          "hooks": [
+            "東塔",
+            "白鳳伽藍",
+            "西ノ京",
+            "興福・東大と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
           "type": "festival",
           "label": "お水取り",
           "hooks": [
             "東大寺",
             "お水送り（福井）と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "heritage",
+          "label": "古都奈良の文化財",
+          "hooks": [
+            "東大寺・興福寺・春日大社・薬師寺など",
+            "法隆寺は別遺産"
           ],
           "sources": [
             "curated"
@@ -2354,7 +2558,7 @@
       "facts": [
         {
           "type": "place",
-          "label": "ドベンチャーワールド",
+          "label": "アドベンチャーワールド",
           "hooks": [
             "白浜",
             "パンダ",
@@ -2392,6 +2596,18 @@
             "大斎原",
             "中辺路",
             "那智とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "熊野那智大社",
+          "hooks": [
+            "那智の滝とセット",
+            "青岸渡寺",
+            "紀伊山地の霊場"
           ],
           "sources": [
             "curated"
@@ -2439,6 +2655,18 @@
             "金剛峯寺",
             "奥の院",
             "紀伊山地の霊場"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "heritage",
+          "label": "紀伊山地の霊場と参詣道",
+          "hooks": [
+            "熊野・高野・吉野",
+            "和歌山・奈良・三重",
+            "参詣道"
           ],
           "sources": [
             "curated"
@@ -2640,9 +2868,33 @@
         },
         {
           "type": "place",
+          "label": "備中松山城",
+          "hooks": [
+            "現存12天守",
+            "山城",
+            "松山城（愛媛）と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "後楽園",
           "hooks": [
             "日本三名園"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "烏城",
+          "hooks": [
+            "岡山城",
+            "後楽園とセット",
+            "烏城公園"
           ],
           "sources": [
             "curated"
@@ -2753,6 +3005,19 @@
           "sources": [
             "curated"
           ]
+        },
+        {
+          "type": "heritage",
+          "label": "厳島神社",
+          "hooks": [
+            "世界遺産",
+            "海上社殿",
+            "平清盛",
+            "宮島（厳島）とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
         }
       ]
     },
@@ -2765,8 +3030,7 @@
           "type": "place",
           "label": "秋芳洞",
           "hooks": [
-            "龍泉洞と混同注意",
-            "山口と混同しやすい"
+            "龍泉洞と混同注意"
           ],
           "sources": [
             "curated",
@@ -3004,6 +3268,18 @@
         },
         {
           "type": "place",
+          "label": "宇和島城",
+          "hooks": [
+            "現存12天守",
+            "天赦園と同市",
+            "伊達"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "松山城",
           "hooks": [
             "現存天守",
@@ -3113,6 +3389,18 @@
         },
         {
           "type": "place",
+          "label": "高知城",
+          "hooks": [
+            "現存12天守",
+            "本丸御殿現存",
+            "桂浜・龍河洞と同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "龍河洞",
           "hooks": [
             "鍾乳洞",
@@ -3134,7 +3422,7 @@
           "label": "博多",
           "hooks": [
             "中洲",
-            "运河地区",
+            "キャナルシティ",
             "太宰府コース"
           ],
           "sources": [
@@ -3189,6 +3477,20 @@
           "hooks": [
             "筥崎宮（福岡市東区）",
             "柳川と同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "heritage",
+          "label": "宗像・沖ノ島と関連遺産群",
+          "hooks": [
+            "神宿る島",
+            "沖ノ島",
+            "宗像大社",
+            "2017登録",
+            "女人禁制"
           ],
           "sources": [
             "curated"
@@ -3302,7 +3604,7 @@
           "label": "小浜温泉",
           "hooks": [
             "雲仙周辺",
-            "日田の鉄輪と混同注意"
+            "鉄輪・別府（大分）と混同注意"
           ],
           "sources": [
             "curated"
@@ -3424,6 +3726,18 @@
           "hooks": [
             "別府周辺",
             "誤肢になりやすい"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "宇佐神宮",
+          "hooks": [
+            "八幡総本宮",
+            "国宝本殿",
+            "太宰府と混同注意"
           ],
           "sources": [
             "curated"
@@ -3629,6 +3943,20 @@
           "sources": [
             "curated"
           ]
+        },
+        {
+          "type": "heritage",
+          "label": "奄美大島、徳之島、沖縄島北部及び西表島",
+          "hooks": [
+            "自然遺産",
+            "2021登録",
+            "やんばる・西表",
+            "屋久島・知床と区別",
+            "鹿児島＋沖縄"
+          ],
+          "sources": [
+            "curated"
+          ]
         }
       ]
     },
@@ -3665,7 +3993,7 @@
           "hooks": [
             "ひめゆり",
             "平和祈念公園",
-            "最南端"
+            "沖縄本島最南端"
           ],
           "sources": [
             "curated"

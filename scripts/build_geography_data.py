@@ -99,7 +99,10 @@ def guess_type(label: str, note: str = "") -> str:
 def normalize_label(s: str) -> str:
     s = s.strip().strip("「」『』・")
     s = re.sub(r"\s+", "", s)
-    s = re.sub(r"^[ア-エA-D][.．]?", "", s)
+    # Strip quiz choice markers: 「ア.」/「A.」 and glued「エ野付」→「野付」
+    # Do not strip bare ア-エ before kana (アドベンチャーワールド).
+    s = re.sub(r"^[ア-エA-D][.．]", "", s)
+    s = re.sub(r"^[ア-エ](?=[一-龥])", "", s)
     return s
 
 
@@ -129,6 +132,7 @@ BARE_SHORT = {
     "蓮台寺・石廊崎",
     "せんべい汁",
     "釧路",
+    "野付",
 }
 
 
@@ -325,7 +329,7 @@ CURATED: list[tuple[str, str, str, list[str]]] = [
     ("fukuoka", "place", "柳川", ["北原白秋", "太宰府と同県コース"]),
     ("nagasaki", "place", "西海橋", ["針尾瀬戸", "佐世保〜西彼杵", "重要文化財"]),
     ("nagasaki", "place", "雲仙", ["仁田峠", "島原", "発荷峠と展望ひっかけ"]),
-    ("nagasaki", "onsen", "小浜温泉", ["雲仙周辺", "日田の鉄輪と混同注意"]),
+    ("nagasaki", "onsen", "小浜温泉", ["雲仙周辺", "鉄輪・別府（大分）と混同注意"]),
     ("nagasaki", "heritage", "大浦天主堂", ["長崎市南山手", "潜伏キリシタン遺産", "五島と混同注意"]),
     ("nagasaki", "heritage", "原城跡", ["長崎・南島原", "島原の乱", "天草＝熊本と混同注意"]),
     ("kumamoto", "place", "大江天主堂", ["天草", "原城・雲仙コース"]),
@@ -399,7 +403,7 @@ CURATED: list[tuple[str, str, str, list[str]]] = [
     ("kagoshima", "place", "与論島", ["指宿・霧島とセット"]),
     ("kagoshima", "place", "霧島神宮", ["指宿・与論とセット"]),
     ("kagoshima", "place", "屋久島・宮之浦岳", ["自然遺産", "石鎚（愛媛）と対比"]),
-    ("okinawa", "place", "糸満", ["ひめゆり", "平和祈念公園", "最南端"]),
+    ("okinawa", "place", "糸満", ["ひめゆり", "平和祈念公園", "沖縄本島最南端"]),
     ("okinawa", "heritage", "琉球王国のグスク及び関連遺産群", ["首里・今帰仁・座喜味・中城・玉陵・識名園など", "宮良殿内は含まない"]),
     ("okinawa", "course", "那覇―識名園―座喜味―万座毛―本部", ["南→北"]),
     # 有名観光地の補完（試験・定番）
@@ -452,10 +456,10 @@ CURATED: list[tuple[str, str, str, list[str]]] = [
     ("kyoto", "place", "金閣寺", ["鹿苑寺", "舎利殿", "古都京都構成"]),
     ("kyoto", "place", "伏見稲荷大社", ["千本鳥居", "稲荷山"]),
     ("kyoto", "place", "平等院", ["宇治", "鳳凰堂", "古都京都構成"]),
-    ("kyoto", "place", "天橋立", ["日本三景", "与謝野", "松島・宮島とセット"]),
+    ("kyoto", "place", "天橋立", ["日本三景", "宮津", "松島・宮島とセット"]),
     ("osaka", "place", "道頓堀", ["グリコ看板", "くいだおれ"]),
     ("hyogo", "place", "神戸", ["異人館", "南京町", "ハーバーランド"]),
-    ("hyogo", "place", "城崎温泉", ["外湯めぐり", "但馬", "有馬と混同注意"]),
+    ("hyogo", "onsen", "城崎温泉", ["外湯めぐり", "但馬", "有馬と混同注意"]),
     ("nara", "heritage", "法隆寺", ["世界最古の木造建築", "斑鳩", "東大寺と混同注意"]),
     ("nara", "place", "春日大社", ["万灯籠", "奈良公園", "東大寺とセット"]),
     ("nara", "place", "吉野山", ["千本桜", "金峯山寺", "世界遺産構成"]),
@@ -477,7 +481,7 @@ CURATED: list[tuple[str, str, str, list[str]]] = [
     ("kochi", "place", "室戸岬", ["弘法大師", "足摺と対比"]),
     ("kochi", "place", "足摺岬", ["ジョン万次郎", "太平洋"]),
     ("fukuoka", "place", "門司港レトロ", ["関門海峡", "下関と対岸"]),
-    ("fukuoka", "place", "博多", ["中洲", "运河地区", "太宰府コース"]),
+    ("fukuoka", "place", "博多", ["中洲", "キャナルシティ", "太宰府コース"]),
     ("nagasaki", "place", "ハウステンボス", ["佐世保", "西海橋エリア"]),
     ("nagasaki", "heritage", "軍艦島", ["端島", "世界遺産構成", "炭鉱"]),
     ("kumamoto", "place", "熊本城", ["武者返し", "加藤清正"]),
@@ -496,6 +500,49 @@ CURATED: list[tuple[str, str, str, list[str]]] = [
     ("ishikawa", "park", "白山国立公園", ["御前峰", "お池巡り", "禅定道", "4県"]),
     ("tokyo", "park", "秩父多摩甲斐国立公園", ["西沢渓谷", "大菩薩", "三峯", "浅間は上信越"]),
     ("gunma", "park", "上信越高原国立公園", ["浅間山"]),
+    # 城・寺社・遺産の網羅補完
+    ("okayama", "place", "備中松山城", ["現存12天守", "山城", "松山城（愛媛）と混同注意"]),
+    ("ehime", "place", "宇和島城", ["現存12天守", "天赦園と同市", "伊達"]),
+    ("kochi", "place", "高知城", ["現存12天守", "本丸御殿現存", "桂浜・龍河洞と同県"]),
+    ("okayama", "place", "烏城", ["岡山城", "後楽園とセット", "烏城公園"]),
+    ("hokkaido", "place", "五稜郭", ["函館", "星形堡塁", "箱館戦争"]),
+    ("ishikawa", "place", "金沢城", ["兼六園とセット", "菱櫓", "加賀藩"]),
+    ("shiga", "place", "延暦寺", ["比叡山", "天台宗総本山", "古都京都構成だが滋賀", "京都市内と県違いひっかけ"]),
+    ("nara", "place", "興福寺", ["五重塔", "阿修羅", "古都奈良", "東大寺・春日とセット"]),
+    ("nara", "place", "薬師寺", ["東塔", "白鳳伽藍", "西ノ京", "興福・東大と混同注意"]),
+    ("kyoto", "place", "銀閣寺", ["慈照寺", "東山文化", "金閣と対比", "古都京都構成"]),
+    ("kyoto", "place", "二条城", ["徳川", "大政奉還", "古都京都構成", "世界遺産"]),
+    ("hiroshima", "heritage", "厳島神社", ["世界遺産", "海上社殿", "平清盛", "宮島（厳島）とセット"]),
+    ("iwate", "place", "毛越寺", ["平泉", "浄土庭園", "中尊寺とセット", "文化遺産構成"]),
+    ("oita", "place", "宇佐神宮", ["八幡総本宮", "国宝本殿", "太宰府と混同注意"]),
+    ("tochigi", "place", "輪王寺", ["日光三社寺", "東照宮・二荒山とセット"]),
+    ("tochigi", "place", "日光二荒山神社", ["男体山", "日光三社寺", "東照宮・輪王寺とセット"]),
+    ("wakayama", "place", "熊野那智大社", ["那智の滝とセット", "青岸渡寺", "紀伊山地の霊場"]),
+    ("fukuoka", "heritage", "宗像・沖ノ島と関連遺産群", ["神宿る島", "沖ノ島", "宗像大社", "2017登録", "女人禁制"]),
+    ("tokyo", "heritage", "小笠原諸島", ["自然遺産", "父島・母島", "固有種", "東京だが本土外"]),
+    ("osaka", "heritage", "百舌鳥・古市古墳群", ["仁徳天皇陵など", "堺・羽曳野・藤井寺", "2019登録"]),
+    ("tokyo", "heritage", "国立西洋美術館", ["ル・コルビュジエ作品群", "上野", "世界遺産構成"]),
+    (
+        "kagoshima",
+        "heritage",
+        "奄美大島、徳之島、沖縄島北部及び西表島",
+        ["自然遺産", "2021登録", "やんばる・西表", "屋久島・知床と区別", "鹿児島＋沖縄"],
+    ),
+    (
+        "iwate",
+        "heritage",
+        "平泉—仏国土（浄土）を表す建築・庭園及び考古学的遺跡群",
+        ["中尊寺・毛越寺・無量光院跡", "文化遺産", "2011登録"],
+    ),
+    ("nara", "heritage", "古都奈良の文化財", ["東大寺・興福寺・春日大社・薬師寺など", "法隆寺は別遺産"]),
+    ("tochigi", "heritage", "日光の社寺", ["東照宮・輪王寺・二荒山神社", "文化遺産"]),
+    ("wakayama", "heritage", "紀伊山地の霊場と参詣道", ["熊野・高野・吉野", "和歌山・奈良・三重", "参詣道"]),
+    (
+        "yamanashi",
+        "heritage",
+        "富士山—信仰の対象と芸術の源泉",
+        ["山梨・静岡", "三保松原は構成資産", "浅間神社"],
+    ),
 ]
 
 
@@ -570,8 +617,10 @@ def extract_from_text(store: dict, text: str, qid: str) -> None:
                 if pref_id is None or len(name) > 2:
                     pref_id = pid
         if pref_id:
-            # right may be place within pref
-            if not any(right.endswith(x) for x in ("県", "府", "都", "道")) and right not in NAME_TO_ID:
+            # right may be place within pref — skip polluted exam-phrasing tails
+            if re.search(r"一致しない|混同|正解|不正解|ひっかけ|誤り", right):
+                pass
+            elif not any(right.endswith(x) for x in ("県", "府", "都", "道")) and right not in NAME_TO_ID:
                 hooks.append(right)
             add_fact(store, pref_id, guess_type(left + right), left, hooks=hooks, sources=[qid])
 
