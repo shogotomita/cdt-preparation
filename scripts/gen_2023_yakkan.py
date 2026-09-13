@@ -46,8 +46,8 @@ ANSWERS: dict[int, list[str]] = {
 def ocr_fix(raw: str) -> str:
     """Apply known OCR fixes from Reiwa-5 yakkan scan."""
     s = raw
-    # Control chars (OCR stand-ins for １ / 「 / 」)
-    s = s.replace("\x02つ", "１つ")
+    # Control chars (OCR stand-ins for 1 / 「 / 」)
+    s = s.replace("\x02つ", "1つ")
     s = s.replace("\x03", "「")
     s = s.replace("\x04", "」")
     # Garbled 募集型 at Q1: "1 集型" → "1 募集型" (keep question number)
@@ -58,7 +58,7 @@ def ocr_fix(raw: str) -> str:
     s = re.sub(r"傷害による\s*日間の入院", "傷害による7日間の入院", s)
     s = s.replace("傷害による○日間の入院", "傷害による7日間の入院")
     # Halfwidth "1つ" → fullwidth (match other year JSONs)
-    s = s.replace("1つ", "１つ")
+    s = s.replace("1つ", "1つ")
     # Collapse OCR spaces around Arabic numerals in Japanese prose
     s = re.sub(r" +(?=\d)", "", s)
     s = re.sub(r"(?<=\d) +(?=\d)", "", s)
@@ -211,7 +211,7 @@ def main() -> None:
         count=1,
     )
     text = re.sub(
-        r"^1\.\s*標準旅行業約款に関する以下の各設問について、該当する答を、選択肢の中からそれぞれ１つ選びな\s*さい。\s*",
+        r"^1\.\s*標準旅行業約款に関する以下の各設問について、該当する答を、選択肢の中からそれぞれ1つ選びな\s*さい。\s*",
         "",
         text,
         count=1,

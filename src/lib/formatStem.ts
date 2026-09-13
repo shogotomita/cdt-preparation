@@ -8,8 +8,8 @@ export function formatStem(stem: string): string {
   // Paragraph after the lead-in question cue
   s = s.replace(/(選びなさい[。．])(?!\n)/g, '$1\n\n')
 
-  // Notes: （注１）… / （注）…
-  s = s.replace(/(?<!\n)(?=[（(]注[０-９0-9一二三四五六七八九十]*[）)])/g, '\n')
+  // Notes: （注1）… / （注）…
+  s = s.replace(/(?<!\n)(?=[（(]注[0-9一二三四五六七八九十]*[）)])/g, '\n')
 
   // Section headers
   s = s.replace(/(?<!\n)(?=[＜<](?:行程|資料|図)[＞>])/g, '\n\n')
@@ -22,7 +22,7 @@ export function formatStem(stem: string): string {
 
   // Itinerary day bullets
   s = s.replace(
-    /(?<!\n)(?=・(?:[0-9０-９一二三四五六七八九十]+日|[１２]日にわたる))/g,
+    /(?<!\n)(?=・(?:[0-9一二三四五六七八九十]+日|[12]日にわたる))/g,
     '\n',
   )
 
