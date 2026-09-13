@@ -117,6 +117,14 @@
           ]
         },
         {
+          "type": "place",
+          "label": "釧路",
+          "hooks": [],
+          "sources": [
+            "2021-jitsumu-6-2"
+          ]
+        },
+        {
           "type": "onsen",
           "label": "登別温泉",
           "hooks": [
@@ -380,6 +388,17 @@
             "curated",
             "2021-jitsumu-9-3"
           ]
+        },
+        {
+          "type": "place",
+          "label": "青葉城",
+          "hooks": [
+            "仙台城",
+            "千鳥城・霞ヶ城と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
         }
       ]
     },
@@ -486,8 +505,9 @@
         },
         {
           "type": "place",
-          "label": "鶴ヶ城（会津若松城）",
+          "label": "鶴ヶ城",
           "hooks": [
+            "会津若松城",
             "大内宿コース"
           ],
           "sources": [
@@ -548,9 +568,22 @@
         },
         {
           "type": "place",
-          "label": "袋田の滝・花貫渓谷",
+          "label": "花貫渓谷",
           "hooks": [
             "県北",
+            "袋田の滝とセット",
+            "水戸周遊コース"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "袋田の滝",
+          "hooks": [
+            "県北",
+            "花貫渓谷とセット",
             "水戸周遊コース"
           ],
           "sources": [
@@ -999,6 +1032,17 @@
           ]
         },
         {
+          "type": "place",
+          "label": "霞ヶ城",
+          "hooks": [
+            "丸岡城",
+            "千鳥城・鯉城と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
           "type": "onsen",
           "label": "あわら温泉",
           "hooks": [
@@ -1040,8 +1084,9 @@
         },
         {
           "type": "place",
-          "label": "恵林寺・身延山久遠寺",
+          "label": "恵林寺",
           "hooks": [
+            "武田信玄",
             "善光寺（長野）と混同注意"
           ],
           "sources": [
@@ -1053,6 +1098,17 @@
           "label": "昇仙峡",
           "hooks": [
             "富士箱根伊豆国立公園外のひっかけ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "身延山久遠寺",
+          "hooks": [
+            "日蓮宗総本山",
+            "善光寺（長野）と混同注意"
           ],
           "sources": [
             "curated"
@@ -1284,11 +1340,11 @@
         },
         {
           "type": "place",
-          "label": "犬山城",
+          "label": "白帝城",
           "hooks": [
+            "犬山城",
             "国宝天守",
             "木曽川",
-            "白帝城",
             "愛知県犬山市（岐阜との境界付近）"
           ],
           "sources": [
@@ -1419,9 +1475,10 @@
         },
         {
           "type": "place",
-          "label": "鞍馬・貴船",
+          "label": "貴船神社",
           "hooks": [
-            "牛若丸"
+            "貴船",
+            "鞍馬とセット"
           ],
           "sources": [
             "curated"
@@ -1432,7 +1489,8 @@
           "label": "鞍馬寺",
           "hooks": [
             "牛若丸",
-            "毘沙門天"
+            "毘沙門天",
+            "貴船とセット"
           ],
           "sources": [
             "curated"
@@ -1479,6 +1537,16 @@
       "facts": [
         {
           "type": "place",
+          "label": "USJ",
+          "hooks": [
+            "天王寺と同府"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "大阪城",
           "hooks": [
             "豊臣・徳川",
@@ -1490,9 +1558,9 @@
         },
         {
           "type": "place",
-          "label": "天王寺・USJ",
+          "label": "天王寺",
           "hooks": [
-            "同府セット"
+            "USJと同府"
           ],
           "sources": [
             "curated"
@@ -1649,9 +1717,21 @@
         },
         {
           "type": "place",
-          "label": "白浜・道成寺",
+          "label": "白浜",
           "hooks": [
-            "AWも和歌山",
+            "アドベンチャーワールドと同県",
+            "道成寺とセット",
+            "養老（岐阜）とクロス注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "道成寺",
+          "hooks": [
+            "白浜とセット",
             "養老（岐阜）とクロス注意"
           ],
           "sources": [
@@ -1746,8 +1826,9 @@
       "facts": [
         {
           "type": "place",
-          "label": "松江城（千鳥城）",
+          "label": "千鳥城",
           "hooks": [
+            "松江城",
             "宍道湖",
             "鯉城・霞ヶ城と混同注意"
           ],
@@ -1880,9 +1961,9 @@
         },
         {
           "type": "place",
-          "label": "湯来温泉・縮景園・鞆の浦",
+          "label": "縮景園",
           "hooks": [
-            "同県セット"
+            "湯来温泉・鞆の浦と同県"
           ],
           "sources": [
             "curated"
@@ -1890,8 +1971,19 @@
         },
         {
           "type": "place",
-          "label": "鯉城（広島城）",
+          "label": "鞆の浦",
           "hooks": [
+            "湯来温泉・縮景園と同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "鯉城",
+          "hooks": [
+            "広島城",
             "千鳥城と混同注意"
           ],
           "sources": [
@@ -1900,9 +1992,12 @@
         },
         {
           "type": "onsen",
-          "label": "湯来温泉・縮景園・鞆の浦",
-          "hooks": [],
+          "label": "湯来温泉",
+          "hooks": [
+            "縮景園・鞆の浦と同県"
+          ],
           "sources": [
+            "curated",
             "2023-jitsumu-9-4"
           ]
         }

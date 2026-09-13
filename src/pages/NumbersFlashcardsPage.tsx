@@ -4,6 +4,7 @@ import { FilterChip } from '../components/FilterChip'
 import { fetchNumbers } from '../lib/data'
 import {
   addKnownId,
+  clearAllKnownIds,
   clearKnownIds,
   loadKnownIds,
 } from '../lib/flashcardProgress'
@@ -140,6 +141,13 @@ export function NumbersFlashcardsPage() {
     setDeckKey((k) => k + 1)
   }
 
+  const resetAllKnown = () => {
+    const cleared = clearAllKnownIds('numbers')
+    knownIdsRef.current = cleared
+    setKnownIds(cleared)
+    setDeckKey((k) => k + 1)
+  }
+
   if (error) {
     return (
       <div className="mx-auto max-w-3xl px-4 py-16 text-center text-incorrect">
@@ -220,14 +228,26 @@ export function NumbersFlashcardsPage() {
         </div>
       </div>
 
-      <div className="mb-4 flex items-center justify-between gap-2 text-sm text-muted">
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-2 text-sm text-muted">
         <p>
           残り <span className="font-semibold text-gray-900">{remaining}</span>
           {sessionTotal > 0 && <> / {sessionTotal}</>}
         </p>
-        <p>
-          覚えた <span className="font-semibold text-correct">{knownCount}</span>
-        </p>
+        <div className="flex items-center gap-3">
+          <p>
+            覚えた{' '}
+            <span className="font-semibold text-correct">{knownCount}</span>
+          </p>
+          {knownIds.size > 0 && (
+            <button
+              type="button"
+              onClick={resetAllKnown}
+              className="text-xs font-medium text-muted underline-offset-2 hover:text-gray-800 hover:underline"
+            >
+              覚えたをリセット
+            </button>
+          )}
+        </div>
       </div>
 
       {sessionTotal === 0 ? (
