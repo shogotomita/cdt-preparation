@@ -185,6 +185,28 @@
           ]
         },
         {
+          "type": "festival",
+          "label": "こたんまつり",
+          "hooks": [
+            "アイヌ",
+            "過去問ひっかけ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "さっぽろ雪まつり",
+          "hooks": [
+            "大通公園",
+            "氷像"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
           "type": "specialty",
           "label": "三平汁",
           "hooks": [
@@ -525,6 +547,17 @@
           "sources": [
             "curated"
           ]
+        },
+        {
+          "type": "festival",
+          "label": "仙台七夕まつり",
+          "hooks": [
+            "七夕飾り",
+            "東北三大まつり"
+          ],
+          "sources": [
+            "curated"
+          ]
         }
       ]
     },
@@ -559,6 +592,29 @@
           "label": "角館",
           "hooks": [
             "盛岡―田沢湖コース"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "なまはげ",
+          "hooks": [
+            "男鹿",
+            "大晦日〜正月"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "竿燈まつり",
+          "hooks": [
+            "秋田市",
+            "東北三大まつり",
+            "ねぶたと混同注意"
           ],
           "sources": [
             "curated"
@@ -1083,6 +1139,18 @@
           "sources": [
             "curated"
           ]
+        },
+        {
+          "type": "festival",
+          "label": "秩父夜祭",
+          "hooks": [
+            "秩父神社",
+            "屋台・花火",
+            "日本三大曳山"
+          ],
+          "sources": [
+            "curated"
+          ]
         }
       ]
     },
@@ -1191,6 +1259,28 @@
           "hooks": [
             "江戸城跡",
             "二重橋"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "三社祭",
+          "hooks": [
+            "浅草",
+            "益子焼と県違いひっかけ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "神田祭",
+          "hooks": [
+            "神田明神",
+            "天下祭"
           ],
           "sources": [
             "curated"
@@ -1319,6 +1409,17 @@
           "sources": [
             "curated"
           ]
+        },
+        {
+          "type": "festival",
+          "label": "黒船祭",
+          "hooks": [
+            "横須賀・久里浜",
+            "ペリー"
+          ],
+          "sources": [
+            "curated"
+          ]
         }
       ]
     },
@@ -1436,6 +1537,17 @@
           ]
         },
         {
+          "type": "festival",
+          "label": "こきりこ祭り",
+          "hooks": [
+            "五箇山",
+            "民謡"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
           "type": "specialty",
           "label": "ます寿し",
           "hooks": [
@@ -1528,6 +1640,18 @@
           "hooks": [
             "七尾",
             "花嫁のれん"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "青柏祭",
+          "hooks": [
+            "七尾",
+            "でか山",
+            "キリコ"
           ],
           "sources": [
             "curated"
@@ -1721,6 +1845,18 @@
           "hooks": [
             "日蓮宗総本山",
             "善光寺（長野）と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "吉田の火祭り",
+          "hooks": [
+            "富士吉田",
+            "北口本宮",
+            "御柱と混同注意"
           ],
           "sources": [
             "curated"
@@ -1936,6 +2072,17 @@
           "label": "郡上おどり",
           "hooks": [
             "御柱（長野）と隣接県ひっかけ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "高山祭",
+          "hooks": [
+            "春の山王・秋の八幡",
+            "屋台"
           ],
           "sources": [
             "curated"
@@ -2281,6 +2428,17 @@
           ]
         },
         {
+          "type": "festival",
+          "label": "長浜曳山まつり",
+          "hooks": [
+            "長浜",
+            "子ども歌舞伎"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
           "type": "specialty",
           "label": "信楽焼",
           "hooks": [
@@ -2465,6 +2623,42 @@
           ]
         },
         {
+          "type": "festival",
+          "label": "時代祭",
+          "hooks": [
+            "平安神宮",
+            "時代行列",
+            "信楽焼と県違いひっかけ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "祇園祭",
+          "hooks": [
+            "八坂神社",
+            "山鉾",
+            "宵山",
+            "日本三大祭"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "葵祭",
+          "hooks": [
+            "上賀茂・下鴨",
+            "王朝行列"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
           "type": "specialty",
           "label": "千枚漬",
           "hooks": [
@@ -2551,6 +2745,18 @@
           "hooks": [
             "グリコ看板",
             "くいだおれ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "天神祭",
+          "hooks": [
+            "大阪天満宮",
+            "船渡御",
+            "日本三大祭"
           ],
           "sources": [
             "curated"
@@ -3402,6 +3608,18 @@
           ]
         },
         {
+          "type": "festival",
+          "label": "先帝祭",
+          "hooks": [
+            "赤間神宮",
+            "安徳天皇",
+            "下関"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
           "type": "specialty",
           "label": "瓦そば",
           "hooks": [
@@ -3858,6 +4076,17 @@
         },
         {
           "type": "festival",
+          "label": "博多祇園山笠",
+          "hooks": [
+            "櫛田神社",
+            "追い山"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
           "label": "玉取祭（玉せせり）",
           "hooks": [
             "筥崎宮（福岡市東区）",
@@ -4030,6 +4259,18 @@
           ]
         },
         {
+          "type": "festival",
+          "label": "長崎くんち",
+          "hooks": [
+            "諏訪神社",
+            "竜踊",
+            "唐津くんちと混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
           "type": "specialty",
           "label": "ちゃんぽん",
           "hooks": [
@@ -4137,6 +4378,17 @@
             "カルデラ",
             "草千里",
             "くじゅうとセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "山鹿灯籠まつり",
+          "hooks": [
+            "山鹿",
+            "千人灯籠踊り"
           ],
           "sources": [
             "curated"
@@ -4380,6 +4632,17 @@
           "label": "指宿温泉",
           "hooks": [
             "与論・霧島神宮とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "砂の祭典",
+          "hooks": [
+            "吹上浜",
+            "砂像"
           ],
           "sources": [
             "curated"
