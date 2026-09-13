@@ -39,6 +39,18 @@
       "facts": [
         {
           "type": "place",
+          "label": "たんちょう空港",
+          "hooks": [
+            "釧路空港",
+            "タンチョウ",
+            "釧路湿原と同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "オシンコシンの滝",
           "hooks": [
             "知床",
@@ -2352,17 +2364,6 @@
       "facts": [
         {
           "type": "place",
-          "label": "姫路城",
-          "hooks": [
-            "世界遺産",
-            "出石焼"
-          ],
-          "sources": [
-            "curated"
-          ]
-        },
-        {
-          "type": "place",
           "label": "淡路島",
           "hooks": [
             "花さじき",
@@ -2381,6 +2382,18 @@
           "sources": [
             "curated",
             "2025-jitsumu-84"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "白鷺城",
+          "hooks": [
+            "姫路城",
+            "世界遺産",
+            "出石焼"
+          ],
+          "sources": [
+            "curated"
           ]
         },
         {
@@ -2795,6 +2808,18 @@
         },
         {
           "type": "place",
+          "label": "縁結び空港",
+          "hooks": [
+            "出雲空港",
+            "出雲大社",
+            "石見銀山と同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "足立美術館",
           "hooks": [
             "出雲―宍道湖―皆生コース"
@@ -2890,6 +2915,17 @@
         },
         {
           "type": "place",
+          "label": "桃太郎空港",
+          "hooks": [
+            "岡山空港",
+            "西大寺会陽と同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "烏城",
           "hooks": [
             "岡山城",
@@ -2926,7 +2962,7 @@
           "type": "festival",
           "label": "西大寺会陽",
           "hooks": [
-            "桃太郎空港＝岡山",
+            "桃太郎空港と同県",
             "岡山の代表行事"
           ],
           "sources": [
@@ -3102,7 +3138,7 @@
           "type": "place",
           "label": "大歩危・小歩危",
           "hooks": [
-            "阿波おどり空港＝徳島",
+            "阿波おどり空港と同県",
             "景勝"
           ],
           "sources": [
@@ -3126,6 +3162,18 @@
           "hooks": [
             "藍商人",
             "祖谷そばと同県設問"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "阿波おどり空港",
+          "hooks": [
+            "徳島空港",
+            "阿波おどり",
+            "大歩危・小歩危と同県"
           ],
           "sources": [
             "curated"
