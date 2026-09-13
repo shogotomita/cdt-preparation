@@ -86,6 +86,29 @@
         },
         {
           "type": "place",
+          "label": "大沼",
+          "hooks": [
+            "大沼国定公園",
+            "函館〜洞爺コース"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "宗谷岬",
+          "hooks": [
+            "日本最北端",
+            "稚内",
+            "旭山・サロベツコース"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "定山渓",
           "hooks": [
             "札幌の奥座敷",
@@ -125,6 +148,18 @@
             "深度国内2位",
             "チップ料理",
             "田沢湖と深度対比"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "旭山動物園",
+          "hooks": [
+            "旭川",
+            "行動展示",
+            "宗谷・サロベツコース"
           ],
           "sources": [
             "curated"
@@ -243,10 +278,34 @@
         },
         {
           "type": "park",
+          "label": "大雪山国立公園",
+          "hooks": [
+            "層雲峡",
+            "旭岳",
+            "定山渓は園域外のひっかけ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "park",
           "label": "釧路湿原",
           "hooks": [
             "ラムサール第1号",
             "タンチョウ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "park",
+          "label": "阿寒摩周国立公園",
+          "hooks": [
+            "阿寒湖",
+            "摩周湖",
+            "屈斜路とセット"
           ],
           "sources": [
             "curated"
@@ -292,6 +351,17 @@
         },
         {
           "type": "place",
+          "label": "岩木山",
+          "hooks": [
+            "津軽富士",
+            "浅虫・弘前とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "弘前城",
           "hooks": [
             "ねぷた",
@@ -324,6 +394,17 @@
           "sources": [
             "curated",
             "2021-jitsumu-7-1"
+          ]
+        },
+        {
+          "type": "onsen",
+          "label": "浅虫温泉",
+          "hooks": [
+            "青森市",
+            "岩木山・弘前とセット"
+          ],
+          "sources": [
+            "curated"
           ]
         },
         {
@@ -425,6 +506,18 @@
         },
         {
           "type": "place",
+          "label": "遠野",
+          "hooks": [
+            "民話のふるさと",
+            "柳田國男",
+            "カッパ淵"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "龍泉洞",
           "hooks": [
             "三陸",
@@ -506,7 +599,20 @@
           "type": "place",
           "label": "松島",
           "hooks": [
-            "日本三景"
+            "日本三景",
+            "瑞巌寺"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "瑞巌寺",
+          "hooks": [
+            "松島",
+            "円通院",
+            "日本三景とセット"
           ],
           "sources": [
             "curated"
@@ -543,6 +649,17 @@
           "hooks": [
             "仙台城",
             "千鳥城・霞ヶ城と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "onsen",
+          "label": "作並温泉",
+          "hooks": [
+            "仙台奥座敷",
+            "秋保とセット"
           ],
           "sources": [
             "curated"
@@ -707,6 +824,17 @@
         },
         {
           "type": "onsen",
+          "label": "かみのやま温泉",
+          "hooks": [
+            "上山",
+            "銀山と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "onsen",
           "label": "銀山温泉",
           "hooks": [
             "花笠まつりとセット"
@@ -734,6 +862,18 @@
       "facts": [
         {
           "type": "place",
+          "label": "五色沼",
+          "hooks": [
+            "裏磐梯",
+            "毘沙門沼など",
+            "猪苗代・磐梯とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "大内宿",
           "hooks": [
             "会津",
@@ -749,7 +889,8 @@
           "label": "猪苗代湖",
           "hooks": [
             "磐梯山",
-            "裏磐梯"
+            "裏磐梯",
+            "五色沼"
           ],
           "sources": [
             "curated"
@@ -1034,6 +1175,17 @@
         },
         {
           "type": "onsen",
+          "label": "四万温泉",
+          "hooks": [
+            "吾妻",
+            "草津と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "onsen",
           "label": "草津温泉",
           "hooks": [
             "湯畑",
@@ -1237,6 +1389,18 @@
           "hooks": [
             "墨田",
             "高さ634m"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "東京タワー",
+          "hooks": [
+            "芝公園",
+            "電波塔",
+            "スカイツリーと対比"
           ],
           "sources": [
             "curated"
@@ -1736,6 +1900,18 @@
         },
         {
           "type": "place",
+          "label": "蘇洞門",
+          "hooks": [
+            "小浜",
+            "洞窟遊覧船",
+            "東尋坊と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "霞ヶ城",
           "hooks": [
             "丸岡城",
@@ -1930,6 +2106,18 @@
         },
         {
           "type": "place",
+          "label": "寝覚の床",
+          "hooks": [
+            "上松",
+            "木曽川",
+            "渓谷"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "松本城",
           "hooks": [
             "北アルプス借景",
@@ -1946,6 +2134,18 @@
           "hooks": [
             "旧軽井沢銀座",
             "碓氷峠付近"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "onsen",
+          "label": "別所温泉",
+          "hooks": [
+            "上田",
+            "信州最古級",
+            "和倉・花嫁のれんと県違いひっかけ"
           ],
           "sources": [
             "curated"
@@ -2168,6 +2368,28 @@
           "hooks": [
             "弥生水田",
             "岩宿と対比"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "白糸ノ滝",
+          "hooks": [
+            "富士宮",
+            "富士山世界遺産構成"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "石廊崎",
+          "hooks": [
+            "伊豆最南端",
+            "富士箱根伊豆国立公園"
           ],
           "sources": [
             "curated"
@@ -3216,6 +3438,18 @@
           "sources": [
             "curated"
           ]
+        },
+        {
+          "type": "park",
+          "label": "大山隠岐国立公園",
+          "hooks": [
+            "大山",
+            "隠岐",
+            "島根にも跨る"
+          ],
+          "sources": [
+            "curated"
+          ]
         }
       ]
     },
@@ -3299,6 +3533,17 @@
           "hooks": [
             "石見銀山関連の港町",
             "出雲大社と同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "onsen",
+          "label": "玉造温泉",
+          "hooks": [
+            "宍道湖・出雲コース",
+            "石見銀山の構成外"
           ],
           "sources": [
             "curated"
@@ -3553,6 +3798,17 @@
           "sources": [
             "curated"
           ]
+        },
+        {
+          "type": "park",
+          "label": "瀬戸内海国立公園",
+          "hooks": [
+            "多県に跨る",
+            "宮島・鷲羽山など"
+          ],
+          "sources": [
+            "curated"
+          ]
         }
       ]
     },
@@ -3591,6 +3847,18 @@
             "岩国",
             "木造五連アーチ",
             "防府天満宮コース"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "関門橋",
+          "hooks": [
+            "下関〜門司",
+            "関門海峡",
+            "西海橋・瀬戸大橋と混同注意"
           ],
           "sources": [
             "curated"
@@ -3786,6 +4054,30 @@
         },
         {
           "type": "place",
+          "label": "栗林公園",
+          "hooks": [
+            "高松",
+            "大名庭園",
+            "三名園外の名園"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "直島",
+          "hooks": [
+            "地中美術館",
+            "ベネッセ",
+            "瀬戸内アート"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "金丸座",
           "hooks": [
             "旧金毘羅大芝居",
@@ -3891,6 +4183,17 @@
             "神の湯",
             "松山",
             "別府と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "onsen",
+          "label": "鈍川温泉",
+          "hooks": [
+            "今治",
+            "日田ひなまつりと県違いひっかけ"
           ],
           "sources": [
             "curated"
@@ -4327,6 +4630,17 @@
           "sources": [
             "curated"
           ]
+        },
+        {
+          "type": "park",
+          "label": "雲仙天草国立公園",
+          "hooks": [
+            "雲仙",
+            "天草は熊本側も"
+          ],
+          "sources": [
+            "curated"
+          ]
         }
       ]
     },
@@ -4378,6 +4692,29 @@
             "カルデラ",
             "草千里",
             "くじゅうとセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "onsen",
+          "label": "人吉温泉",
+          "hooks": [
+            "球磨川",
+            "黒川と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "onsen",
+          "label": "黒川温泉",
+          "hooks": [
+            "南小国",
+            "外湯めぐり",
+            "人吉と混同注意"
           ],
           "sources": [
             "curated"
@@ -4691,6 +5028,18 @@
             "やんばる・西表",
             "屋久島・知床と区別",
             "鹿児島＋沖縄"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "park",
+          "label": "霧島錦江湾国立公園",
+          "hooks": [
+            "桜島",
+            "霧島",
+            "指宿"
           ],
           "sources": [
             "curated"
