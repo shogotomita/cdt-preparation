@@ -39,10 +39,34 @@
       "facts": [
         {
           "type": "place",
+          "label": "たんちょう空港",
+          "hooks": [
+            "釧路空港",
+            "タンチョウ",
+            "釧路湿原と同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "オシンコシンの滝",
           "hooks": [
             "知床",
             "双美の滝"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "五稜郭",
+          "hooks": [
+            "函館",
+            "星形堡塁",
+            "箱館戦争"
           ],
           "sources": [
             "curated"
@@ -55,6 +79,29 @@
             "五稜郭",
             "夜景",
             "函館山"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "大沼",
+          "hooks": [
+            "大沼国定公園",
+            "函館〜洞爺コース"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "宗谷岬",
+          "hooks": [
+            "日本最北端",
+            "稚内",
+            "旭山・サロベツコース"
           ],
           "sources": [
             "curated"
@@ -108,6 +155,18 @@
         },
         {
           "type": "place",
+          "label": "旭山動物園",
+          "hooks": [
+            "旭川",
+            "行動展示",
+            "宗谷・サロベツコース"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "洞爺湖",
           "hooks": [
             "有珠山",
@@ -147,8 +206,7 @@
             "道東"
           ],
           "sources": [
-            "curated",
-            "2023-jitsumu-5-6"
+            "curated"
           ]
         },
         {
@@ -162,11 +220,44 @@
           ]
         },
         {
+          "type": "festival",
+          "label": "こたんまつり",
+          "hooks": [
+            "アイヌ",
+            "過去問ひっかけ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "さっぽろ雪まつり",
+          "hooks": [
+            "大通公園",
+            "氷像"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
           "type": "specialty",
           "label": "三平汁",
           "hooks": [
             "北海道の郷土料理",
             "ます寿しと混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "松前漬",
+          "hooks": [
+            "昆布・スルメ",
+            "千枚漬と混同注意"
           ],
           "sources": [
             "curated"
@@ -187,10 +278,34 @@
         },
         {
           "type": "park",
+          "label": "大雪山国立公園",
+          "hooks": [
+            "層雲峡",
+            "旭岳",
+            "定山渓は園域外のひっかけ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "park",
           "label": "釧路湿原",
           "hooks": [
             "ラムサール第1号",
             "タンチョウ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "park",
+          "label": "阿寒摩周国立公園",
+          "hooks": [
+            "阿寒湖",
+            "摩周湖",
+            "屈斜路とセット"
           ],
           "sources": [
             "curated"
@@ -236,6 +351,17 @@
         },
         {
           "type": "place",
+          "label": "岩木山",
+          "hooks": [
+            "津軽富士",
+            "浅虫・弘前とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "弘前城",
           "hooks": [
             "ねぷた",
@@ -268,6 +394,17 @@
           "sources": [
             "curated",
             "2021-jitsumu-7-1"
+          ]
+        },
+        {
+          "type": "onsen",
+          "label": "浅虫温泉",
+          "hooks": [
+            "青森市",
+            "岩木山・弘前とセット"
+          ],
+          "sources": [
+            "curated"
           ]
         },
         {
@@ -324,6 +461,19 @@
       "facts": [
         {
           "type": "place",
+          "label": "毛越寺",
+          "hooks": [
+            "平泉",
+            "浄土庭園",
+            "中尊寺とセット",
+            "文化遺産構成"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "浄土ヶ浜",
           "hooks": [
             "宮古",
@@ -356,6 +506,18 @@
         },
         {
           "type": "place",
+          "label": "遠野",
+          "hooks": [
+            "民話のふるさと",
+            "柳田國男",
+            "カッパ淵"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "龍泉洞",
           "hooks": [
             "三陸",
@@ -379,6 +541,17 @@
           ]
         },
         {
+          "type": "specialty",
+          "label": "わんこそば",
+          "hooks": [
+            "盛岡など",
+            "小岩井農場と同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
           "type": "heritage",
           "label": "中尊寺",
           "hooks": [
@@ -386,6 +559,18 @@
             "文化遺産",
             "金色堂",
             "毛越寺とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "heritage",
+          "label": "平泉—仏国土（浄土）を表す建築・庭園及び考古学的遺跡群",
+          "hooks": [
+            "中尊寺・毛越寺・無量光院跡",
+            "文化遺産",
+            "2011登録"
           ],
           "sources": [
             "curated"
@@ -414,7 +599,20 @@
           "type": "place",
           "label": "松島",
           "hooks": [
-            "日本三景"
+            "日本三景",
+            "瑞巌寺"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "瑞巌寺",
+          "hooks": [
+            "松島",
+            "円通院",
+            "日本三景とセット"
           ],
           "sources": [
             "curated"
@@ -455,6 +653,28 @@
           "sources": [
             "curated"
           ]
+        },
+        {
+          "type": "onsen",
+          "label": "作並温泉",
+          "hooks": [
+            "仙台奥座敷",
+            "秋保とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "仙台七夕まつり",
+          "hooks": [
+            "七夕飾り",
+            "東北三大まつり"
+          ],
+          "sources": [
+            "curated"
+          ]
         }
       ]
     },
@@ -489,6 +709,51 @@
           "label": "角館",
           "hooks": [
             "盛岡―田沢湖コース"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "なまはげ",
+          "hooks": [
+            "男鹿",
+            "大晦日〜正月"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "竿燈まつり",
+          "hooks": [
+            "秋田市",
+            "東北三大まつり",
+            "ねぶたと混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "いぶりがっこ",
+          "hooks": [
+            "燻製たくあん",
+            "秋田"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "きりたんぽ",
+          "hooks": [
+            "比内地鶏",
+            "稲庭・しょっつると同県"
           ],
           "sources": [
             "curated"
@@ -559,6 +824,17 @@
         },
         {
           "type": "onsen",
+          "label": "かみのやま温泉",
+          "hooks": [
+            "上山",
+            "銀山と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "onsen",
           "label": "銀山温泉",
           "hooks": [
             "花笠まつりとセット"
@@ -586,6 +862,18 @@
       "facts": [
         {
           "type": "place",
+          "label": "五色沼",
+          "hooks": [
+            "裏磐梯",
+            "毘沙門沼など",
+            "猪苗代・磐梯とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "大内宿",
           "hooks": [
             "会津",
@@ -601,7 +889,8 @@
           "label": "猪苗代湖",
           "hooks": [
             "磐梯山",
-            "裏磐梯"
+            "裏磐梯",
+            "五色沼"
           ],
           "sources": [
             "curated"
@@ -703,6 +992,17 @@
           "sources": [
             "curated"
           ]
+        },
+        {
+          "type": "specialty",
+          "label": "笠間焼",
+          "hooks": [
+            "茨城",
+            "益子と対比"
+          ],
+          "sources": [
+            "curated"
+          ]
         }
       ]
     },
@@ -716,6 +1016,18 @@
           "label": "いろは坂",
           "hooks": [
             "日光東照宮と中禅寺湖を結ぶ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "日光二荒山神社",
+          "hooks": [
+            "男体山",
+            "日光三社寺",
+            "東照宮・輪王寺とセット"
           ],
           "sources": [
             "curated"
@@ -756,6 +1068,17 @@
           ]
         },
         {
+          "type": "place",
+          "label": "輪王寺",
+          "hooks": [
+            "日光三社寺",
+            "東照宮・二荒山とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
           "type": "onsen",
           "label": "鬼怒川温泉",
           "hooks": [
@@ -774,6 +1097,29 @@
           "sources": [
             "curated",
             "2024-jitsumu-81"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "益子焼",
+          "hooks": [
+            "栃木",
+            "笠間と対比",
+            "出石焼と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "heritage",
+          "label": "日光の社寺",
+          "hooks": [
+            "東照宮・輪王寺・二荒山神社",
+            "文化遺産"
+          ],
+          "sources": [
+            "curated"
           ]
         },
         {
@@ -829,11 +1175,32 @@
         },
         {
           "type": "onsen",
+          "label": "四万温泉",
+          "hooks": [
+            "吾妻",
+            "草津と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "onsen",
           "label": "草津温泉",
           "hooks": [
             "湯畑",
             "西の字湯もみ",
             "四万・伊香保と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "下仁田ネギ",
+          "hooks": [
+            "鬼押出しと同県"
           ],
           "sources": [
             "curated"
@@ -883,8 +1250,7 @@
           "type": "place",
           "label": "川越",
           "hooks": [
-            "せんべい汁（青森）とクロスひっかけ",
-            "埼玉で一致しない"
+            "せんべい汁（青森）とクロスひっかけ"
           ],
           "sources": [
             "curated",
@@ -921,6 +1287,18 @@
             "岩畳",
             "寳登山神社",
             "秩父"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "秩父夜祭",
+          "hooks": [
+            "秩父神社",
+            "屋台・花火",
+            "日本三大曳山"
           ],
           "sources": [
             "curated"
@@ -1018,6 +1396,18 @@
         },
         {
           "type": "place",
+          "label": "東京タワー",
+          "hooks": [
+            "芝公園",
+            "電波塔",
+            "スカイツリーと対比"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "浅草寺",
           "hooks": [
             "雷門",
@@ -1033,6 +1423,64 @@
           "hooks": [
             "江戸城跡",
             "二重橋"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "三社祭",
+          "hooks": [
+            "浅草",
+            "益子焼と県違いひっかけ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "神田祭",
+          "hooks": [
+            "神田明神",
+            "天下祭"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "深川めし",
+          "hooks": [
+            "アサリ",
+            "秋川渓谷と同都"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "heritage",
+          "label": "国立西洋美術館",
+          "hooks": [
+            "ル・コルビュジエ作品群",
+            "上野",
+            "世界遺産構成"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "heritage",
+          "label": "小笠原諸島",
+          "hooks": [
+            "自然遺産",
+            "父島・母島",
+            "固有種",
+            "東京だが本土外"
           ],
           "sources": [
             "curated"
@@ -1121,6 +1569,17 @@
             "鎌倉",
             "源頼朝",
             "若宮大路"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "黒船祭",
+          "hooks": [
+            "横須賀・久里浜",
+            "ペリー"
           ],
           "sources": [
             "curated"
@@ -1242,6 +1701,17 @@
           ]
         },
         {
+          "type": "festival",
+          "label": "こきりこ祭り",
+          "hooks": [
+            "五箇山",
+            "民謡"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
           "type": "specialty",
           "label": "ます寿し",
           "hooks": [
@@ -1317,11 +1787,59 @@
           ]
         },
         {
+          "type": "place",
+          "label": "金沢城",
+          "hooks": [
+            "兼六園とセット",
+            "菱櫓",
+            "加賀藩"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
           "type": "onsen",
           "label": "和倉温泉",
           "hooks": [
             "七尾",
             "花嫁のれん"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "青柏祭",
+          "hooks": [
+            "七尾",
+            "でか山",
+            "キリコ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "九谷焼",
+          "hooks": [
+            "石川・加賀",
+            "色絵",
+            "出石焼と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "治部煮",
+          "hooks": [
+            "鴨",
+            "金沢",
+            "九谷と同県"
           ],
           "sources": [
             "curated"
@@ -1382,6 +1900,18 @@
         },
         {
           "type": "place",
+          "label": "蘇洞門",
+          "hooks": [
+            "小浜",
+            "洞窟遊覧船",
+            "東尋坊と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "霞ヶ城",
           "hooks": [
             "丸岡城",
@@ -1412,6 +1942,17 @@
           "sources": [
             "curated",
             "2023-jitsumu-9-2"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "小鯛のささ漬",
+          "hooks": [
+            "若狭",
+            "鮒ずしと混同注意"
+          ],
+          "sources": [
+            "curated"
           ]
         }
       ]
@@ -1484,6 +2025,41 @@
           "sources": [
             "curated"
           ]
+        },
+        {
+          "type": "festival",
+          "label": "吉田の火祭り",
+          "hooks": [
+            "富士吉田",
+            "北口本宮",
+            "御柱と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "ほうとう",
+          "hooks": [
+            "カボチャ",
+            "勝沼と同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "heritage",
+          "label": "富士山—信仰の対象と芸術の源泉",
+          "hooks": [
+            "山梨・静岡",
+            "三保松原は構成資産",
+            "浅間神社"
+          ],
+          "sources": [
+            "curated"
+          ]
         }
       ]
     },
@@ -1530,6 +2106,18 @@
         },
         {
           "type": "place",
+          "label": "寝覚の床",
+          "hooks": [
+            "上松",
+            "木曽川",
+            "渓谷"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "松本城",
           "hooks": [
             "北アルプス借景",
@@ -1546,6 +2134,18 @@
           "hooks": [
             "旧軽井沢銀座",
             "碓氷峠付近"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "onsen",
+          "label": "別所温泉",
+          "hooks": [
+            "上田",
+            "信州最古級",
+            "和倉・花嫁のれんと県違いひっかけ"
           ],
           "sources": [
             "curated"
@@ -1614,8 +2214,7 @@
           "type": "place",
           "label": "郡上八幡",
           "hooks": [
-            "郡上おどり",
-            "岐阜で一致しない"
+            "郡上おどり"
           ],
           "sources": [
             "curated",
@@ -1673,6 +2272,28 @@
           "label": "郡上おどり",
           "hooks": [
             "御柱（長野）と隣接県ひっかけ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "高山祭",
+          "hooks": [
+            "春の山王・秋の八幡",
+            "屋台"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "美濃焼",
+          "hooks": [
+            "多治見など",
+            "六古窯"
           ],
           "sources": [
             "curated"
@@ -1747,6 +2368,28 @@
           "hooks": [
             "弥生水田",
             "岩宿と対比"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "白糸ノ滝",
+          "hooks": [
+            "富士宮",
+            "富士山世界遺産構成"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "石廊崎",
+          "hooks": [
+            "伊豆最南端",
+            "富士箱根伊豆国立公園"
           ],
           "sources": [
             "curated"
@@ -1833,6 +2476,40 @@
           "sources": [
             "curated"
           ]
+        },
+        {
+          "type": "specialty",
+          "label": "ひつまぶし",
+          "hooks": [
+            "うなぎ",
+            "名古屋"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "常滑焼",
+          "hooks": [
+            "六古窯",
+            "急須",
+            "三重と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "瀬戸焼",
+          "hooks": [
+            "六古窯",
+            "瀬戸物"
+          ],
+          "sources": [
+            "curated"
+          ]
         }
       ]
     },
@@ -1907,6 +2584,17 @@
           "sources": [
             "curated"
           ]
+        },
+        {
+          "type": "specialty",
+          "label": "伊勢うどん",
+          "hooks": [
+            "柔らか麺",
+            "二見浦と同県"
+          ],
+          "sources": [
+            "curated"
+          ]
         }
       ]
     },
@@ -1915,6 +2603,19 @@
       "name": "滋賀県",
       "region": "近畿",
       "facts": [
+        {
+          "type": "place",
+          "label": "延暦寺",
+          "hooks": [
+            "比叡山",
+            "天台宗総本山",
+            "古都京都構成だが滋賀",
+            "京都市内と県違いひっかけ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
         {
           "type": "place",
           "label": "彦根城",
@@ -1943,6 +2644,29 @@
           "hooks": [
             "宝厳寺・弁才天",
             "嫁ヶ島との混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "長浜曳山まつり",
+          "hooks": [
+            "長浜",
+            "子ども歌舞伎"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "信楽焼",
+          "hooks": [
+            "六古窯",
+            "狸の置物",
+            "時代祭（京都）と県違いひっかけ"
           ],
           "sources": [
             "curated"
@@ -1978,6 +2702,19 @@
       "facts": [
         {
           "type": "place",
+          "label": "二条城",
+          "hooks": [
+            "徳川",
+            "大政奉還",
+            "古都京都構成",
+            "世界遺産"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "伏見稲荷大社",
           "hooks": [
             "千本鳥居",
@@ -2005,7 +2742,7 @@
           "label": "天橋立",
           "hooks": [
             "日本三景",
-            "与謝野",
+            "宮津",
             "松島・宮島とセット"
           ],
           "sources": [
@@ -2073,6 +2810,19 @@
         },
         {
           "type": "place",
+          "label": "銀閣寺",
+          "hooks": [
+            "慈照寺",
+            "東山文化",
+            "金閣と対比",
+            "古都京都構成"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "鞍馬寺",
           "hooks": [
             "牛若丸",
@@ -2095,10 +2845,57 @@
           ]
         },
         {
+          "type": "festival",
+          "label": "時代祭",
+          "hooks": [
+            "平安神宮",
+            "時代行列",
+            "信楽焼と県違いひっかけ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "祇園祭",
+          "hooks": [
+            "八坂神社",
+            "山鉾",
+            "宵山",
+            "日本三大祭"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "葵祭",
+          "hooks": [
+            "上賀茂・下鴨",
+            "王朝行列"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
           "type": "specialty",
           "label": "千枚漬",
           "hooks": [
             "保津峡・嵐山エリアと同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "清水焼",
+          "hooks": [
+            "京焼",
+            "清水寺門前"
           ],
           "sources": [
             "curated"
@@ -2174,6 +2971,30 @@
           "sources": [
             "curated"
           ]
+        },
+        {
+          "type": "festival",
+          "label": "天神祭",
+          "hooks": [
+            "大阪天満宮",
+            "船渡御",
+            "日本三大祭"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "heritage",
+          "label": "百舌鳥・古市古墳群",
+          "hooks": [
+            "仁徳天皇陵など",
+            "堺・羽曳野・藤井寺",
+            "2019登録"
+          ],
+          "sources": [
+            "curated"
+          ]
         }
       ]
     },
@@ -2182,29 +3003,6 @@
       "name": "兵庫県",
       "region": "近畿",
       "facts": [
-        {
-          "type": "place",
-          "label": "城崎温泉",
-          "hooks": [
-            "外湯めぐり",
-            "但馬",
-            "有馬と混同注意"
-          ],
-          "sources": [
-            "curated"
-          ]
-        },
-        {
-          "type": "place",
-          "label": "姫路城",
-          "hooks": [
-            "世界遺産",
-            "出石焼"
-          ],
-          "sources": [
-            "curated"
-          ]
-        },
         {
           "type": "place",
           "label": "淡路島",
@@ -2220,12 +3018,23 @@
           "type": "place",
           "label": "玄武洞",
           "hooks": [
-            "島根と混同注意",
-            "兵庫を島根と混同しない"
+            "島根と混同注意"
           ],
           "sources": [
             "curated",
             "2025-jitsumu-84"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "白鷺城",
+          "hooks": [
+            "姫路城",
+            "世界遺産",
+            "出石焼"
+          ],
+          "sources": [
+            "curated"
           ]
         },
         {
@@ -2253,9 +3062,33 @@
         },
         {
           "type": "onsen",
+          "label": "城崎温泉",
+          "hooks": [
+            "外湯めぐり",
+            "但馬",
+            "有馬と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "onsen",
           "label": "有馬温泉",
           "hooks": [
             "淡路・竹田城とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "丹波焼",
+          "hooks": [
+            "六古窯",
+            "丹波篠山",
+            "出石焼と同県"
           ],
           "sources": [
             "curated"
@@ -2315,11 +3148,71 @@
           ]
         },
         {
+          "type": "place",
+          "label": "興福寺",
+          "hooks": [
+            "五重塔",
+            "阿修羅",
+            "古都奈良",
+            "東大寺・春日とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "薬師寺",
+          "hooks": [
+            "東塔",
+            "白鳳伽藍",
+            "西ノ京",
+            "興福・東大と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
           "type": "festival",
           "label": "お水取り",
           "hooks": [
             "東大寺",
             "お水送り（福井）と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "柿の葉ずし",
+          "hooks": [
+            "鯖・鮭",
+            "法起寺と同県",
+            "赤膚焼と同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "赤膚焼",
+          "hooks": [
+            "奈良",
+            "出石焼と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "heritage",
+          "label": "古都奈良の文化財",
+          "hooks": [
+            "東大寺・興福寺・春日大社・薬師寺など",
+            "法隆寺は別遺産"
           ],
           "sources": [
             "curated"
@@ -2354,7 +3247,7 @@
       "facts": [
         {
           "type": "place",
-          "label": "ドベンチャーワールド",
+          "label": "アドベンチャーワールド",
           "hooks": [
             "白浜",
             "パンダ",
@@ -2392,6 +3285,18 @@
             "大斎原",
             "中辺路",
             "那智とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "熊野那智大社",
+          "hooks": [
+            "那智の滝とセット",
+            "青岸渡寺",
+            "紀伊山地の霊場"
           ],
           "sources": [
             "curated"
@@ -2439,6 +3344,18 @@
             "金剛峯寺",
             "奥の院",
             "紀伊山地の霊場"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "heritage",
+          "label": "紀伊山地の霊場と参詣道",
+          "hooks": [
+            "熊野・高野・吉野",
+            "和歌山・奈良・三重",
+            "参詣道"
           ],
           "sources": [
             "curated"
@@ -2521,6 +3438,18 @@
           "sources": [
             "curated"
           ]
+        },
+        {
+          "type": "park",
+          "label": "大山隠岐国立公園",
+          "hooks": [
+            "大山",
+            "隠岐",
+            "島根にも跨る"
+          ],
+          "sources": [
+            "curated"
+          ]
         }
       ]
     },
@@ -2567,6 +3496,18 @@
         },
         {
           "type": "place",
+          "label": "縁結び空港",
+          "hooks": [
+            "出雲空港",
+            "出雲大社",
+            "石見銀山と同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "足立美術館",
           "hooks": [
             "出雲―宍道湖―皆生コース"
@@ -2598,11 +3539,33 @@
           ]
         },
         {
+          "type": "onsen",
+          "label": "玉造温泉",
+          "hooks": [
+            "宍道湖・出雲コース",
+            "石見銀山の構成外"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
           "type": "festival",
           "label": "鷺舞",
           "hooks": [
             "津和野",
             "三朝温泉（鳥取）とクロス注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "出雲そば",
+          "hooks": [
+            "割子そば",
+            "出雲大社と同県"
           ],
           "sources": [
             "curated"
@@ -2640,9 +3603,44 @@
         },
         {
           "type": "place",
+          "label": "備中松山城",
+          "hooks": [
+            "現存12天守",
+            "山城",
+            "松山城（愛媛）と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "後楽園",
           "hooks": [
             "日本三名園"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "桃太郎空港",
+          "hooks": [
+            "岡山空港",
+            "西大寺会陽と同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "烏城",
+          "hooks": [
+            "岡山城",
+            "後楽園とセット",
+            "烏城公園"
           ],
           "sources": [
             "curated"
@@ -2674,8 +3672,31 @@
           "type": "festival",
           "label": "西大寺会陽",
           "hooks": [
-            "桃太郎空港＝岡山",
+            "桃太郎空港と同県",
             "岡山の代表行事"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "ままかり",
+          "hooks": [
+            "酢漬け",
+            "烏城と同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "備前焼",
+          "hooks": [
+            "六古窯",
+            "焼き締め",
+            "烏城と同県"
           ],
           "sources": [
             "curated"
@@ -2743,12 +3764,47 @@
           ]
         },
         {
+          "type": "specialty",
+          "label": "かきめし",
+          "hooks": [
+            "牡蠣",
+            "帝釈峡と同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
           "type": "heritage",
           "label": "原爆ドーム",
           "hooks": [
             "世界遺産",
             "平和記念公園",
             "宮島とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "heritage",
+          "label": "厳島神社",
+          "hooks": [
+            "世界遺産",
+            "海上社殿",
+            "平清盛",
+            "宮島（厳島）とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "park",
+          "label": "瀬戸内海国立公園",
+          "hooks": [
+            "多県に跨る",
+            "宮島・鷲羽山など"
           ],
           "sources": [
             "curated"
@@ -2765,8 +3821,7 @@
           "type": "place",
           "label": "秋芳洞",
           "hooks": [
-            "龍泉洞と混同注意",
-            "山口と混同しやすい"
+            "龍泉洞と混同注意"
           ],
           "sources": [
             "curated",
@@ -2799,10 +3854,56 @@
         },
         {
           "type": "place",
+          "label": "関門橋",
+          "hooks": [
+            "下関〜門司",
+            "関門海峡",
+            "西海橋・瀬戸大橋と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "防府天満宮",
           "hooks": [
             "日本三天神",
             "錦帯橋とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "先帝祭",
+          "hooks": [
+            "赤間神宮",
+            "安徳天皇",
+            "下関"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "瓦そば",
+          "hooks": [
+            "下関・豊浦",
+            "茶そばを瓦で"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "萩焼",
+          "hooks": [
+            "茶陶",
+            "松本・深川窯"
           ],
           "sources": [
             "curated"
@@ -2838,7 +3939,7 @@
           "type": "place",
           "label": "大歩危・小歩危",
           "hooks": [
-            "阿波おどり空港＝徳島",
+            "阿波おどり空港と同県",
             "景勝"
           ],
           "sources": [
@@ -2862,6 +3963,18 @@
           "hooks": [
             "藍商人",
             "祖谷そばと同県設問"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "阿波おどり空港",
+          "hooks": [
+            "徳島空港",
+            "阿波おどり",
+            "大歩危・小歩危と同県"
           ],
           "sources": [
             "curated"
@@ -2941,6 +4054,30 @@
         },
         {
           "type": "place",
+          "label": "栗林公園",
+          "hooks": [
+            "高松",
+            "大名庭園",
+            "三名園外の名園"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "直島",
+          "hooks": [
+            "地中美術館",
+            "ベネッセ",
+            "瀬戸内アート"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "金丸座",
           "hooks": [
             "旧金毘羅大芝居",
@@ -3004,6 +4141,18 @@
         },
         {
           "type": "place",
+          "label": "宇和島城",
+          "hooks": [
+            "現存12天守",
+            "天赦園と同市",
+            "伊達"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "松山城",
           "hooks": [
             "現存天守",
@@ -3034,6 +4183,28 @@
             "神の湯",
             "松山",
             "別府と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "onsen",
+          "label": "鈍川温泉",
+          "hooks": [
+            "今治",
+            "日田ひなまつりと県違いひっかけ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "伊予さつま",
+          "hooks": [
+            "さつまあげ系",
+            "砥部焼と同県"
           ],
           "sources": [
             "curated"
@@ -3113,10 +4284,33 @@
         },
         {
           "type": "place",
+          "label": "高知城",
+          "hooks": [
+            "現存12天守",
+            "本丸御殿現存",
+            "桂浜・龍河洞と同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "龍河洞",
           "hooks": [
             "鍾乳洞",
             "桂浜とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "皿鉢料理",
+          "hooks": [
+            "大皿盛り",
+            "室戸岬と同県"
           ],
           "sources": [
             "curated"
@@ -3134,7 +4328,7 @@
           "label": "博多",
           "hooks": [
             "中洲",
-            "运河地区",
+            "キャナルシティ",
             "太宰府コース"
           ],
           "sources": [
@@ -3185,10 +4379,46 @@
         },
         {
           "type": "festival",
+          "label": "博多祇園山笠",
+          "hooks": [
+            "櫛田神社",
+            "追い山"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
           "label": "玉取祭（玉せせり）",
           "hooks": [
             "筥崎宮（福岡市東区）",
             "柳川と同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "がめ煮",
+          "hooks": [
+            "筑前煮",
+            "秋月と同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "heritage",
+          "label": "宗像・沖ノ島と関連遺産群",
+          "hooks": [
+            "神宿る島",
+            "沖ノ島",
+            "宗像大社",
+            "2017登録",
+            "女人禁制"
           ],
           "sources": [
             "curated"
@@ -3250,6 +4480,29 @@
           "sources": [
             "curated"
           ]
+        },
+        {
+          "type": "specialty",
+          "label": "唐津焼",
+          "hooks": [
+            "唐津くんちと同県",
+            "茶陶"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "有田焼",
+          "hooks": [
+            "伊万里",
+            "磁器",
+            "玉取祭（福岡）と県違いひっかけ"
+          ],
+          "sources": [
+            "curated"
+          ]
         }
       ]
     },
@@ -3302,7 +4555,41 @@
           "label": "小浜温泉",
           "hooks": [
             "雲仙周辺",
-            "日田の鉄輪と混同注意"
+            "鉄輪・別府（大分）と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "長崎くんち",
+          "hooks": [
+            "諏訪神社",
+            "竜踊",
+            "唐津くんちと混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "ちゃんぽん",
+          "hooks": [
+            "長崎",
+            "波佐見と同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "波佐見焼",
+          "hooks": [
+            "日用磁器",
+            "有田と近接・県違い注意"
           ],
           "sources": [
             "curated"
@@ -3339,6 +4626,17 @@
             "端島",
             "世界遺産構成",
             "炭鉱"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "park",
+          "label": "雲仙天草国立公園",
+          "hooks": [
+            "雲仙",
+            "天草は熊本側も"
           ],
           "sources": [
             "curated"
@@ -3400,6 +4698,40 @@
           ]
         },
         {
+          "type": "onsen",
+          "label": "人吉温泉",
+          "hooks": [
+            "球磨川",
+            "黒川と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "onsen",
+          "label": "黒川温泉",
+          "hooks": [
+            "南小国",
+            "外湯めぐり",
+            "人吉と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "山鹿灯籠まつり",
+          "hooks": [
+            "山鹿",
+            "千人灯籠踊り"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
           "type": "park",
           "label": "阿蘇くじゅう国立公園",
           "hooks": [
@@ -3424,6 +4756,18 @@
           "hooks": [
             "別府周辺",
             "誤肢になりやすい"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "宇佐神宮",
+          "hooks": [
+            "八幡総本宮",
+            "国宝本殿",
+            "太宰府と混同注意"
           ],
           "sources": [
             "curated"
@@ -3629,6 +4973,77 @@
           "sources": [
             "curated"
           ]
+        },
+        {
+          "type": "festival",
+          "label": "砂の祭典",
+          "hooks": [
+            "吹上浜",
+            "砂像"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "かるかん",
+          "hooks": [
+            "蒸菓子",
+            "知覧と同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "山川漬",
+          "hooks": [
+            "指宿・山川",
+            "つぼ漬け",
+            "千枚漬と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "薩摩焼",
+          "hooks": [
+            "白薩摩・黒薩摩",
+            "鹿児島"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "heritage",
+          "label": "奄美大島、徳之島、沖縄島北部及び西表島",
+          "hooks": [
+            "自然遺産",
+            "2021登録",
+            "やんばる・西表",
+            "屋久島・知床と区別",
+            "鹿児島＋沖縄"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "park",
+          "label": "霧島錦江湾国立公園",
+          "hooks": [
+            "桜島",
+            "霧島",
+            "指宿"
+          ],
+          "sources": [
+            "curated"
+          ]
         }
       ]
     },
@@ -3665,7 +5080,7 @@
           "hooks": [
             "ひめゆり",
             "平和祈念公園",
-            "最南端"
+            "沖縄本島最南端"
           ],
           "sources": [
             "curated"
@@ -3690,6 +5105,28 @@
             "正殿",
             "守礼門",
             "グスク遺産構成"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "やちむん",
+          "hooks": [
+            "壺屋",
+            "読谷"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "沖縄そば",
+          "hooks": [
+            "豚骨など",
+            "やちむんと同県"
           ],
           "sources": [
             "curated"
