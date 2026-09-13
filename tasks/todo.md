@@ -259,3 +259,15 @@
 ## Review（有名観光地の補完）
 - 追加例: 知床・中尊寺・日光東照宮・草津・富岡製糸場・白川郷・五箇山・出雲大社・天橋立・清水寺／金閣／伏見／平等院・法隆寺・高野山・原爆ドーム・錦帯橋・道後・別府／由布院・熊本城・桜島・首里城・美ら海水族館 など
 - 47都道府県とも facts ≥ 5
+
+## Progress（全角数字→半角統一）
+- [x] 全角数字を半角 `0-9` に置換（questions JSON / gen_*.py / docs / lessons / formatStem 系）
+- [x] 丸数字①②等・漢数字は対象外
+- [x] 置換後に残存ゼロ確認・`npm run build`
+
+## Review（全角数字→半角統一）
+- 26ファイル・約3990箇所の全角数字を半角に統一（問題JSON・生成スクリプト・docs・lessons・formatStem）
+- 丸数字（①②）・漢数字は未変更。千位区切りの全角カンマ（，）も未変更
+- `formatStem` / `format_stems.py` の文字クラスも半角前提に整理
+- 検証: 残存ゼロ、questions JSON parse OK、`npm run build` OK
+
