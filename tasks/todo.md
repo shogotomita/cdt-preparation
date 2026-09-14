@@ -374,3 +374,32 @@
 - 原因: 小問②以降が参照文のみで、行程・注・資料が欠落
 - 対象: 2021-2(2)②、2022-1(2)② / 4(2)②③ / 4(3)② / 5(2)
 - UI: `src/lib/sharedStem.ts` + QuizPage。データも自己完結に修正
+
+## Progress(地理カード・過去問網羅の穴埋め)
+- [x] 抽出強化: 市→県マップ、`正解/不正解。地名。`、geoフィルタに市場等、JR問除外
+- [x] curated: 市場4・潮来・ひきずり・西沢渓谷等 + 知覧を鹿児島へ修正
+- [x] `scripts/check_geography_coverage.py`(hooksのみ不合格)
+- [x] `geography.json` 再生成・coverage OK・`npm run build`
+
+## Review(地理カード・過去問網羅の穴埋め)
+- 原因: 抽出が `名称(県)`/`名称=県` のみ＋サフィックス検証の過信。市場は市名解説で全滅、潮来は hooks 留め
+- facts ≈798。近江町/黒門/錦/二条市場・潮来を独立 CARD 化
+- 検証: `python3 scripts/check_geography_coverage.py` OK、`npm run build` OK
+
+## Progress(Bugbot指摘の抽出修正)
+- [x] guess_type は label のみ / is_card_label で文ラベル排除
+- [x] `名称=` の学習メモ除外、paren の `東京湾→東京` 防止、下線は定義のみ
+- [x] coverage に県正しさ・文ラベル検証
+- [x] 再生成 facts 718・coverage OK・`npm run build`
+
+## Review(Bugbot指摘の抽出修正)
+- 誤県(猿島=東京)・城の festival 誤分類・全文 choice ラベルを解消
+- curated と矛盾する auto 割当は拒否
+
+## Progress(Bugbot再レビュー修正)
+- [x] メモ句ラベル排除 / 同一labelのtype二重をcollapse / coverage強化
+- [x] 再生成 facts 679・coverage OK・push
+
+## Progress(dedupeコース吸収の修正)
+- [x] curated/コースは独立維持、coverageは埋め込み不可
+- [x] 欠落カード補完・再生成 facts 727・coverage OK・push

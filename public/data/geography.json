@@ -51,13 +51,37 @@
         },
         {
           "type": "place",
+          "label": "アシリベツの滝",
+          "hooks": [
+            "札幌・滝野",
+            "インクラ・マリユドゥと対比"
+          ],
+          "sources": [
+            "curated",
+            "2024-jitsumu-66"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "インクラの滝",
+          "hooks": [
+            "白老",
+            "アシリベツと対比"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "オシンコシンの滝",
           "hooks": [
             "知床",
             "双美の滝"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-66"
           ]
         },
         {
@@ -81,7 +105,8 @@
             "地球岬とセット設問"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-5-1"
           ]
         },
         {
@@ -122,6 +147,18 @@
         },
         {
           "type": "place",
+          "label": "三愛の丘展望公園",
+          "hooks": [
+            "中標津",
+            "酪農展望",
+            "羊ヶ丘と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "中山峠",
           "hooks": [
             "札幌〜倶知安",
@@ -133,11 +170,34 @@
         },
         {
           "type": "place",
+          "label": "二条市場",
+          "hooks": [
+            "札幌",
+            "市民の台所"
+          ],
+          "sources": [
+            "curated",
+            "2022-jitsumu-6-6"
+          ]
+        },
+        {
+          "type": "place",
           "label": "五稜郭",
           "hooks": [
             "函館",
             "星形堡塁",
             "箱館戦争"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "五色渓谷",
+          "hooks": [
+            "各地に同名",
+            "定山渓ひっかけ"
           ],
           "sources": [
             "curated"
@@ -181,10 +241,33 @@
         },
         {
           "type": "place",
+          "label": "地球岬展望台",
+          "hooks": [
+            "室蘭",
+            "地球岬"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "大沼",
           "hooks": [
             "大沼国定公園",
             "函館〜洞爺コース"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "大沼・小沼",
+          "hooks": [
+            "函館近郊",
+            "大沼国定公園",
+            "駒ヶ岳"
           ],
           "sources": [
             "curated"
@@ -222,7 +305,8 @@
             "豊平川"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2025-jitsumu-70-4"
           ]
         },
         {
@@ -238,6 +322,18 @@
         },
         {
           "type": "place",
+          "label": "小樽運河",
+          "hooks": [
+            "小樽",
+            "倉庫群"
+          ],
+          "sources": [
+            "curated",
+            "2022-jitsumu-6-5"
+          ]
+        },
+        {
+          "type": "place",
           "label": "屈斜路湖",
           "hooks": [
             "国内最大カルデラ湖",
@@ -245,7 +341,8 @@
             "白鳥"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-5-5"
           ]
         },
         {
@@ -292,7 +389,8 @@
             "渡島"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-6-1"
           ]
         },
         {
@@ -352,6 +450,29 @@
             "中山・日勝と混同注意"
           ],
           "sources": [
+            "curated",
+            "2023-jitsumu-5-2"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "知床半島",
+          "hooks": [
+            "知床",
+            "世界自然遺産"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "神威岬",
+          "hooks": [
+            "積丹",
+            "積丹ブルー"
+          ],
+          "sources": [
             "curated"
           ]
         },
@@ -362,6 +483,17 @@
             "旭川",
             "峡谷",
             "層雲峡と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "積丹半島",
+          "hooks": [
+            "積丹ブルー",
+            "神威岬"
           ],
           "sources": [
             "curated"
@@ -398,7 +530,8 @@
             "札幌"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-5-1"
           ]
         },
         {
@@ -436,6 +569,18 @@
         },
         {
           "type": "place",
+          "label": "野付湾",
+          "hooks": [
+            "野付半島",
+            "道東"
+          ],
+          "sources": [
+            "curated",
+            "2023-jitsumu-5-6"
+          ]
+        },
+        {
+          "type": "place",
           "label": "銀河・流星の滝",
           "hooks": [
             "層雲峡",
@@ -462,6 +607,18 @@
           "hooks": [
             "名寄・風連",
             "北海道の鍾乳洞"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "onsen",
+          "label": "定山渓温泉",
+          "hooks": [
+            "札幌",
+            "支笏洞爺",
+            "奥座敷"
           ],
           "sources": [
             "curated"
@@ -566,7 +723,8 @@
             "ます寿しと混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-6-4"
           ]
         },
         {
@@ -577,7 +735,8 @@
             "千枚漬と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2025-jitsumu-70-3"
           ]
         },
         {
@@ -688,7 +847,9 @@
             "十三の砂丘"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-8-3",
+            "2022-jitsumu-9-2"
           ]
         },
         {
@@ -756,7 +917,8 @@
             "桜"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-6-1"
           ]
         },
         {
@@ -900,7 +1062,8 @@
             "岩手山とセット"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-10-1"
           ]
         },
         {
@@ -962,12 +1125,25 @@
         },
         {
           "type": "place",
+          "label": "猊鼻渓舟下り",
+          "hooks": [
+            "猊鼻渓",
+            "一関",
+            "げいび追分"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "碁石海岸",
           "hooks": [
             "しょっつる鍋(秋田)と県違いひっかけ"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-9-1"
           ]
         },
         {
@@ -979,7 +1155,10 @@
             "カッパ淵"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-69-2",
+            "2024-jitsumu-69-3",
+            "2024-jitsumu-69-4"
           ]
         },
         {
@@ -1003,7 +1182,8 @@
             "盛岡周辺"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-7-2"
           ]
         },
         {
@@ -1068,7 +1248,8 @@
             "瑞巌寺とセット"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-10-1"
           ]
         },
         {
@@ -1080,7 +1261,9 @@
             "豊岡のコウノトリと混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-6-4",
+            "2024-jitsumu-72"
           ]
         },
         {
@@ -1103,7 +1286,8 @@
             "日本三景とセット"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-5-3"
           ]
         },
         {
@@ -1114,19 +1298,18 @@
             "奥州"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-6-1"
           ]
         },
         {
           "type": "place",
           "label": "蔵王",
           "hooks": [
-            "御釜など",
-            "宮城・山形"
+            "御釜など"
           ],
           "sources": [
-            "curated",
-            "2021-jitsumu-9-1"
+            "curated"
           ]
         },
         {
@@ -1224,7 +1407,8 @@
             "十和田八幡平国立公園外がひっかけ"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-8-3"
           ]
         },
         {
@@ -1243,6 +1427,18 @@
           "label": "角館",
           "hooks": [
             "盛岡―田沢湖コース"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "風の松原",
+          "hooks": [
+            "能代",
+            "日本海",
+            "虹の松原と混同注意"
           ],
           "sources": [
             "curated"
@@ -1302,7 +1498,8 @@
             "稲庭・しょっつると同県"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-7-5"
           ]
         },
         {
@@ -1313,7 +1510,8 @@
             "岩手名所とクロス注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-9-1"
           ]
         },
         {
@@ -1359,11 +1557,40 @@
         },
         {
           "type": "place",
+          "label": "庄内",
+          "hooks": [],
+          "sources": [
+            "2021-jitsumu-6-2"
+          ]
+        },
+        {
+          "type": "place",
           "label": "旧致道館",
           "hooks": [
             "鶴岡",
             "藩校",
-            "日新館と混同注意",
+            "日新館と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "立石寺",
+          "hooks": [
+            "山寺",
+            "芭蕉"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "致道館",
+          "hooks": [
+            "鶴岡",
             "旧致道館",
             "庄内"
           ],
@@ -1380,6 +1607,26 @@
           ],
           "sources": [
             "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "蔵王山",
+          "hooks": [
+            "蔵王",
+            "お釜",
+            "宮城にも跨る"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "酒田市",
+          "hooks": [],
+          "sources": [
+            "2021-jitsumu-5-6"
           ]
         },
         {
@@ -1402,7 +1649,8 @@
             "銀山と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-7-2"
           ]
         },
         {
@@ -1439,6 +1687,19 @@
             "裏磐梯",
             "毘沙門沼など",
             "猪苗代・磐梯とセット"
+          ],
+          "sources": [
+            "curated",
+            "2022-jitsumu-6-4"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "塔のへつり",
+          "hooks": [
+            "下郷",
+            "凝灰岩",
+            "長瀞岩畳と混同注意"
           ],
           "sources": [
             "curated"
@@ -1500,7 +1761,8 @@
             "福井と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-9-1"
           ]
         },
         {
@@ -1530,7 +1792,8 @@
             "水戸"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-63"
           ]
         },
         {
@@ -1550,6 +1813,18 @@
           "label": "弘道館",
           "hooks": [
             "水戸"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "潮来",
+          "hooks": [
+            "水郷",
+            "十二橋めぐり",
+            "あんこう鍋と同県"
           ],
           "sources": [
             "curated"
@@ -1588,7 +1863,8 @@
             "香取と対比"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-5-2"
           ]
         },
         {
@@ -1598,7 +1874,8 @@
             "潮来と同県セット"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-7-5"
           ]
         },
         {
@@ -1712,6 +1989,17 @@
         },
         {
           "type": "place",
+          "label": "霧降高原",
+          "hooks": [
+            "日光",
+            "湯西川・輪王寺とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "龍王峡",
           "hooks": [
             "鬼怒川",
@@ -1735,9 +2023,32 @@
         },
         {
           "type": "onsen",
+          "label": "湯西川温泉",
+          "hooks": [
+            "日光・鬼怒川",
+            "霧降高原・輪王寺とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "onsen",
           "label": "鬼怒川温泉",
           "hooks": [
             "日光・霧降とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "輪王寺強飯式",
+          "hooks": [
+            "日光",
+            "輪王寺",
+            "強飯式"
           ],
           "sources": [
             "curated"
@@ -1763,7 +2074,8 @@
             "出石焼と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-6-4"
           ]
         },
         {
@@ -1798,12 +2110,10 @@
           "type": "place",
           "label": "吹割の滝",
           "hooks": [
-            "東洋のナイアガラ",
-            "群馬・東洋のナイアガラ"
+            "東洋のナイアガラ"
           ],
           "sources": [
-            "curated",
-            "2025-jitsumu-68"
+            "curated"
           ]
         },
         {
@@ -1815,7 +2125,8 @@
             "草津方面"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-7-3"
           ]
         },
         {
@@ -1827,7 +2138,8 @@
             "登呂と対比"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-68"
           ]
         },
         {
@@ -1839,7 +2151,8 @@
             "伊香保寄り"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-8-3"
           ]
         },
         {
@@ -1896,7 +2209,8 @@
             "草津と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-8-5"
           ]
         },
         {
@@ -1980,8 +2294,7 @@
             "せんべい汁(青森)とクロスひっかけ"
           ],
           "sources": [
-            "curated",
-            "2022-jitsumu-10-2"
+            "curated"
           ]
         },
         {
@@ -2052,7 +2365,9 @@
             "秩父"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-7-3",
+            "2025-jitsumu-70-1"
           ]
         },
         {
@@ -2079,6 +2394,17 @@
           "label": "九十九里",
           "hooks": [
             "鴨川シーワールドとセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "九十九里浜",
+          "hooks": [
+            "九十九里",
+            "鴨川シーワールドと同県"
           ],
           "sources": [
             "curated"
@@ -2156,7 +2482,8 @@
             "偕楽園と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-63"
           ]
         },
         {
@@ -2191,7 +2518,8 @@
             "岩宿・登呂と対比"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-68"
           ]
         },
         {
@@ -2419,7 +2747,8 @@
             "猿島と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-5-5"
           ]
         },
         {
@@ -2430,7 +2759,8 @@
             "石垣山一夜城とセット"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-10-1"
           ]
         },
         {
@@ -2457,6 +2787,14 @@
         },
         {
           "type": "place",
+          "label": "横浜赤レンガ倉庫",
+          "hooks": [],
+          "sources": [
+            "2022-jitsumu-6-5"
+          ]
+        },
+        {
+          "type": "place",
           "label": "江の島",
           "hooks": [
             "湘南",
@@ -2476,7 +2814,8 @@
             "利島・初島・八景島と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-5-5"
           ]
         },
         {
@@ -2503,6 +2842,18 @@
         },
         {
           "type": "place",
+          "label": "芦ノ湖",
+          "hooks": [
+            "箱根",
+            "海賊船",
+            "関所"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "鎌倉大仏",
           "hooks": [
             "高徳院",
@@ -2521,7 +2872,8 @@
             "若宮大路"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-5-2"
           ]
         },
         {
@@ -2532,7 +2884,8 @@
             "ペリー"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-6-3"
           ]
         }
       ]
@@ -2584,7 +2937,8 @@
             "笹川流れ"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-5-6"
           ]
         },
         {
@@ -2595,7 +2949,8 @@
             "トンネル歩道"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-8-2"
           ]
         },
         {
@@ -2628,7 +2983,8 @@
             "弥彦寄り"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-8-1"
           ]
         },
         {
@@ -2639,7 +2995,9 @@
             "ます寿しと混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-6-4",
+            "2022-jitsumu-7-5"
           ]
         },
         {
@@ -2749,7 +3107,8 @@
             "お水送り(福井)とクロス注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-5-9"
           ]
         },
         {
@@ -2771,7 +3130,9 @@
             "鮒ずし(滋賀)・へぎそば(新潟)と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-6-4",
+            "2023-jitsumu-6-2"
           ]
         },
         {
@@ -2839,6 +3200,27 @@
         },
         {
           "type": "place",
+          "label": "能登",
+          "hooks": [],
+          "sources": [
+            "2021-jitsumu-6-2"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "近江町市場",
+          "hooks": [
+            "金沢",
+            "前田家の御膳所",
+            "市民の台所"
+          ],
+          "sources": [
+            "curated",
+            "2022-jitsumu-6-6"
+          ]
+        },
+        {
+          "type": "place",
           "label": "那谷寺",
           "hooks": [
             "加賀",
@@ -2847,7 +3229,8 @@
             "奥の細道"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2025-jitsumu-70-1"
           ]
         },
         {
@@ -2893,7 +3276,8 @@
             "山中・片山津とセット"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-6-1"
           ]
         },
         {
@@ -2928,7 +3312,8 @@
             "出石焼と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-6-4"
           ]
         },
         {
@@ -2988,13 +3373,22 @@
         },
         {
           "type": "place",
+          "label": "丸岡城",
+          "hooks": [],
+          "sources": [
+            "2025-jitsumu-65"
+          ]
+        },
+        {
+          "type": "place",
           "label": "九頭竜峡",
           "hooks": [
             "大野・永平寺方面",
             "九頭竜川"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2025-jitsumu-67"
           ]
         },
         {
@@ -3034,6 +3428,14 @@
         },
         {
           "type": "place",
+          "label": "気比の松原",
+          "hooks": [],
+          "sources": [
+            "2021-jitsumu-5-7"
+          ]
+        },
+        {
+          "type": "place",
           "label": "永平寺",
           "hooks": [
             "曹洞宗大本山",
@@ -3045,6 +3447,14 @@
         },
         {
           "type": "place",
+          "label": "若狭町",
+          "hooks": [],
+          "sources": [
+            "2021-jitsumu-5-6"
+          ]
+        },
+        {
+          "type": "place",
           "label": "蘇洞門",
           "hooks": [
             "小浜",
@@ -3052,7 +3462,10 @@
             "東尋坊と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-6-5",
+            "2022-jitsumu-9-2",
+            "2023-jitsumu-8-3"
           ]
         },
         {
@@ -3078,6 +3491,14 @@
           ]
         },
         {
+          "type": "onsen",
+          "label": "芦原温泉",
+          "hooks": [],
+          "sources": [
+            "2021-jitsumu-5-9"
+          ]
+        },
+        {
           "type": "festival",
           "label": "お水送り",
           "hooks": [
@@ -3087,7 +3508,8 @@
           ],
           "sources": [
             "curated",
-            "2023-jitsumu-9-2"
+            "2023-jitsumu-9-2",
+            "2024-jitsumu-69-3"
           ]
         },
         {
@@ -3110,7 +3532,8 @@
             "鮒ずしと混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-6-2"
           ]
         }
       ]
@@ -3180,6 +3603,18 @@
         },
         {
           "type": "place",
+          "label": "御岳昇仙峡",
+          "hooks": [
+            "昇仙峡",
+            "甲府",
+            "富士箱根伊豆外のひっかけ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "忍野八海",
           "hooks": [
             "河口湖・富士北麓コース"
@@ -3234,13 +3669,25 @@
         },
         {
           "type": "place",
+          "label": "西沢渓谷",
+          "hooks": [
+            "秩父多摩甲斐",
+            "大菩薩峠とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "身延山久遠寺",
           "hooks": [
             "日蓮宗総本山",
             "善光寺(長野)と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-6-1"
           ]
         },
         {
@@ -3251,7 +3698,8 @@
             "常盤木旅館など"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-7-2"
           ]
         },
         {
@@ -3263,7 +3711,8 @@
             "御柱と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-6-3"
           ]
         },
         {
@@ -3316,7 +3765,8 @@
             "御開帳"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-6-1"
           ]
         },
         {
@@ -3328,7 +3778,8 @@
             "湯田中付近"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-8-5"
           ]
         },
         {
@@ -3340,7 +3791,8 @@
             "妻籠とセット"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-8-1"
           ]
         },
         {
@@ -3353,7 +3805,8 @@
             "御柱と同県設問"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-69-3"
           ]
         },
         {
@@ -3401,7 +3854,19 @@
           ],
           "sources": [
             "curated",
-            "2023-jitsumu-6-3"
+            "2023-jitsumu-6-3",
+            "2025-jitsumu-65"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "渋の地獄谷噴泉",
+          "hooks": [
+            "山ノ内",
+            "地獄谷野猿公苑寄り"
+          ],
+          "sources": [
+            "curated"
           ]
         },
         {
@@ -3469,7 +3934,8 @@
             "和倉・花嫁のれんと県違いひっかけ"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-5-9"
           ]
         },
         {
@@ -3522,7 +3988,8 @@
           ],
           "sources": [
             "curated",
-            "2021-jitsumu-9-4"
+            "2021-jitsumu-9-4",
+            "2024-jitsumu-69-3"
           ]
         },
         {
@@ -3561,7 +4028,8 @@
             "御母衣ダム"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-8-2"
           ]
         },
         {
@@ -3594,8 +4062,18 @@
             "郡上おどり"
           ],
           "sources": [
-            "curated",
-            "2021-jitsumu-9-4"
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "郡上八幡北町",
+          "hooks": [
+            "郡上八幡",
+            "重要伝統的建造物群"
+          ],
+          "sources": [
+            "curated"
           ]
         },
         {
@@ -3603,6 +4081,19 @@
           "label": "養老",
           "hooks": [
             "白浜・道成寺(和歌山)とクロスひっかけ"
+          ],
+          "sources": [
+            "curated",
+            "2022-jitsumu-10-1"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "養老の滝",
+          "hooks": [
+            "養老",
+            "岐阜",
+            "白浜とクロス注意"
           ],
           "sources": [
             "curated",
@@ -3674,7 +4165,9 @@
             "御柱(長野)と隣接県ひっかけ"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-6-3",
+            "2024-jitsumu-69-3"
           ]
         },
         {
@@ -3760,7 +4253,8 @@
             "走湯山"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-6-2"
           ]
         },
         {
@@ -3771,7 +4265,8 @@
             "利島・猿島と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-5-5"
           ]
         },
         {
@@ -3780,6 +4275,17 @@
           "hooks": [
             "静岡・清水",
             "久能山・三保を望む"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "浄蓮の滝",
+          "hooks": [
+            "伊豆",
+            "修善寺寄り"
           ],
           "sources": [
             "curated"
@@ -3805,7 +4311,8 @@
             "石廊崎とセット"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-8-3"
           ]
         },
         {
@@ -3816,7 +4323,8 @@
             "岩宿と対比"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-68"
           ]
         },
         {
@@ -3838,7 +4346,8 @@
             "富士箱根伊豆国立公園"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-10-1"
           ]
         },
         {
@@ -3907,7 +4416,8 @@
             "赤目四十八滝(三重)とクロス注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2025-jitsumu-83"
           ]
         },
         {
@@ -3923,12 +4433,22 @@
         },
         {
           "type": "place",
+          "label": "岡崎",
+          "hooks": [
+            "家康生誕地",
+            "大樹寺"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "岡崎城",
           "hooks": [
             "家康生誕",
             "大樹寺",
-            "豊川稲荷コース",
-            "家康生誕地"
+            "豊川稲荷コース"
           ],
           "sources": [
             "curated"
@@ -4000,6 +4520,17 @@
             "豊田",
             "香嵐渓",
             "山里"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "specialty",
+          "label": "ひきずり",
+          "hooks": [
+            "鶏のすき焼き風",
+            "足助と同県"
           ],
           "sources": [
             "curated"
@@ -4134,7 +4665,8 @@
             "九十九湾と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-5-6"
           ]
         },
         {
@@ -4156,7 +4688,8 @@
             "ジブリパーク(愛知)とクロス注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2025-jitsumu-83"
           ]
         },
         {
@@ -4211,7 +4744,8 @@
             "日吉大社とセット"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-9-5"
           ]
         },
         {
@@ -4258,7 +4792,8 @@
             "鮒ずし"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-6-2"
           ]
         },
         {
@@ -4270,7 +4805,8 @@
             "多賀大社とセット"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-9-5"
           ]
         },
         {
@@ -4402,7 +4938,8 @@
             "古都京都構成"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-7-2"
           ]
         },
         {
@@ -4450,7 +4987,8 @@
             "鳴門・千光寺・琴弾と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-75"
           ]
         },
         {
@@ -4474,7 +5012,8 @@
             "古都京都構成資産"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-7-1"
           ]
         },
         {
@@ -4486,7 +5025,8 @@
             "神苑"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-8-4"
           ]
         },
         {
@@ -4498,7 +5038,8 @@
             "古都京都構成"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-7-2"
           ]
         },
         {
@@ -4510,7 +5051,8 @@
             "古都京都構成"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-65"
           ]
         },
         {
@@ -4558,7 +5100,8 @@
             "保津川下り終点付近"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-67"
           ]
         },
         {
@@ -4575,11 +5118,34 @@
         },
         {
           "type": "place",
+          "label": "舞鶴湾",
+          "hooks": [
+            "舞鶴",
+            "府北部"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "萬福寺",
           "hooks": [
             "宇治",
             "黄檗宗",
             "識名園と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "萬福寺庭園",
+          "hooks": [
+            "宇治",
+            "萬福寺",
+            "黄檗宗"
           ],
           "sources": [
             "curated"
@@ -4605,7 +5171,8 @@
             "三宝院庭園"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-65"
           ]
         },
         {
@@ -4635,6 +5202,19 @@
         },
         {
           "type": "place",
+          "label": "錦市場",
+          "hooks": [
+            "京都",
+            "京の台所",
+            "錦小路"
+          ],
+          "sources": [
+            "curated",
+            "2022-jitsumu-6-6"
+          ]
+        },
+        {
+          "type": "place",
           "label": "鞍馬寺",
           "hooks": [
             "牛若丸",
@@ -4642,7 +5222,16 @@
             "貴船とセット"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-65"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "高山寺",
+          "hooks": [],
+          "sources": [
+            "2024-jitsumu-65"
           ]
         },
         {
@@ -4721,7 +5310,9 @@
             "延暦寺は滋賀だが構成"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-7-1",
+            "2023-jitsumu-7-2"
           ]
         }
       ]
@@ -4743,13 +5334,26 @@
         },
         {
           "type": "place",
+          "label": "ユニバーサル・スタジオ・ジャパン",
+          "hooks": [
+            "USJ",
+            "大阪市",
+            "天王寺公園と同府"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "今宮戎神社",
           "hooks": [
             "十日えびす",
             "住吉大社と同府"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-9-5"
           ]
         },
         {
@@ -4760,7 +5364,8 @@
             "今宮戎と同府"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2025-jitsumu-63"
           ]
         },
         {
@@ -4778,6 +5383,17 @@
           "type": "place",
           "label": "天王寺",
           "hooks": [
+            "USJと同府"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "天王寺公園",
+          "hooks": [
+            "天王寺",
             "USJと同府"
           ],
           "sources": [
@@ -4804,6 +5420,18 @@
           ],
           "sources": [
             "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "黒門市場",
+          "hooks": [
+            "大阪",
+            "錦・近江町・二条と対比"
+          ],
+          "sources": [
+            "curated",
+            "2022-jitsumu-6-6"
           ]
         },
         {
@@ -4851,11 +5479,51 @@
         },
         {
           "type": "place",
+          "label": "但馬",
+          "hooks": [],
+          "sources": [
+            "2021-jitsumu-6-2"
+          ]
+        },
+        {
+          "type": "place",
           "label": "六甲山",
           "hooks": [
             "神戸",
             "夜景",
             "有馬と同県"
+          ],
+          "sources": [
+            "curated",
+            "2024-jitsumu-77"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "北野異人館",
+          "hooks": [
+            "神戸",
+            "異人館街",
+            "城崎・天橋立コースひっかけ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "姫路城",
+          "hooks": [],
+          "sources": [
+            "2023-jitsumu-6-4"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "布引の滝",
+          "hooks": [
+            "神戸",
+            "布引渓流"
           ],
           "sources": [
             "curated"
@@ -4892,7 +5560,8 @@
             "大鳴門・明石海峡"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-5-1"
           ]
         },
         {
@@ -4903,7 +5572,7 @@
           ],
           "sources": [
             "curated",
-            "2025-jitsumu-84"
+            "2024-jitsumu-64"
           ]
         },
         {
@@ -4932,10 +5601,33 @@
         },
         {
           "type": "place",
+          "label": "神戸ハーバーランド",
+          "hooks": [
+            "神戸",
+            "門司港レトロと重文駅舎ひっかけ"
+          ],
+          "sources": [
+            "curated",
+            "2022-jitsumu-6-5"
+          ]
+        },
+        {
+          "type": "place",
           "label": "竹田城",
           "hooks": [
             "但馬",
             "有馬・淡路とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "竹田城跡",
+          "hooks": [
+            "朝来",
+            "天空の城"
           ],
           "sources": [
             "curated"
@@ -5068,6 +5760,17 @@
         },
         {
           "type": "place",
+          "label": "若草山",
+          "hooks": [
+            "奈良公園",
+            "春日大社寄り"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "薬師寺",
           "hooks": [
             "東塔",
@@ -5110,7 +5813,8 @@
             "お水送り(福井)と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-9-2"
           ]
         },
         {
@@ -5133,7 +5837,8 @@
             "出石焼と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-6-4"
           ]
         },
         {
@@ -5299,7 +6004,8 @@
             "紀伊山地の霊場と参詣道"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-5-8"
           ]
         },
         {
@@ -5323,7 +6029,8 @@
             "紀伊山地の霊場"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-77"
           ]
         },
         {
@@ -5333,6 +6040,17 @@
             "那智勝浦",
             "マグロ",
             "南紀"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "onsen",
+          "label": "白浜温泉",
+          "hooks": [
+            "南紀白浜",
+            "三段壁・アドベンチャーワールド"
           ],
           "sources": [
             "curated"
@@ -5414,7 +6132,9 @@
             "東郷湖周辺ではない"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-6-1",
+            "2025-jitsumu-82"
           ]
         },
         {
@@ -5425,7 +6145,8 @@
             "弓ヶ浜・美保湾"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-80"
           ]
         },
         {
@@ -5447,6 +6168,17 @@
       "name": "島根県",
       "region": "中国",
       "facts": [
+        {
+          "type": "place",
+          "label": "三瓶山",
+          "hooks": [
+            "大田",
+            "火山"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
         {
           "type": "place",
           "label": "出雲大社",
@@ -5492,7 +6224,16 @@
             "千鳥城から望む"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-6-5"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "松江城",
+          "hooks": [],
+          "sources": [
+            "2023-jitsumu-6-5"
           ]
         },
         {
@@ -5538,7 +6279,9 @@
             "出雲―宍道湖―皆生コース"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-5-7",
+            "2024-jitsumu-80"
           ]
         },
         {
@@ -5553,6 +6296,18 @@
           ]
         },
         {
+          "type": "place",
+          "label": "隠岐諸島",
+          "hooks": [
+            "隠岐",
+            "島前・島後",
+            "世界ジオパーク"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
           "type": "onsen",
           "label": "有福温泉",
           "hooks": [
@@ -5561,7 +6316,8 @@
             "温泉津と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-9-4"
           ]
         },
         {
@@ -5572,7 +6328,8 @@
             "出雲大社と同県"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-6-1"
           ]
         },
         {
@@ -5594,7 +6351,8 @@
             "三朝温泉(鳥取)とクロス注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2025-jitsumu-82"
           ]
         },
         {
@@ -5617,7 +6375,8 @@
             "熊谷家住宅・羅漢寺五百羅漢は構成"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-7-1"
           ]
         }
       ]
@@ -5660,7 +6419,9 @@
             "大塚国際・足立・地中と対比"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-5-7",
+            "2024-jitsumu-80"
           ]
         },
         {
@@ -5682,6 +6443,14 @@
           ],
           "sources": [
             "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "湯郷",
+          "hooks": [],
+          "sources": [
+            "2023-jitsumu-5-3"
           ]
         },
         {
@@ -5729,7 +6498,8 @@
           ],
           "sources": [
             "curated",
-            "2021-jitsumu-9-1"
+            "2021-jitsumu-9-1",
+            "2024-jitsumu-62"
           ]
         },
         {
@@ -5761,7 +6531,9 @@
             "岡山の代表行事"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-6-3",
+            "2024-jitsumu-69-3"
           ]
         },
         {
@@ -5772,7 +6544,9 @@
             "烏城と同県"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-6-2",
+            "2024-jitsumu-69-4"
           ]
         },
         {
@@ -5802,7 +6576,8 @@
             "琴弾・傘松・鳴門公園と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-75"
           ]
         },
         {
@@ -5836,7 +6611,8 @@
             "かきめしと同県設問"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-6-6"
           ]
         },
         {
@@ -5870,7 +6646,8 @@
             "湯来温泉・鞆の浦と同県"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-63"
           ]
         },
         {
@@ -6003,7 +6780,8 @@
             "防府天満宮コース"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-67"
           ]
         },
         {
@@ -6013,6 +6791,17 @@
             "下関〜門司",
             "関門海峡",
             "西海橋・瀬戸大橋と混同注意"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "防予諸島",
+          "hooks": [
+            "山口〜愛媛",
+            "周防・伊予"
           ],
           "sources": [
             "curated"
@@ -6097,7 +6886,8 @@
             "陶板名画"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-80"
           ]
         },
         {
@@ -6142,7 +6932,8 @@
             "祖谷そばと同県設問"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-69-4"
           ]
         },
         {
@@ -6178,7 +6969,8 @@
             "琴弾・傘松と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-75"
           ]
         },
         {
@@ -6209,7 +7001,8 @@
             "脇町と同県"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-69-4"
           ]
         }
       ]
@@ -6252,7 +7045,8 @@
             "大塚国際・大原・足立と対比"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-80"
           ]
         },
         {
@@ -6311,7 +7105,8 @@
             "松山〜金刀比羅コース"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-75"
           ]
         },
         {
@@ -6399,7 +7194,8 @@
             "臥龍山荘"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-8-5"
           ]
         },
         {
@@ -6457,7 +7253,8 @@
             "宮之浦岳と対比"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-62"
           ]
         },
         {
@@ -6469,7 +7266,8 @@
             "面河山岳博物館"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-6-6"
           ]
         },
         {
@@ -6482,7 +7280,8 @@
             "別府と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-7-2"
           ]
         },
         {
@@ -6504,7 +7303,8 @@
             "砥部焼と同県"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-69-4"
           ]
         },
         {
@@ -6565,7 +7365,8 @@
             "大村湾・中城湾と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-78"
           ]
         },
         {
@@ -6576,7 +7377,8 @@
             "高知市"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-6-5"
           ]
         },
         {
@@ -6588,7 +7390,8 @@
             "足摺岬寄り"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-8-3"
           ]
         },
         {
@@ -6633,7 +7436,8 @@
             "室戸岬と同県"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-69-4"
           ]
         }
       ]
@@ -6713,6 +7517,18 @@
         },
         {
           "type": "place",
+          "label": "秋月",
+          "hooks": [
+            "朝倉",
+            "秋月藩",
+            "がめ煮と同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "門司港レトロ",
           "hooks": [
             "関門海峡",
@@ -6729,7 +7545,8 @@
             "日田(大分)と同県ひっかけ注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-69-2"
           ]
         },
         {
@@ -6751,7 +7568,8 @@
             "柳川と同県"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-7-4"
           ]
         },
         {
@@ -6798,9 +7616,42 @@
         },
         {
           "type": "place",
+          "label": "嬉野市塩田津",
+          "hooks": [
+            "重要伝統的建造物群",
+            "嬉野温泉寄り"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "祐徳稲荷",
           "hooks": [
             "嬉野・吉野ヶ里とセット"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "祐徳稲荷神社",
+          "hooks": [
+            "鹿島",
+            "日本三大稲荷級"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "虹の松原",
+          "hooks": [
+            "唐津",
+            "日本三大松原"
           ],
           "sources": [
             "curated"
@@ -6823,7 +7674,8 @@
             "唐津くんちとセット"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-9-4"
           ]
         },
         {
@@ -6833,7 +7685,8 @@
             "武雄温泉とセット"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-7-4"
           ]
         },
         {
@@ -6854,6 +7707,17 @@
             "伊万里",
             "磁器",
             "玉取祭(福岡)と県違いひっかけ"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "heritage",
+          "label": "吉野ヶ里遺跡",
+          "hooks": [
+            "神埼・吉野ヶ里",
+            "弥生"
           ],
           "sources": [
             "curated"
@@ -6903,6 +7767,25 @@
         },
         {
           "type": "place",
+          "label": "大村湾",
+          "hooks": [],
+          "sources": [
+            "2024-jitsumu-78"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "対馬",
+          "hooks": [
+            "対馬市",
+            "国境の島"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "松浦史料博物館",
           "hooks": [
             "平戸",
@@ -6930,12 +7813,10 @@
           "hooks": [
             "針尾瀬戸",
             "佐世保〜西彼杵",
-            "重要文化財",
-            "長崎・針尾瀬戸のうず潮"
+            "重要文化財"
           ],
           "sources": [
-            "curated",
-            "2025-jitsumu-64"
+            "curated"
           ]
         },
         {
@@ -6960,7 +7841,8 @@
             "鉄輪・別府(大分)と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-69-2"
           ]
         },
         {
@@ -7017,7 +7899,8 @@
             "天草=熊本と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-7-2"
           ]
         },
         {
@@ -7092,19 +7975,8 @@
             "植木"
           ],
           "sources": [
-            "curated"
-          ]
-        },
-        {
-          "type": "place",
-          "label": "知覧",
-          "hooks": [
-            "南九州市",
-            "武家屋敷",
-            "特攻平和会館"
-          ],
-          "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-76"
           ]
         },
         {
@@ -7113,8 +7985,7 @@
           "hooks": [
             "放水",
             "国宝",
-            "高千穂ルート",
-            "熊本・放水・国宝"
+            "高千穂ルート"
           ],
           "sources": [
             "curated",
@@ -7141,7 +8012,8 @@
             "黒川と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-9-4"
           ]
         },
         {
@@ -7164,7 +8036,8 @@
             "黒川と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-9-1"
           ]
         },
         {
@@ -7187,7 +8060,8 @@
             "千人灯籠踊り"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-6-3"
           ]
         },
         {
@@ -7218,7 +8092,8 @@
             "奥平"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-6-1"
           ]
         },
         {
@@ -7229,7 +8104,8 @@
             "誤肢になりやすい"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-8-5"
           ]
         },
         {
@@ -7241,7 +8117,9 @@
             "太宰府と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-5-2",
+            "2022-jitsumu-6-2"
           ]
         },
         {
@@ -7266,7 +8144,16 @@
           ],
           "sources": [
             "curated",
-            "2022-jitsumu-10-3"
+            "2022-jitsumu-10-3",
+            "2024-jitsumu-69-2"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "杵築市",
+          "hooks": [],
+          "sources": [
+            "2021-jitsumu-5-6"
           ]
         },
         {
@@ -7300,7 +8187,16 @@
             "日田と同県"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-69-2"
+          ]
+        },
+        {
+          "type": "festival",
+          "label": "天領日田おひなまつり",
+          "hooks": [],
+          "sources": [
+            "2022-jitsumu-10-3"
           ]
         },
         {
@@ -7328,7 +8224,8 @@
             "フェニックス"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-5-7"
           ]
         },
         {
@@ -7340,6 +8237,19 @@
           "sources": [
             "curated",
             "2021-jitsumu-9-1"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "西都原古墳群",
+          "hooks": [
+            "西都",
+            "古墳"
+          ],
+          "sources": [
+            "curated",
+            "2021-jitsumu-9-1",
+            "2024-jitsumu-68"
           ]
         },
         {
@@ -7383,7 +8293,9 @@
             "おがま岩"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2023-jitsumu-8-4",
+            "2025-jitsumu-63"
           ]
         }
       ]
@@ -7411,7 +8323,9 @@
             "桜島展望"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-63",
+            "2025-jitsumu-79"
           ]
         },
         {
@@ -7423,7 +8337,20 @@
             "砂の祭典"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2021-jitsumu-5-7"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "宮之浦岳",
+          "hooks": [
+            "屋久島",
+            "世界遺産"
+          ],
+          "sources": [
+            "curated",
+            "2021-jitsumu-9-1"
           ]
         },
         {
@@ -7450,6 +8377,19 @@
         },
         {
           "type": "place",
+          "label": "知覧",
+          "hooks": [
+            "南九州市",
+            "武家屋敷",
+            "特攻平和会館",
+            "かるかんと同県"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "霧島神宮",
           "hooks": [
             "指宿・与論とセット"
@@ -7465,7 +8405,8 @@
             "与論・霧島神宮とセット"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2022-jitsumu-9-4"
           ]
         },
         {
@@ -7477,7 +8418,8 @@
             "指宿と混同注意"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-69-2"
           ]
         },
         {
@@ -7560,11 +8502,35 @@
       "facts": [
         {
           "type": "place",
+          "label": "コザ",
+          "hooks": [
+            "沖縄市",
+            "本島中部"
+          ],
+          "sources": [
+            "curated",
+            "2023-jitsumu-5-4"
+          ]
+        },
+        {
+          "type": "place",
           "label": "マリュドゥ滝",
           "hooks": [
             "西表",
             "亜熱帯",
             "ピナイサーラとセット級"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "マリユドゥの滝",
+          "hooks": [
+            "西表",
+            "マリュドゥ滝",
+            "亜熱帯"
           ],
           "sources": [
             "curated"
@@ -7617,6 +8583,17 @@
         },
         {
           "type": "place",
+          "label": "恩納村",
+          "hooks": [
+            "本島中部",
+            "リゾート"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
           "label": "玉泉洞",
           "hooks": [
             "南城",
@@ -7624,7 +8601,8 @@
             "鍾乳洞"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2024-jitsumu-64"
           ]
         },
         {
@@ -7658,6 +8636,17 @@
             "国頭",
             "本島最北端級",
             "喜屋武岬と対比"
+          ],
+          "sources": [
+            "curated"
+          ]
+        },
+        {
+          "type": "place",
+          "label": "那覇",
+          "hooks": [
+            "本島南部",
+            "首里・識名園"
           ],
           "sources": [
             "curated"
@@ -7786,7 +8775,8 @@
             "グスク遺産構成"
           ],
           "sources": [
-            "curated"
+            "curated",
+            "2025-jitsumu-79"
           ]
         },
         {
