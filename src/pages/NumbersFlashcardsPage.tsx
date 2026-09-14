@@ -185,7 +185,7 @@ export function NumbersFlashcardsPage() {
           数字フラッシュカード
         </h1>
         <p className="mt-2 text-sm leading-relaxed text-muted">
-          表面のテーマを見て数字・期限を思い出し、裏面で確認します。「もう一度」で苦手を繰り返せます（観光地理カードとは別データです）。
+          表面のテーマを見て数字・期限を思い出し、裏面で確認します。「もう一度」で苦手を繰り返せます(観光地理カードとは別データです)。
         </p>
       </header>
 
@@ -289,7 +289,7 @@ export function NumbersFlashcardsPage() {
                   {current.title}
                 </p>
                 <p className="mt-4 text-sm text-muted">
-                  関連する数字・期限は？
+                  関連する数字・期限は?
                 </p>
               </div>
             ) : (

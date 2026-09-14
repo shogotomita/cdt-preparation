@@ -58,7 +58,7 @@ export function latestAttempt(qp: QuestionProgress | undefined) {
 
 /**
  * 直近1回の解答に基づく年度×科目の正答率。
- * 分母は科目の全問数（未解答は不正解扱い）。解答0件のとき rate は null。
+ * 分母は科目の全問数(未解答は不正解扱い)。解答0件のとき rate は null。
  */
 export function calcSubjectAccuracy(
   store: ProgressStore,
@@ -105,7 +105,7 @@ export function calcQueueSessionStats(
   return { correct, answered, total: questions.length }
 }
 
-/** 累計（全試行）の正答率 */
+/** 累計(全試行)の正答率 */
 export function calcSubjectCumulativeAccuracy(
   store: ProgressStore,
   year: string,

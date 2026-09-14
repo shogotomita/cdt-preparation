@@ -171,9 +171,9 @@ export function NumbersPage() {
               数字暗記ドリル
             </h1>
             <p className="mt-2 text-sm leading-relaxed text-muted">
-              過去問解説から整理した登録期限・補償額・JR／ANA運賃ルールなど（
+              過去問解説から整理した登録期限・補償額・JR/ANA運賃ルールなど(
               {data.items.length}
-              項目）。カテゴリを選んで集中暗記、科目・検索で横断復習できます。
+              項目)。カテゴリを選んで集中暗記、科目・検索で横断復習できます。
             </p>
           </div>
           <Link
@@ -190,7 +190,7 @@ export function NumbersPage() {
           type="search"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="キーワード（例: 15％、30日、SUPER VALUE）"
+          placeholder="キーワード(例: 15%、30日、SUPER VALUE)"
           className="w-full rounded-xl border border-gray-300 bg-white px-3 py-2.5 text-sm outline-none ring-brand focus:ring-2"
         />
         <div className="flex flex-wrap gap-1.5">
@@ -213,7 +213,7 @@ export function NumbersPage() {
       <div className="grid gap-4 lg:grid-cols-[240px_1fr]">
         <aside className="max-h-[70vh] overflow-y-auto rounded-2xl border border-gray-200 bg-white p-2 lg:max-h-[calc(100dvh-12rem)]">
           <p className="px-2 py-1.5 text-xs font-semibold text-muted">
-            カテゴリ（{filteredCategories.length}）
+            カテゴリ({filteredCategories.length})
           </p>
           <ul className="flex flex-col gap-0.5">
             {filteredCategories.map((c) => {
