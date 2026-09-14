@@ -374,3 +374,14 @@
 - 原因: 小問②以降が参照文のみで、行程・注・資料が欠落
 - 対象: 2021-2(2)②、2022-1(2)② / 4(2)②③ / 4(3)② / 5(2)
 - UI: `src/lib/sharedStem.ts` + QuizPage。データも自己完結に修正
+
+## Progress(地理カード・過去問網羅の穴埋め)
+- [x] 抽出強化: 市→県マップ、`正解/不正解。地名。`、geoフィルタに市場等、JR問除外
+- [x] curated: 市場4・潮来・ひきずり・西沢渓谷等 + 知覧を鹿児島へ修正
+- [x] `scripts/check_geography_coverage.py`(hooksのみ不合格)
+- [x] `geography.json` 再生成・coverage OK・`npm run build`
+
+## Review(地理カード・過去問網羅の穴埋め)
+- 原因: 抽出が `名称(県)`/`名称=県` のみ＋サフィックス検証の過信。市場は市名解説で全滅、潮来は hooks 留め
+- facts ≈798。近江町/黒門/錦/二条市場・潮来を独立 CARD 化
+- 検証: `python3 scripts/check_geography_coverage.py` OK、`npm run build` OK
