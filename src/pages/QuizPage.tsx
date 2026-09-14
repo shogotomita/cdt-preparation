@@ -15,6 +15,7 @@ import { ResultBanner } from '../components/ResultBanner'
 import { useApp } from '../context/AppContext'
 import { fetchQuestions, findYear, publicUrl, subjectFile } from '../lib/data'
 import { formatStem } from '../lib/formatStem'
+import { resolveSharedStem } from '../lib/sharedStem'
 import {
   calcQueueSessionStats,
   getUnansweredOrWrongIds,
@@ -50,9 +51,15 @@ function renderRichText(text: string) {
   return nodes
 }
 
-function QuestionStem({ question }: { question: Question }) {
+function QuestionStem({
+  question,
+  questionBank,
+}: {
+  question: Question
+  questionBank: Question[]
+}) {
   const images = question.images ?? []
-  const stem = formatStem(question.stem)
+  const stem = formatStem(resolveSharedStem(question, questionBank))
   const parts = stem.split(IMAGE_MARKER)
   const hasMarker = parts.length > 1
 
@@ -111,6 +118,7 @@ export function QuizPage() {
   const navigate = useNavigate()
   const { index, progress, record } = useApp()
 
+  const [questionBank, setQuestionBank] = useState<Question[]>([])
   const [allQuestions, setAllQuestions] = useState<Question[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -150,6 +158,7 @@ export function QuizPage() {
 
         const qId = searchParams.get('q')
         const restored = qId ? queue.findIndex((q) => q.id === qId) : -1
+        setQuestionBank(qs)
         setAllQuestions(queue)
         setIndexQ(restored >= 0 ? restored : 0)
         setLoading(false)
@@ -315,7 +324,7 @@ export function QuizPage() {
 
               {submitted && <ResultBanner isCorrect={isCorrect} />}
 
-              <QuestionStem question={question} />
+              <QuestionStem question={question} questionBank={questionBank} />
               {multi && !submitted && (
                 <p className="mb-6 -mt-2 text-xs text-muted">
                   ※ 当てはまるものをすべて選択
