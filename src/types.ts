@@ -6,22 +6,22 @@ export interface Choice {
   key: ChoiceKey
   text: string
   explanation: string
-  /** 選択肢内の図。public 配下のパス（表示時に BASE_URL を付与）。例: "/images/2023/jitsumu/3-1-a.png" */
+  /** 選択肢内の図。public 配下のパス(表示時に BASE_URL を付与)。例: "/images/2023/jitsumu/3-1-a.png" */
   image?: string
 }
 
 export interface Question {
   id: string
   number: number
-  /** 目次・見出し用。未指定時は number を表示（例: 問70①） */
+  /** 目次・見出し用。未指定時は number を表示(例: 問70①) */
   displayNumber?: string
   year: string
   subject: SubjectId
   stem: string
-  /** public 配下のパス（表示時に BASE_URL を付与）。例: "/images/2025/jitsumu/q51-1.webp" */
+  /** public 配下のパス(表示時に BASE_URL を付与)。例: "/images/2025/jitsumu/q51-1.webp" */
   images?: string[]
   choices: Choice[]
-  /** 正解の選択肢（複数可。「すべて選びなさい」は2つ以上） */
+  /** 正解の選択肢(複数可。「すべて選びなさい」は2つ以上) */
   correctKeys: ChoiceKey[]
   overallExplanation: string
 }

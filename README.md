@@ -1,6 +1,6 @@
 # 国内旅行業務取扱管理者 過去問学習
 
-年度 × 科目（旅行業法 / 約款 / 実務）ごとに過去問を演習し、正答率をブラウザに保存する学習アプリです。各科目 **60%** 以上を目指せます。
+年度 × 科目(旅行業法 / 約款 / 実務)ごとに過去問を演習し、正答率をブラウザに保存する学習アプリです。各科目 **60%** 以上を目指せます。
 
 ## 使い方
 
@@ -13,9 +13,9 @@ npm run dev
 
 ## 問題データの追加
 
-1. `public/data/questions/_template.json`（または `sample-*.json`）をコピーして、例: `public/data/questions/2024-hou.json` を作成
+1. `public/data/questions/_template.json`(または `sample-*.json`)をコピーして、例: `public/data/questions/2024-hou.json` を作成
 2. 問題・選択肢・正解・解説を記入
-3. `public/data/index.json` に年度・科目を登録（`sample-*.json` は参考用のため index には載せない）
+3. `public/data/index.json` に年度・科目を登録(`sample-*.json` は参考用のため index には載せない)
 
 ```json
 {
@@ -74,18 +74,18 @@ npm run dev
 }
 ```
 
-- `images`（任意）: 問題文中に表示する図。パスは `public` 配下をルートにした絶対パス（例: `/images/2025/jitsumu/q51.png`）。表示時に Vite の `base` を付与するので GitHub Pages のサブパスでも解決する
-- 問題文 `stem` 内の `<図>` の位置に画像を差し込む（`tmp.md` の `<図>` と同じ）。マーカーが無い場合は問題文の直後に表示する
-- 下線付き箇所は `stem` 内で `<u>文言</u>` と書く（例: `（ａ）<u>保津峡</u>`）
-- 生スクショは `raw/<年度>-<科目>/` に置き（gitignore 済み）、図部分だけを `public/images/...` に切り出して参照する
+- `images`(任意): 問題文中に表示する図。パスは `public` 配下をルートにした絶対パス(例: `/images/2025/jitsumu/q51.png`)。表示時に Vite の `base` を付与するので GitHub Pages のサブパスでも解決する
+- 問題文 `stem` 内の `<図>` の位置に画像を差し込む(`tmp.md` の `<図>` と同じ)。マーカーが無い場合は問題文の直後に表示する
+- 下線付き箇所は `stem` 内で `<u>文言</u>` と書く(例: `(a)<u>保津峡</u>`)
+- 生スクショは `raw/<年度>-<科目>/` に置き(gitignore 済み)、図部分だけを `public/images/...` に切り出して参照する
 
 解説の書き方・品質基準は [docs/explanation-guidelines.md](docs/explanation-guidelines.md) を参照してください。
 
 ## 正答率
 
-- ブラウザの `localStorage` に保存（端末・ブラウザごと）
-- **年度 × 科目** 単位で集計（直近の解答ベース）
-- ホームと結果画面に合格ライン（60%）を表示
+- ブラウザの `localStorage` に保存(端末・ブラウザごと)
+- **年度 × 科目** 単位で集計(直近の解答ベース)
+- ホームと結果画面に合格ライン(60%)を表示
 - 「苦手だけ」モードで不正解・未解答を優先復習
 
 ## GitHub Pages への公開

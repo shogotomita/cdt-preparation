@@ -7,7 +7,7 @@ import type {
   YearMeta,
 } from '../types'
 
-/** public 配下のパスを Vite `base` 付き URL にする（GitHub Pages のサブパス対応） */
+/** public 配下のパスを Vite `base` 付き URL にする(GitHub Pages のサブパス対応) */
 export function publicUrl(path: string): string {
   if (/^https?:\/\//.test(path)) return path
   const base = import.meta.env.BASE_URL

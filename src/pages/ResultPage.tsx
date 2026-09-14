@@ -96,9 +96,9 @@ export function ResultPage() {
             {session.answered != null &&
             session.total != null &&
             session.answered < session.total
-              ? `（解答 ${session.answered} / ${session.total} 問）`
+              ? `(解答 ${session.answered} / ${session.total} 問)`
               : session.total
-                ? `（全 ${session.total} 問）`
+                ? `(全 ${session.total} 問)`
                 : ''}
           </p>
         </div>
@@ -106,7 +106,7 @@ export function ResultPage() {
 
       <div className="mb-6 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
         <h2 className="mb-3 text-base font-bold text-gray-900">
-          この科目の正答率（直近の解答）
+          この科目の正答率(直近の解答)
         </h2>
         <AccuracyBar
           rate={stats.rate}
@@ -126,8 +126,8 @@ export function ResultPage() {
           {stats.rate === null
             ? 'まだ解答がありません'
             : passed
-              ? `合格ライン（${threshold}%）をクリアしています`
-              : `合格ライン（${threshold}%）まであと ${threshold - (stats.rate ?? 0)} ポイント`}
+              ? `合格ライン(${threshold}%)をクリアしています`
+              : `合格ライン(${threshold}%)まであと ${threshold - (stats.rate ?? 0)} ポイント`}
         </p>
       </div>
 
@@ -159,7 +159,7 @@ export function ResultPage() {
         {confirmReset ? (
           <div className="rounded-lg border border-incorrect-border bg-incorrect-bg/40 p-4">
             <p className="text-sm font-medium text-gray-800">
-              この科目の学習記録をリセットしますか？（他の科目・年度には影響しません）
+              この科目の学習記録をリセットしますか?(他の科目・年度には影響しません)
             </p>
             <div className="mt-3 flex gap-2">
               <button

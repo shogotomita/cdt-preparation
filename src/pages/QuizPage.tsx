@@ -26,7 +26,7 @@ import type { ChoiceKey, Question, SubjectId } from '../types'
 
 const IMAGE_MARKER = '<図>'
 
-/** stem 内の <u>...</u> を下線付きで描画（他タグはテキストのまま） */
+/** stem 内の <u>...</u> を下線付きで描画(他タグはテキストのまま) */
 function renderRichText(text: string) {
   const nodes: ReactNode[] = []
   const re = /<u>(.*?)<\/u>/gs
@@ -182,7 +182,7 @@ export function QuizPage() {
     setSearchParams(next, { replace: true })
   }, [question, searchParams, setSearchParams])
 
-  // 問題切替時: 保存済みの直近解答があれば復元（結果画面で手動リセットするまで保持）
+  // 問題切替時: 保存済みの直近解答があれば復元(結果画面で手動リセットするまで保持)
   useEffect(() => {
     if (!question) return
     const latest = latestAttempt(

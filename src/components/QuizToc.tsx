@@ -121,7 +121,7 @@ function TocButton({
         className={`h-1.5 w-1.5 shrink-0 rounded-full ${statusDot}`}
       />
       <span>{label}</span>
-      {active && <span className="sr-only">（表示中）</span>}
+      {active && <span className="sr-only">(表示中)</span>}
     </button>
   )
 }

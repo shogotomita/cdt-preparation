@@ -204,9 +204,9 @@ export function GeographyPage() {
               観光地理ドリル
             </h1>
             <p className="mt-2 text-sm leading-relaxed text-muted">
-              過去問解説から整理した都道府県別の名所・温泉・祭り・特産など（
+              過去問解説から整理した都道府県別の名所・温泉・祭り・特産など(
               {totalFacts}
-              項目）。県を選んで集中暗記、種別・検索で横断復習できます。
+              項目)。県を選んで集中暗記、種別・検索で横断復習できます。
             </p>
           </div>
           <Link
@@ -223,7 +223,7 @@ export function GeographyPage() {
           type="search"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="キーワード（例: 御柱、三朝、千枚漬）"
+          placeholder="キーワード(例: 御柱、三朝、千枚漬)"
           className="w-full rounded-xl border border-gray-300 bg-white px-3 py-2.5 text-sm outline-none ring-brand focus:ring-2"
         />
         <div className="flex flex-wrap gap-1.5">
@@ -261,7 +261,7 @@ export function GeographyPage() {
       <div className="grid gap-4 lg:grid-cols-[240px_1fr]">
         <aside className="max-h-[70vh] overflow-y-auto rounded-2xl border border-gray-200 bg-white p-2 lg:max-h-[calc(100dvh-12rem)]">
           <p className="px-2 py-1.5 text-xs font-semibold text-muted">
-            都道府県（{filteredPrefs.length}）
+            都道府県({filteredPrefs.length})
           </p>
           <ul className="flex flex-col gap-0.5">
             {filteredPrefs.map((p) => {

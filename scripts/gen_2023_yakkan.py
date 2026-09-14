@@ -53,7 +53,7 @@ def ocr_fix(raw: str) -> str:
     # Garbled 募集型 at Q1: "1 集型" → "1 募集型" (keep question number)
     s = s.replace("1 集型", "1 募集型")
     # Unify dash in article titles
-    s = s.replace("−", "－")
+    s = s.replace("−", "-")
     # Inpatient-days digit in Q17-b (OCR often drops it; official text is 7日間)
     s = re.sub(r"傷害による\s*日間の入院", "傷害による7日間の入院", s)
     s = s.replace("傷害による○日間の入院", "傷害による7日間の入院")
@@ -69,14 +69,14 @@ def ocr_fix(raw: str) -> str:
 
 
 def soft_join(text: str) -> str:
-    """Join mid-sentence line wraps; keep breaks before ａ–ｄ / （注 / ア–エ."""
+    """Join mid-sentence line wraps; keep breaks before a–d / (注 / ア–エ."""
     lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
     if not lines:
         return ""
     result = lines[0]
     for ln in lines[1:]:
-        if re.match(r"^[ａｂｃｄ][.．]", ln) or re.match(r"^（注", ln) or re.match(
-            r"^[ア-エ][.．]", ln
+        if re.match(r"^[abcd]\.", ln) or re.match(r"^\(注", ln) or re.match(
+            r"^[ア-エ]\.", ln
         ):
             result += "\n" + ln
         else:
@@ -88,13 +88,13 @@ def parse_choices(body: str) -> list[dict]:
     """Extract ア–エ choice bodies (no leading ア. prefix)."""
     joined = soft_join(body)
     choices: dict[str, str] = {}
-    for m in re.finditer(r"([ア-エ])[.．]\s*(.*?)(?=(?:[ア-エ][.．])|$)", joined, re.S):
+    for m in re.finditer(r"([ア-エ])\.\s*(.*?)(?=(?:[ア-エ]\.)|$)", joined, re.S):
         key = KEY[m.group(1)]
         text = soft_join(m.group(2))
         text = re.sub(r"[ \t]+", "", text.strip())
-        # Combo answers like "ａ，ｄ"
-        if re.fullmatch(r"[ａｂｃｄ，、]+", text):
-            text = text.replace("、", "，")
+        # Combo answers like "a,d"
+        if re.fullmatch(r"[abcd,、]+", text):
+            text = text.replace("、", ",")
         choices[key] = text
     if len(choices) != 4:
         raise ValueError(f"expected 4 choices, got {sorted(choices)} in: {joined[:120]!r}")
@@ -105,13 +105,13 @@ def parse_choices(body: str) -> list[dict]:
 
 
 def split_stem_and_choice_body(block: str) -> tuple[str, str]:
-    """Split question block into stem (incl. ａ–ｄ) and raw choice region."""
+    """Split question block into stem (incl. a–d) and raw choice region."""
     joined = soft_join(block)
     # First ア. that starts the A–D options (not mid-word)
-    m = re.search(r"(?:^|\n)(ア[.．])", joined)
+    m = re.search(r"(?:^|\n)(ア\.)", joined)
     if not m:
-        # Combo line may start mid-flow after ｄ item without newline
-        m = re.search(r"(ア[.．]\s*[ａｂｃｄ])", joined)
+        # Combo line may start mid-flow after d item without newline
+        m = re.search(r"(ア\.\s*[abcd])", joined)
         if m:
             idx = m.start()
             stem = joined[:idx].strip()
@@ -125,15 +125,15 @@ def split_stem_and_choice_body(block: str) -> tuple[str, str]:
 
 
 def normalize_stem(stem: str) -> str:
-    """Final stem cleanup; keep newlines before ａ–ｄ and notes."""
+    """Final stem cleanup; keep newlines before a–d and notes."""
     stem = soft_join(stem)
     parts: list[str] = []
     for chunk in stem.split("\n"):
         chunk = re.sub(r"[ \t]+", "", chunk.strip())
         if not chunk:
             continue
-        # Restore conventional space after ａ.–ｄ. markers
-        chunk = re.sub(r"^([ａｂｃｄ])[.．]", r"\1. ", chunk)
+        # Restore conventional space after a.–d. markers
+        chunk = re.sub(r"^([abcd])\.", r"\1. ", chunk)
         parts.append(chunk)
     return "\n".join(parts)
 

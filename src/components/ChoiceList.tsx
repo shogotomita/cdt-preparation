@@ -137,7 +137,7 @@ export function ChoiceList({
               )}
               {submitted && isSelected && !isCorrectChoice && (
                 <p className="mb-1 text-xs font-semibold text-incorrect">
-                  あなたの回答（不正解）
+                  あなたの回答(不正解)
                 </p>
               )}
               <div className="flex items-start gap-3">
@@ -160,7 +160,7 @@ export function ChoiceList({
                         解説
                       </p>
                       <p className="text-sm leading-relaxed text-gray-700 whitespace-pre-wrap">
-                        {choice.explanation || '（未記入）'}
+                        {choice.explanation || '(未記入)'}
                       </p>
                     </div>
                   )}

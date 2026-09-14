@@ -14,21 +14,21 @@ DATA = ROOT / "public" / "data" / "questions"
 def format_stem(stem: str) -> str:
     if not stem:
         return stem
-    s = stem.replace("＜図＞", "<図>")
-    s = re.sub(r"(選びなさい[。．])(?!\n)", r"\1\n\n", s)
-    s = re.sub(r"(?<!\n)(?=[（(]注[0-9一二三四五六七八九十]*[）)])", "\n", s)
-    s = re.sub(r"(?<!\n)(?=[＜<](?:行程|資料|図)[＞>])", "\n\n", s)
-    s = re.sub(r"([＜<](?:行程|資料|図)[＞>])(?!\n)", r"\1\n", s)
+    s = stem
+    s = re.sub(r"(選びなさい[。.])(?!\n)", r"\1\n\n", s)
+    s = re.sub(r"(?<!\n)(?=\(注[0-9一二三四五六七八九十]*\))", "\n", s)
+    s = re.sub(r"(?<!\n)(?=<(?:行程|資料|図)>)", "\n\n", s)
+    s = re.sub(r"(<(?:行程|資料|図)>)(?!\n)", r"\1\n", s)
     s = re.sub(r"(?<!\n)(?=<図>)", "\n\n", s)
     s = re.sub(r"(<図>)(?!\n)", r"\1\n", s)
-    s = re.sub(r"(?<=[。．＞>])(?=[①-⑩])", "\n", s)
+    s = re.sub(r"(?<=[。.>])(?=[①-⑩])", "\n", s)
     s = re.sub(
         r"(?<!\n)(?=・(?:[0-9一二三四五六七八九十]+日|[12]日にわたる))",
         "\n",
         s,
     )
     s = re.sub(r"(?<!\n)(?=●)", "\n\n", s)
-    if re.search(r"[＜<]資料[＞>]|●", s):
+    if re.search(r"<資料>|●", s):
         for lab in (
             "基本宿泊料",
             "サービス料",
@@ -37,7 +37,7 @@ def format_stem(stem: str) -> str:
             "チェックイン",
             "チェックアウト",
         ):
-            s = re.sub(rf"(?<!\n)(?={re.escape(lab)}：)", "\n", s)
+            s = re.sub(rf"(?<!\n)(?={re.escape(lab)}:)", "\n", s)
         s = re.sub(r"(?<!\n)(?=宿泊契約解除)", "\n", s)
     s = re.sub(r"\n{3,}", "\n\n", s)
     return s.strip()

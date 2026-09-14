@@ -292,7 +292,7 @@ export function GeographyFlashcardsPage() {
                 <p className="mt-2 text-2xl font-bold tracking-tight text-gray-900">
                   {current.fact.label}
                 </p>
-                <p className="mt-4 text-sm text-muted">どこの都道府県？</p>
+                <p className="mt-4 text-sm text-muted">どこの都道府県?</p>
               </div>
             ) : (
               <div className="mt-6 min-h-[140px]">
