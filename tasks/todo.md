@@ -385,3 +385,13 @@
 - 原因: 抽出が `名称(県)`/`名称=県` のみ＋サフィックス検証の過信。市場は市名解説で全滅、潮来は hooks 留め
 - facts ≈798。近江町/黒門/錦/二条市場・潮来を独立 CARD 化
 - 検証: `python3 scripts/check_geography_coverage.py` OK、`npm run build` OK
+
+## Progress(Bugbot指摘の抽出修正)
+- [x] guess_type は label のみ / is_card_label で文ラベル排除
+- [x] `名称=` の学習メモ除外、paren の `東京湾→東京` 防止、下線は定義のみ
+- [x] coverage に県正しさ・文ラベル検証
+- [x] 再生成 facts 718・coverage OK・`npm run build`
+
+## Review(Bugbot指摘の抽出修正)
+- 誤県(猿島=東京)・城の festival 誤分類・全文 choice ラベルを解消
+- curated と矛盾する auto 割当は拒否

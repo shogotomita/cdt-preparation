@@ -128,11 +128,18 @@ CITY_TO_ID: dict[str, str] = {
     "札幌市": "hokkaido",
     "大阪市": "osaka",
     "京都市": "kyoto",
+    "横須賀": "kanagawa",
+    "白老": "hokkaido",
+    "中標津": "hokkaido",
+    "能代": "akita",
+    "唐津": "saga",
+    "敦賀": "fukui",
+    "滝野": "hokkaido",
 }
 
 
 def resolve_pref_id(token: str) -> str | None:
-    """Map prefecture / city / short name → pref id."""
+    """Map prefecture / city / short name → pref id (substring allowed)."""
     t = token.strip().strip("「」『』")
     if not t:
         return None
@@ -140,7 +147,6 @@ def resolve_pref_id(token: str) -> str | None:
         return NAME_TO_ID[t]
     if t in CITY_TO_ID:
         return CITY_TO_ID[t]
-    # 「島根の」「山梨側」など
     for name, pid in sorted(NAME_TO_ID.items(), key=lambda x: -len(x[0])):
         if len(name) >= 2 and name in t:
             return pid
@@ -148,6 +154,33 @@ def resolve_pref_id(token: str) -> str | None:
         if len(city) >= 2 and city in t:
             return pid
     return None
+
+
+def resolve_loc_token(token: str) -> str | None:
+    """Resolve only when the token itself is a known pref/city name."""
+    t = token.strip().strip("「」『』")
+    if not t or len(t) > 8:
+        return None
+    if t in NAME_TO_ID:
+        return NAME_TO_ID[t]
+    if t in CITY_TO_ID:
+        return CITY_TO_ID[t]
+    return None
+
+
+def prefs_from_inside(inside: str) -> list[str]:
+    """Strict paren-inside resolution — do not map 東京湾→tokyo."""
+    found: list[str] = []
+    for part in re.split(r"[・/／、]", inside):
+        part = part.strip()
+        if not part:
+            continue
+        pid = resolve_loc_token(part)
+        if not pid and part.endswith(("県", "府", "都", "道")) and len(part) <= 5:
+            pid = resolve_loc_token(part[:-1]) or resolve_pref_id(part)
+        if pid and pid not in found:
+            found.append(pid)
+    return found
 
 
 def prefs_in_text(text: str) -> list[str]:
@@ -165,19 +198,20 @@ def prefs_in_text(text: str) -> list[str]:
 TYPES = ("place", "onsen", "festival", "specialty", "heritage", "park", "course")
 
 TYPE_HINTS = [
-    ("onsen", re.compile(r"温泉|湯$|湯の|奥座敷")),
-    ("festival", re.compile(r"祭|まつり|くんち|ねぶた|ねぷた|踊り|おどり|曳山|祇園|御柱|花笠|鷺舞|お水送り|お水取り")),
-    ("specialty", re.compile(r"焼|漬|そば|鍋|ずし|寿し|うどん|名産|特産|郷土|しもつかれ|しょっつる|千枚漬|出石|大谷焼|ます")),
-    ("heritage", re.compile(r"世界遺産|構成資産|グスク|銀山|縄文|登録")),
+    ("onsen", re.compile(r"温泉|湯$|湯の山|奥座敷")),
+    ("festival", re.compile(r"祭|まつり|くんち|ねぶた|ねぷた|踊り|おどり|曳山|祇園|御柱|花笠|鷺舞|お水送り|お水取り|強飯式")),
+    ("specialty", re.compile(r"焼|漬|そば|鍋|ずし|寿し|うどん|名産|特産|郷土|しもつかれ|しょっつる|千枚漬|出石|大谷焼|ます|ひきずり")),
+    ("heritage", re.compile(r"世界遺産|構成資産|グスク|銀山|縄文|遺跡群|古墳群")),
     ("park", re.compile(r"国立公園|国定公園|ラムサール|湿原")),
     ("course", re.compile(r"コース|→|―")),
 ]
 
 
 def guess_type(label: str, note: str = "") -> str:
-    text = label + note
+    """Classify from the label only — never from explanation keywords."""
+    _ = note
     for t, rx in TYPE_HINTS:
-        if rx.search(text):
+        if rx.search(label):
             return t
     return "place"
 
@@ -189,11 +223,14 @@ def normalize_label(s: str) -> str:
     # Do not strip bare ア-エ before kana (アドベンチャーワールド).
     s = re.sub(r"^[ア-エA-D]\.", "", s)
     s = re.sub(r"^[ア-エ](?=[一-龥])", "", s)
+    # Stem fragments: 姫路城や → 姫路城
+    s = re.sub(r"[やをがにはと]$", "", s)
     return s
 
 
 SKIP_LABEL = re.compile(
-    r"(営業キロ|加算|運賃|特急|正解|不正解|よって|選択肢|本問|学習|キロ|割引|グリーン|空港)"
+    r"(営業キロ|加算|運賃|特急|正解|不正解|よって|選択肢|本問|学習|キロ|割引|グリーン|空港|"
+    r"所在する|である|であり|について|場合|園内|エリア|最も近く|捕獲|夕景|美しさ)"
 )
 # Labels that are too fragmented / noisy when auto-extracted.
 # Do NOT list full curated place names here (they would be blocked entirely).
@@ -220,6 +257,15 @@ BARE_SHORT = {
     "野付",
 }
 
+PLACE_LIKE = re.compile(
+    r"(温泉|高原|市場|神社|大社|寺|院|城|公園|美術館|記念館|聖堂|湖|沼|岬|岳|山|"
+    r"峡|渓|滝|島|湾|祭|まつり|農場|遺跡|庭園|橋|崎|浦|峠|洞|窯|焼|鍋|汁|そば|"
+    r"うどん|めし|寿司|寿し|園|宮|館|塔|門|宿|倉|港|村|町|運河|半島|古墳群|"
+    r"異人館|ハーバーランド|スタジオ・ジャパン)$"
+)
+
+PEDAGOGICAL_RHS = re.compile(r"全部|混同|ひっかけ|など|方面|付近|側|一致|誤り|クロス")
+
 
 def is_bad_label(label: str) -> bool:
     if len(label) < 2 or len(label) > 28:
@@ -227,6 +273,23 @@ def is_bad_label(label: str) -> bool:
     if SKIP_LABEL.search(label):
         return True
     if label in BARE_SHORT:
+        return True
+    return False
+
+
+def is_card_label(label: str) -> bool:
+    """Gate auto-extracted labels to proper-noun-like place names."""
+    if not label or is_bad_label(label):
+        return False
+    if re.search(r"[、。]|は.*に|」", label):
+        return False
+    if label.startswith(("の", "同じ", "下線")):
+        return False
+    if PLACE_LIKE.search(label):
+        return True
+    if re.fullmatch(r"[一-龥ァ-ヶぁ-んー]{2,10}", label):
+        return True
+    if "・" in label and re.fullmatch(r"[一-龥ァ-ヶぁ-んー・]{5,24}", label):
         return True
     return False
 
@@ -1010,8 +1073,19 @@ CURATED: list[tuple[str, str, str, list[str]]] = [
     ("hyogo", "place", "明石海峡大橋", ["神戸―淡路", "大鳴門橋とセット"]),
     ("shimane", "place", "羅漢寺五百羅漢", ["石見銀山構成資産", "大森", "熊谷家住宅とセット"]),
     ("shimane", "place", "熊谷家住宅", ["石見銀山構成資産", "大森の町家", "羅漢寺五百羅漢とセット"]),
+    # --- Bugbot修正後の過去問穴埋め ---
+    ("hokkaido", "place", "アシリベツの滝", ["札幌・滝野", "インクラ・マリユドゥと対比"]),
+    ("hokkaido", "place", "インクラの滝", ["白老", "アシリベツと対比"]),
+    ("okinawa", "place", "マリユドゥの滝", ["西表", "マリュドゥ滝", "亜熱帯"]),
+    ("hokkaido", "place", "三愛の丘展望公園", ["中標津", "酪農展望", "羊ヶ丘と混同注意"]),
+    ("fukushima", "place", "塔のへつり", ["下郷", "凝灰岩", "長瀞岩畳と混同注意"]),
+    ("nagano", "place", "渋の地獄谷噴泉", ["山ノ内", "地獄谷野猿公苑寄り"]),
+    ("fukuoka", "place", "秋月", ["朝倉", "秋月藩", "がめ煮と同県"]),
+    ("saga", "place", "虹の松原", ["唐津", "日本三大松原"]),
+    ("akita", "place", "風の松原", ["能代", "日本海", "虹の松原と混同注意"]),
 ]
 
+CURATED_LABEL_PREF: dict[str, str] = {label: pref_id for pref_id, _t, label, _h in CURATED}
 
 
 
@@ -1028,6 +1102,8 @@ def add_fact(
     label = normalize_label(label)
     valid_ids = {p[0] for p in PREFECTURES}
     if not label or pref_id not in valid_ids:
+        return
+    if not curated and label in CURATED_LABEL_PREF and CURATED_LABEL_PREF[label] != pref_id:
         return
     if not curated and is_bad_label(label):
         return
@@ -1060,94 +1136,117 @@ def extract_from_text(store: dict, text: str, qid: str) -> None:
         r"([一-龥ぁ-んァ-ヶA-Za-z0-9・ー]{2,30})\(([^）)]{2,12})\)",
         text,
     ):
-        label, inside = m.group(1), m.group(2)
-        pref_id = resolve_pref_id(inside)
-        if not pref_id:
+        label, inside = normalize_label(m.group(1)), m.group(2)
+        if not is_card_label(label):
             continue
-        if any(x in label for x in ("正解", "不正解", "よって", "学習", "本問", "選択肢")):
+        if PEDAGOGICAL_RHS.search(inside) or "所在" in inside:
             continue
-        add_fact(store, pref_id, guess_type(label, text[m.start() : m.end() + 40]), label, sources=[qid])
+        insides = prefs_from_inside(inside)
+        if len(insides) != 1:
+            continue
+        pref_id = insides[0]
+        add_fact(store, pref_id, guess_type(label), label, sources=[qid])
 
-    # 名称=都道府県 / 名称=地名(県)
+    # 名称=都道府県 / 名称=市 (learning-memo RHS like 山梨=全部… must not match)
     for m in re.finditer(
         r"([一-龥ぁ-んァ-ヶA-Za-z0-9・ー]{2,24})=([一-龥ぁ-んァ-ヶA-Za-z0-9・ー県府都道]{2,24})",
         text,
     ):
-        left, right = m.group(1), m.group(2)
-        pref_id = resolve_pref_id(right)
+        left, right = normalize_label(m.group(1)), m.group(2)
+        if not is_card_label(left):
+            continue
+        # Left side must not itself be a prefecture name (山梨=全部富士箱根伊豆)
+        if left in NAME_TO_ID:
+            continue
+        if PEDAGOGICAL_RHS.search(right):
+            continue
+        # RHS must be a clean pref/city token, not a phrase containing one
+        pref_id = resolve_loc_token(right)
+        if not pref_id and len(right) <= 5:
+            pref_id = resolve_pref_id(right)
+        if not pref_id:
+            continue
         hooks: list[str] = []
-        if pref_id:
-            if re.search(r"一致しない|混同|正解|不正解|ひっかけ|誤り", right):
-                pass
-            elif not any(right.endswith(x) for x in ("県", "府", "都", "道")) and right not in NAME_TO_ID and right not in CITY_TO_ID:
-                hooks.append(right)
-            add_fact(store, pref_id, guess_type(left + right), left, hooks=hooks, sources=[qid])
+        if (
+            not any(right.endswith(x) for x in ("県", "府", "都", "道"))
+            and right not in NAME_TO_ID
+            and right not in CITY_TO_ID
+        ):
+            hooks.append(right)
+        add_fact(store, pref_id, guess_type(left), left, hooks=hooks, sources=[qid])
 
 
 def extract_from_choice(store: dict, text: str, explanation: str, qid: str) -> None:
-    """Attribute a choice label to a prefecture from 正解/不正解 explanations."""
+    """Attribute a proper-noun choice to a prefecture from clear location cues only."""
     label = normalize_label(text)
-    if not label or "―" in label or "—" in label:
-        # Combo rows are handled via = patterns in explanation text.
+    if not label or re.search(r"[―—–─－]", label):
+        return
+    if not is_card_label(label):
         return
 
     expl = explanation or ""
     pref_id: str | None = None
 
-    # 正解。金沢。 / 不正解。大阪。 / 不正解。北海道。
-    m = re.match(r"(?:正解|不正解)[。．]([一-龥ぁ-んァ-ヶA-Za-z0-9]{2,12})", expl)
+    # 正解。金沢。 / 不正解。大阪。 — first token must be a known loc by itself
+    m = re.match(r"(?:正解|不正解)[。．]([一-龥ぁ-んァ-ヶA-Za-z0-9]{2,8})[。．]", expl)
     if m:
-        pref_id = resolve_pref_id(m.group(1))
+        pref_id = resolve_loc_token(m.group(1))
+
+    # 不正解。伊豆の浄蓮の滝。 / 不正解。神戸の布引の滝。
+    if not pref_id:
+        m = re.match(r"(?:正解|不正解)[。．]([一-龥ぁ-んァ-ヶA-Za-z0-9]{2,8})の", expl)
+        if m:
+            pref_id = resolve_loc_token(m.group(1))
 
     # いずれも愛知。 / いずれも鹿児島。
     if not pref_id:
         m2 = re.search(r"いずれも([一-龥ぁ-んァ-ヶ]{2,8})", expl)
         if m2:
-            pref_id = resolve_pref_id(m2.group(1))
+            pref_id = resolve_loc_token(m2.group(1))
 
-    # 単一県が解説に明示されている場合 (不正解。伊豆の浄蓮の滝。 / 西沢渓谷は山梨側)
+    # 西沢渓谷は山梨側 / 三瓶山は島根
     if not pref_id:
-        prefs = prefs_in_text(expl)
-        if len(prefs) == 1:
-            pref_id = prefs[0]
+        m3 = re.search(
+            re.escape(label) + r"(?:は|が)([一-龥ぁ-んァ-ヶA-Za-z0-9]{2,8})",
+            expl,
+        )
+        if m3:
+            tok = m3.group(1)
+            pref_id = resolve_loc_token(tok)
+            if not pref_id:
+                pref_id = resolve_loc_token(re.sub(r"(側|県|府|都|道)$", "", tok))
 
     if not pref_id:
         return
-    if any(x in label for x in ("正解", "不正解", "よって", "学習", "本問", "選択肢")):
-        return
-    # Skip pure fare/calc fragments
-    if re.search(r"(料金|円|％|%|営業|キロ|特急券|旅客)", label):
-        return
-    add_fact(
-        store,
-        pref_id,
-        guess_type(label, expl),
-        label,
-        sources=[qid],
-        curated=True,  # bypass BARE_SHORT for exam choice labels
-    )
+    add_fact(store, pref_id, guess_type(label), label, sources=[qid])
 
 
 def extract_underlines(store: dict, stem: str, blob: str, qid: str) -> None:
-    """Independent cards for (a)潮来-style underlines when pref is resolvable."""
-    for m in re.finditer(r"[（(][a-dａ-ｄ][）)]\s*([一-龥ぁ-んァ-ヶA-Za-z0-9・ー]{2,20})", stem):
+    """Independent cards for (a)潮来-style underlines when same-sentence pref is clear."""
+    # Do not match 下線(d)と同じ… — only definition underlines.
+    for m in re.finditer(
+        r"(?<!下線)[（(][a-dａ-ｄ][）)]\s*([一-龥ぁ-んァ-ヶA-Za-z0-9・ー]{2,16})",
+        stem,
+    ):
         label = normalize_label(m.group(1))
-        if not label or len(label) > 20:
+        if not is_card_label(label) or label.startswith("と"):
             continue
-        window_prefs = prefs_in_text(blob)
-        pref_id = window_prefs[0] if len(window_prefs) == 1 else None
-        if not pref_id:
-            for pref_name, pid in sorted(NAME_TO_ID.items(), key=lambda x: -len(x[0])):
-                if pref_name in blob and label in blob:
-                    for sent in re.split(r"[。\n]", blob):
-                        if label in sent and pref_name in sent:
-                            pref_id = pid
-                            break
-                if pref_id:
+        pref_id: str | None = None
+        for sent in re.split(r"[。\n]", blob):
+            if label not in sent:
+                continue
+            for tok in re.findall(r"[一-龥ぁ-んァ-ヶA-Za-z0-9]{2,8}", sent):
+                if tok == label or label.startswith(tok) or tok.startswith(label):
+                    continue
+                pid = resolve_loc_token(tok)
+                if pid:
+                    pref_id = pid
                     break
+            if pref_id:
+                break
         if not pref_id:
             continue
-        add_fact(store, pref_id, guess_type(label, blob), label, sources=[qid], curated=True)
+        add_fact(store, pref_id, guess_type(label), label, sources=[qid])
 
 
 def main() -> None:
@@ -1179,24 +1278,26 @@ def main() -> None:
             extract_underlines(store, stem, blob, qid)
             for c in q.get("choices") or []:
                 extract_from_choice(store, c.get("text") or "", c.get("explanation") or "", qid)
-                # Also split combo choice texts when explanation has name=pref fragments
                 text = c.get("text") or ""
-                if re.search(r"[―—–]", text):
-                    for part in re.split(r"\s*[―—–]\s*", text):
+                if re.search(r"[―—–─－]", text):
+                    expl = c.get("explanation") or ""
+                    for part in re.split(r"\s*[―—–─－]\s*", text):
                         part = normalize_label(part)
-                        if not part:
+                        if not is_card_label(part):
                             continue
-                        # Prefer name=pref in this choice's explanation
-                        expl = c.get("explanation") or ""
                         for m in re.finditer(
                             r"([一-龥ぁ-んァ-ヶA-Za-z0-9・ー]{2,24})=([一-龥ぁ-んァ-ヶA-Za-z0-9・ー県府都道]{2,24})",
                             expl,
                         ):
-                            left, right = m.group(1), m.group(2)
+                            left, right = normalize_label(m.group(1)), m.group(2)
+                            if PEDAGOGICAL_RHS.search(right):
+                                continue
                             if part in left or left in part or part == left:
-                                pid = resolve_pref_id(right)
+                                pid = resolve_loc_token(right) or (
+                                    resolve_pref_id(right) if len(right) <= 5 else None
+                                )
                                 if pid:
-                                    add_fact(store, pid, guess_type(part, expl), part, sources=[qid], curated=True)
+                                    add_fact(store, pid, guess_type(part), part, sources=[qid])
 
     prefectures = []
     total_facts = 0

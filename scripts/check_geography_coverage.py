@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Assert past-exam (jitsumu) geography proper nouns are independent flashcards.
+Assert past-exam (jitsumu) geography proper nouns are independent flashcards
+under the correct prefecture.
 
-hooks-only does NOT count (潮来-on-十二橋めぐり regression).
-Castle formal names may resolve via alias-card hooks (犬山城 → 白帝城).
+hooks-only does NOT count. Castle formal names may resolve via alias cards.
 """
 from __future__ import annotations
 
+import importlib.util
 import json
 import re
 import sys
@@ -16,13 +17,24 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 GEO_PATH = ROOT / "public" / "data" / "geography.json"
 QUESTIONS = ROOT / "public" / "data" / "questions"
+BUILD = ROOT / "scripts" / "build_geography_data.py"
+
+
+def _load_build():
+    spec = importlib.util.spec_from_file_location("build_geography_data", BUILD)
+    assert spec and spec.loader
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+build = _load_build()
 
 GEO_FILTER = re.compile(
     r"温泉|祭|まつり|名産|特産|郷土|世界遺産|国立公園|ラムサール|城|寺|神社|焼|漬|そば|"
     r"くんち|御柱|ねぶた|組合せ|所在|市場|高原|滝|渓谷|運河|湾|岬|美術館|記念館"
 )
-# JR/fare questions often include 学習メモ and must stay out of geo coverage.
-NON_GEO = re.compile(r"営業キロ|特急券|JR券|特大荷物|払いもどし|運賃計算|自由席|指定席特急")
+NON_GEO = re.compile(r"営業キロ|特急券|JR券|特大荷物|払いもどし|運賃計算|自由席特急")
 
 CASTLE_ALIAS = {
     "犬山城": "白帝城",
@@ -34,18 +46,6 @@ CASTLE_ALIAS = {
     "仙台城": "青葉城",
     "会津若松城": "鶴ヶ城",
 }
-
-PLACE_SUFFIX = re.compile(
-    r"(温泉|高原|市場|神社|大社|寺|院|城|公園|美術館|記念館|聖堂|湖|沼|岬|岳|山|"
-    r"峡|渓|滝|島|湾|祭|まつり|農場|遺跡|庭園|橋|崎|浦|峠|洞|窯|焼|鍋|汁|そば|"
-    r"うどん|めし|寿司|寿し|園|宮|館|塔|門|宿|倉|港|村|町|市|運河|半島|古墳群)$"
-)
-
-BAD = re.compile(
-    r"(料金|円|％|%|営業|キロ|特急|割引|旅客|乗車券|約款|法第|条|正解|不正解|"
-    r"次のうち|それぞれ|である|であり|について|場合|とき|できる|できない|"
-    r"と同じ|を選び|以下の|設問|持ち込む|購入)"
-)
 
 NOISE = {
     "ジャパン",
@@ -86,89 +86,117 @@ MUST = [
 
 
 def normalize(s: str) -> str:
-    s = s.strip().strip("「」『』・")
-    s = re.sub(r"\s+", "", s)
-    s = re.sub(r"^[ア-エA-D]\.", "", s)
-    s = re.sub(r"^[ア-エ](?=[一-龥])", "", s)
-    # stem fragments: (c)姫路城や → 姫路城
-    s = re.sub(r"[やをがにはの]$", "", s)
-    return s
+    return build.normalize_label(s)
 
 
 def is_proper(name: str) -> bool:
     if name in NOISE:
         return False
-    if len(name) < 2 or len(name) > 24:
-        return False
-    if BAD.search(name):
-        return False
-    if re.search(r"[をはがにでのと、。]", name):
-        return False
-    if name.endswith(("県", "府", "都")) and len(name) <= 4:
-        return False
-    if name in {"北海道", "東京", "大阪", "京都"}:
-        return False
-    # combo leftovers with box-drawing dash should have been split
     if "─" in name or "－" in name:
         return False
-    if PLACE_SUFFIX.search(name):
-        return True
-    if re.fullmatch(r"[一-龥ァ-ヶぁ-んー]{2,10}", name):
-        return True
-    # dotted facility names
-    if "・" in name and re.fullmatch(r"[一-龥ァ-ヶぁ-んー・]{5,24}", name):
-        return True
-    return False
+    return build.is_card_label(name)
 
 
-def load_labels(geo: dict) -> tuple[set[str], dict[str, str]]:
-    labels: set[str] = set()
-    hook_to_label: dict[str, str] = {}
+def load_cards(geo: dict) -> dict[str, list[str]]:
+    """label → list of pref ids where it appears."""
+    out: dict[str, list[str]] = {}
     for pref in geo["prefectures"]:
         for f in pref["facts"]:
-            labels.add(f["label"])
+            out.setdefault(f["label"], []).append(pref["id"])
+    return out
+
+
+def load_hook_hosts(geo: dict) -> dict[str, tuple[str, str]]:
+    """hook → (label, pref_id)"""
+    out: dict[str, tuple[str, str]] = {}
+    for pref in geo["prefectures"]:
+        for f in pref["facts"]:
             for h in f.get("hooks") or []:
-                hook_to_label.setdefault(h, f["label"])
-    return labels, hook_to_label
+                out.setdefault(h, (f["label"], pref["id"]))
+    return out
 
 
-def covered(name: str, labels: set[str], hook_to_label: dict[str, str]) -> str | None:
-    if name in labels:
-        return "CARD"
+def find_card(name: str, cards: dict[str, list[str]]) -> tuple[str, str] | None:
+    """Return (matched_label, pref_id) if covered."""
+    if name in cards:
+        return name, cards[name][0]
     alias = CASTLE_ALIAS.get(name)
-    if alias and alias in labels:
-        return f"ALIAS:{alias}"
-    variants = [
+    if alias and alias in cards:
+        return alias, cards[alias][0]
+    for v in (
         name.replace("ノ", "の"),
         name.replace("の", "ノ"),
         name.replace("ヶ", "ケ"),
         name.replace("ケ", "ヶ"),
-    ]
-    for v in variants:
-        if v != name and v in labels:
-            return f"CARD:{v}"
-    if name == "芦原温泉" and "あわら温泉" in labels:
-        return "CARD:あわら温泉"
+    ):
+        if v != name and v in cards:
+            return v, cards[v][0]
+    if name == "芦原温泉" and "あわら温泉" in cards:
+        return "あわら温泉", cards["あわら温泉"][0]
 
-    # Parenthetical / compound fuzzy: 玉取祭 ↔ 玉取祭(玉せせり), 立石寺 ↔ 山寺(立石寺)
-    for lab in labels:
-        if name == lab:
-            return "CARD"
-        # strip (...)
+    for lab, prefs in cards.items():
         base = re.sub(r"[（(][^）)]+[）)]", "", lab)
-        if name == base or name in lab or lab in name:
-            if min(len(name), len(lab)) >= 2:
-                # avoid tiny accidental overlaps (市 in 市場)
-                if len(name) >= 3 or len(lab) >= 3:
-                    if name in lab or lab in name or name == base:
-                        return f"FUZZY:{lab}"
-        # compound with ・ or ―
+        if name == base or (len(name) >= 3 and (name in lab or lab in name)):
+            return lab, prefs[0]
         for sep in ("・", "―", "─"):
             if sep in lab:
                 parts = lab.split(sep)
                 if name in parts or any(name in p or p in name for p in parts if len(p) >= 2):
-                    return f"FUZZY:{lab}"
+                    return lab, prefs[0]
     return None
+
+
+def expected_from_curated() -> dict[str, str]:
+    """label → pref_id from CURATED (last write wins)."""
+    out: dict[str, str] = {}
+    for pref_id, _typ, label, _hooks in build.CURATED:
+        out[label] = pref_id
+    return out
+
+
+def expected_from_choices() -> dict[str, str]:
+    """Strict choice→pref expectations (same rules as extract_from_choice)."""
+    out: dict[str, str] = {}
+    for path in sorted(QUESTIONS.glob("20*-jitsumu.json")):
+        data = json.loads(path.read_text(encoding="utf-8"))
+        for q in data["questions"]:
+            blob = "\n".join(
+                [q.get("stem") or "", q.get("overallExplanation") or ""]
+                + [c.get("text") or "" for c in q.get("choices") or []]
+                + [c.get("explanation") or "" for c in q.get("choices") or []]
+            )
+            if not GEO_FILTER.search(blob) or NON_GEO.search(blob):
+                continue
+            for c in q.get("choices") or []:
+                text = c.get("text") or ""
+                expl = c.get("explanation") or ""
+                if re.search(r"[―—–─－]", text):
+                    continue
+                label = normalize(text)
+                if not is_proper(label):
+                    continue
+                pref_id = None
+                m = re.match(r"(?:正解|不正解)[。．]([一-龥ぁ-んァ-ヶA-Za-z0-9]{2,8})[。．]", expl)
+                if m:
+                    pref_id = build.resolve_loc_token(m.group(1))
+                if not pref_id:
+                    m = re.match(r"(?:正解|不正解)[。．]([一-龥ぁ-んァ-ヶA-Za-z0-9]{2,8})の", expl)
+                    if m:
+                        pref_id = build.resolve_loc_token(m.group(1))
+                if not pref_id:
+                    m2 = re.search(r"いずれも([一-龥ぁ-んァ-ヶ]{2,8})", expl)
+                    if m2:
+                        pref_id = build.resolve_loc_token(m2.group(1))
+                if not pref_id:
+                    m3 = re.search(re.escape(label) + r"(?:は|が)([一-龥ぁ-んァ-ヶA-Za-z0-9]{2,8})", expl)
+                    if m3:
+                        tok = m3.group(1)
+                        pref_id = build.resolve_loc_token(tok) or build.resolve_loc_token(
+                            re.sub(r"(側|県|府|都|道)$", "", tok)
+                        )
+                if pref_id:
+                    out[label] = pref_id
+    return out
 
 
 def collect_names() -> dict[str, list[str]]:
@@ -186,20 +214,17 @@ def collect_names() -> dict[str, list[str]]:
             if not GEO_FILTER.search(blob) or NON_GEO.search(blob):
                 continue
             qid = q["id"]
-
-            for m in re.finditer(r"[（(][a-dａ-ｄ][）)]\s*([^\s（）()、。\n]{2,20})", stem):
+            for m in re.finditer(
+                r"(?<!下線)[（(][a-dａ-ｄ][）)]\s*([一-龥ぁ-んァ-ヶA-Za-z0-9・ー]{2,16})",
+                stem,
+            ):
                 name = normalize(m.group(1))
-                if is_proper(name):
+                if is_proper(name) and not name.startswith("と"):
                     found.setdefault(name, []).append(qid)
-
             for c in q.get("choices") or []:
                 text = c.get("text") or ""
-                parts = re.split(r"\s*[―—–─－]\s*", text)
-                for part in parts:
+                for part in re.split(r"\s*[―—–─－]\s*", text):
                     piece = normalize(part)
-                    if not piece:
-                        continue
-                    # Keep facility names with middle dots intact
                     if is_proper(piece):
                         found.setdefault(piece, []).append(qid)
     return found
@@ -207,22 +232,44 @@ def collect_names() -> dict[str, list[str]]:
 
 def main() -> int:
     geo = json.loads(GEO_PATH.read_text(encoding="utf-8"))
-    labels, hook_to_label = load_labels(geo)
+    cards = load_cards(geo)
+    hooks = load_hook_hosts(geo)
     names = collect_names()
+    curated_exp = expected_from_curated()
+    choice_exp = expected_from_choices()
 
     missing: list[tuple[str, str]] = []
     hook_only: list[tuple[str, str]] = []
+    wrong_pref: list[tuple[str, str, str]] = []
 
     required = set(MUST) | set(names)
     for name in sorted(required):
-        status = covered(name, labels, hook_to_label)
-        if status:
+        hit = find_card(name, cards)
+        if not hit:
+            if name in hooks:
+                hook_only.append((name, hooks[name][0]))
+            else:
+                missing.append((name, ",".join(names.get(name, ["must"])[:3])))
             continue
-        if name in hook_to_label:
-            hook_only.append((name, hook_to_label[name]))
-        else:
-            src = ",".join(names.get(name, ["must"])[:3])
-            missing.append((name, src))
+        matched, pref_id = hit
+        expected = choice_exp.get(name) or curated_exp.get(name) or curated_exp.get(matched)
+        if expected and pref_id != expected:
+            wrong_pref.append((name, pref_id, expected))
+
+    # Curated labels must sit in their declared prefecture
+    for label, exp in curated_exp.items():
+        if label not in cards:
+            continue
+        if exp not in cards[label]:
+            wrong_pref.append((label, ",".join(cards[label]), exp))
+
+    # No sentence-like auto labels (official heritage names may contain 、)
+    sentence_labels: list[str] = []
+    for pref in geo["prefectures"]:
+        for f in pref["facts"]:
+            lab = f["label"]
+            if re.search(r"。|所在する|である|園内|エリアに", lab):
+                sentence_labels.append(f"{pref['id']}:{lab}")
 
     chiran_prefs = [
         p["name"]
@@ -232,7 +279,7 @@ def main() -> int:
     ]
     chiran_ok = chiran_prefs == ["鹿児島県"]
 
-    print(f"checked={len(required)} labels={len(labels)}")
+    print(f"checked={len(required)} labels={len(cards)}")
     if missing:
         print(f"MISSING ({len(missing)}):")
         for n, src in missing:
@@ -241,10 +288,18 @@ def main() -> int:
         print(f"HOOK_ONLY ({len(hook_only)}):")
         for n, host in hook_only:
             print(f"  {n}  (on {host})")
+    if wrong_pref:
+        print(f"WRONG_PREF ({len(wrong_pref)}):")
+        for n, got, exp in wrong_pref:
+            print(f"  {n}  got={got} expected={exp}")
+    if sentence_labels:
+        print(f"SENTENCE_LABELS ({len(sentence_labels)}):")
+        for s in sentence_labels[:20]:
+            print(f"  {s}")
     if not chiran_ok:
-        print(f"CHIRAN_PREF_BUG: {chiran_prefs!r} (expected ['鹿児島県'])")
+        print(f"CHIRAN_PREF_BUG: {chiran_prefs!r}")
 
-    if missing or hook_only or not chiran_ok:
+    if missing or hook_only or wrong_pref or sentence_labels or not chiran_ok:
         return 1
     print("OK: past-exam geography coverage")
     return 0
