@@ -399,3 +399,7 @@
 ## Progress(Bugbot再レビュー修正)
 - [x] メモ句ラベル排除 / 同一labelのtype二重をcollapse / coverage強化
 - [x] 再生成 facts 679・coverage OK・push
+
+## Progress(dedupeコース吸収の修正)
+- [x] curated/コースは独立維持、coverageは埋め込み不可
+- [x] 欠落カード補完・再生成 facts 727・coverage OK・push

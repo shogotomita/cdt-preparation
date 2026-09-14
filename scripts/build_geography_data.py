@@ -223,8 +223,8 @@ def normalize_label(s: str) -> str:
     # Do not strip bare ア-エ before kana (アドベンチャーワールド).
     s = re.sub(r"^[ア-エA-D]\.", "", s)
     s = re.sub(r"^[ア-エ](?=[一-龥])", "", s)
-    # Stem fragments: 姫路城や → 姫路城
-    s = re.sub(r"[やをがにはと]$", "", s)
+    # Stem fragments: 姫路城や / 潮来の → strip trailing particles
+    s = re.sub(r"[やをがにはのと]$", "", s)
     return s
 
 
@@ -309,9 +309,13 @@ def is_card_label(label: str) -> bool:
     return False
 
 
+def is_course_label(label: str) -> bool:
+    return bool(re.search(r"[―—–─→]", label))
+
+
 def dedupe_facts(facts: list[dict]) -> list[dict]:
-    # Prefer curated entries as merge hosts so auto labels like「奥津・鷲羽山」
-    # do not swallow curated「鷲羽山」. Same label keeps one card (prefer curated type).
+    # Prefer curated entries as merge hosts. Same label keeps one card (prefer curated type).
+    # Never absorb standalone places into ― course titles.
     facts = sorted(
         facts,
         key=lambda f: (
@@ -341,6 +345,7 @@ def dedupe_facts(facts: list[dict]) -> list[dict]:
             "sources": list(f["sources"]),
         }
     facts = list(by_label.values())
+    # Curated first, then longer — so curated「鷲羽山」hosts auto「奥津・鷲羽山」
     facts = sorted(
         facts,
         key=lambda f: (
@@ -351,11 +356,17 @@ def dedupe_facts(facts: list[dict]) -> list[dict]:
     )
     kept: list[dict] = []
     for f in facts:
+        # Course titles and curated cards always remain independent fronts.
+        if is_course_label(f["label"]) or "curated" in f.get("sources", []):
+            kept.append(f)
+            continue
         host = next(
             (
                 k
                 for k in kept
-                if k["label"] != f["label"]
+                if not is_course_label(k["label"])
+                and k["type"] == f["type"]
+                and k["label"] != f["label"]
                 and (
                     k["label"].startswith(f["label"])
                     or f["label"] in k["label"]
@@ -1126,6 +1137,13 @@ CURATED: list[tuple[str, str, str, list[str]]] = [
     ("fukuoka", "place", "秋月", ["朝倉", "秋月藩", "がめ煮と同県"]),
     ("saga", "place", "虹の松原", ["唐津", "日本三大松原"]),
     ("akita", "place", "風の松原", ["能代", "日本海", "虹の松原と混同注意"]),
+    ("yamanashi", "place", "御岳昇仙峡", ["昇仙峡", "甲府", "富士箱根伊豆外のひっかけ"]),
+    ("iwate", "place", "猊鼻渓舟下り", ["猊鼻渓", "一関", "げいび追分"]),
+    ("hokkaido", "place", "知床半島", ["知床", "世界自然遺産"]),
+    ("nara", "place", "若草山", ["奈良公園", "春日大社寄り"]),
+    ("gifu", "place", "郡上八幡北町", ["郡上八幡", "重要伝統的建造物群"]),
+    ("gifu", "place", "養老の滝", ["養老", "岐阜", "白浜とクロス注意"]),
+    ("okinawa", "place", "那覇", ["本島南部", "首里・識名園"]),
 ]
 
 CURATED_LABEL_PREF: dict[str, str] = {label: pref_id for pref_id, _t, label, _h in CURATED}

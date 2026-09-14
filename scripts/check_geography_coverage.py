@@ -117,7 +117,7 @@ def load_hook_hosts(geo: dict) -> dict[str, tuple[str, str]]:
 
 
 def find_card(name: str, cards: dict[str, list[str]]) -> tuple[str, str] | None:
-    """Return (matched_label, pref_id) if covered."""
+    """Return (matched_label, pref_id) if covered as an independent card front."""
     if name in cards:
         return name, cards[name][0]
     alias = CASTLE_ALIAS.get(name)
@@ -135,14 +135,18 @@ def find_card(name: str, cards: dict[str, list[str]]) -> tuple[str, str] | None:
         return "あわら温泉", cards["あわら温泉"][0]
 
     for lab, prefs in cards.items():
+        # Parenthetical: 玉取祭(玉せせり) or 山寺(立石寺)
         base = re.sub(r"[（(][^）)]+[）)]", "", lab)
-        if name == base or (len(name) >= 3 and (name in lab or lab in name)):
+        if name == base:
             return lab, prefs[0]
-        for sep in ("・", "―", "─"):
-            if sep in lab:
-                parts = lab.split(sep)
-                if name in parts or any(name in p or p in name for p in parts if len(p) >= 2):
-                    return lab, prefs[0]
+        inner = re.search(r"[（(]([^）)]+)[）)]", lab)
+        if inner and name == inner.group(1):
+            return lab, prefs[0]
+        # ・ compounds (not ― courses): exact segment only
+        if "・" in lab and not re.search(r"[―—–─→]", lab):
+            parts = [p for p in lab.split("・") if p]
+            if name in parts:
+                return lab, prefs[0]
     return None
 
 
@@ -256,9 +260,13 @@ def main() -> int:
         if expected and pref_id != expected:
             wrong_pref.append((name, pref_id, expected))
 
-    # Curated labels must sit in their declared prefecture
+    # Curated non-course labels must exist as independent card fronts
+    curated_missing: list[str] = []
     for label, exp in curated_exp.items():
+        if re.search(r"[―—–─→]", label):
+            continue
         if label not in cards:
+            curated_missing.append(label)
             continue
         if exp not in cards[label]:
             wrong_pref.append((label, ",".join(cards[label]), exp))
@@ -314,10 +322,22 @@ def main() -> int:
         print(f"DUP_LABELS ({len(dup_labels)}):")
         for lab, hits in sorted(dup_labels.items())[:20]:
             print(f"  {lab}  {hits}")
+    if curated_missing:
+        print(f"CURATED_MISSING ({len(curated_missing)}):")
+        for n in curated_missing[:30]:
+            print(f"  {n}")
     if not chiran_ok:
         print(f"CHIRAN_PREF_BUG: {chiran_prefs!r}")
 
-    if missing or hook_only or wrong_pref or sentence_labels or dup_labels or not chiran_ok:
+    if (
+        missing
+        or hook_only
+        or wrong_pref
+        or sentence_labels
+        or dup_labels
+        or curated_missing
+        or not chiran_ok
+    ):
         return 1
     print("OK: past-exam geography coverage")
     return 0
