@@ -263,13 +263,27 @@ def main() -> int:
         if exp not in cards[label]:
             wrong_pref.append((label, ",".join(cards[label]), exp))
 
-    # No sentence-like auto labels (official heritage names may contain 、)
+    # No sentence / mnemonic auto labels
     sentence_labels: list[str] = []
+    memo_re = re.compile(
+        r"。|所在する|である|園内|エリアに|いずれも|は本土|を南|学習メモ|と同じ|祈念$"
+    )
     for pref in geo["prefectures"]:
         for f in pref["facts"]:
             lab = f["label"]
-            if re.search(r"。|所在する|である|園内|エリアに", lab):
+            if memo_re.search(lab) or (
+                lab.endswith(("県", "府", "都")) and lab not in {"京都"}
+            ):
                 sentence_labels.append(f"{pref['id']}:{lab}")
+
+    # Duplicate labels (any type/pref)
+    from collections import defaultdict
+
+    label_hits: dict[str, list[str]] = defaultdict(list)
+    for pref in geo["prefectures"]:
+        for f in pref["facts"]:
+            label_hits[f["label"]].append(f"{pref['id']}:{f['type']}")
+    dup_labels = {k: v for k, v in label_hits.items() if len(v) > 1}
 
     chiran_prefs = [
         p["name"]
@@ -296,10 +310,14 @@ def main() -> int:
         print(f"SENTENCE_LABELS ({len(sentence_labels)}):")
         for s in sentence_labels[:20]:
             print(f"  {s}")
+    if dup_labels:
+        print(f"DUP_LABELS ({len(dup_labels)}):")
+        for lab, hits in sorted(dup_labels.items())[:20]:
+            print(f"  {lab}  {hits}")
     if not chiran_ok:
         print(f"CHIRAN_PREF_BUG: {chiran_prefs!r}")
 
-    if missing or hook_only or wrong_pref or sentence_labels or not chiran_ok:
+    if missing or hook_only or wrong_pref or sentence_labels or dup_labels or not chiran_ok:
         return 1
     print("OK: past-exam geography coverage")
     return 0

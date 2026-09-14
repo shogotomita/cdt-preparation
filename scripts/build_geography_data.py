@@ -264,7 +264,10 @@ PLACE_LIKE = re.compile(
     r"異人館|ハーバーランド|スタジオ・ジャパン)$"
 )
 
-PEDAGOGICAL_RHS = re.compile(r"全部|混同|ひっかけ|など|方面|付近|側|一致|誤り|クロス")
+PEDAGOGICAL_RHS = re.compile(
+    r"全部|混同|ひっかけ|など|方面|付近|側|一致|誤り|クロス|南部|北部|中部|離島|本土|セット|並び|/"
+)
+MEMO_LABEL = re.compile(r"いずれも|は本土|を南|学習メモ|と同じ|すべて[の県]|祈念$")
 
 
 def is_bad_label(label: str) -> bool:
@@ -274,6 +277,11 @@ def is_bad_label(label: str) -> bool:
         return True
     if label in BARE_SHORT:
         return True
+    if MEMO_LABEL.search(label):
+        return True
+    # Prefecture names themselves are not place cards
+    if label in NAME_TO_ID or label.endswith(("県", "府", "都")):
+        return True
     return False
 
 
@@ -281,22 +289,58 @@ def is_card_label(label: str) -> bool:
     """Gate auto-extracted labels to proper-noun-like place names."""
     if not label or is_bad_label(label):
         return False
-    if re.search(r"[、。]|は.*に|」", label):
+    if re.search(r"[、。]|」", label):
         return False
-    if label.startswith(("の", "同じ", "下線")):
+    # Reject hiragana particles (鹿児島は本土 / 沖縄本島を南 / いずれも…)
+    if re.search(r"[はをが]", label):
+        return False
+    if label.startswith(("の", "同じ", "下線", "いずれ")):
         return False
     if PLACE_LIKE.search(label):
         return True
     if re.fullmatch(r"[一-龥ァ-ヶぁ-んー]{2,10}", label):
         return True
+    # ・ compounds only when a part looks place-like (大沼・小沼 OK, ひめゆり・平和祈念 NG)
     if "・" in label and re.fullmatch(r"[一-龥ァ-ヶぁ-んー・]{5,24}", label):
-        return True
+        parts = label.split("・")
+        if any(PLACE_LIKE.search(p) for p in parts):
+            return True
+        return False
     return False
 
 
 def dedupe_facts(facts: list[dict]) -> list[dict]:
     # Prefer curated entries as merge hosts so auto labels like「奥津・鷲羽山」
-    # do not swallow curated「鷲羽山」.
+    # do not swallow curated「鷲羽山」. Same label keeps one card (prefer curated type).
+    facts = sorted(
+        facts,
+        key=lambda f: (
+            0 if "curated" in f.get("sources", []) else 1,
+            -len(f["label"]),
+            f["label"],
+            f["type"],
+        ),
+    )
+    # Collapse identical labels across types first
+    by_label: dict[str, dict] = {}
+    for f in facts:
+        lab = f["label"]
+        if lab in by_label:
+            host = by_label[lab]
+            for h in f["hooks"]:
+                if h not in host["hooks"]:
+                    host["hooks"].append(h)
+            for s in f["sources"]:
+                if s not in host["sources"]:
+                    host["sources"].append(s)
+            continue
+        by_label[lab] = {
+            "type": f["type"],
+            "label": f["label"],
+            "hooks": list(f["hooks"]),
+            "sources": list(f["sources"]),
+        }
+    facts = list(by_label.values())
     facts = sorted(
         facts,
         key=lambda f: (
@@ -311,8 +355,7 @@ def dedupe_facts(facts: list[dict]) -> list[dict]:
             (
                 k
                 for k in kept
-                if k["type"] == f["type"]
-                and k["label"] != f["label"]
+                if k["label"] != f["label"]
                 and (
                     k["label"].startswith(f["label"])
                     or f["label"] in k["label"]

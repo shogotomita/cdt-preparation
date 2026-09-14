@@ -395,3 +395,7 @@
 ## Review(Bugbot指摘の抽出修正)
 - 誤県(猿島=東京)・城の festival 誤分類・全文 choice ラベルを解消
 - curated と矛盾する auto 割当は拒否
+
+## Progress(Bugbot再レビュー修正)
+- [x] メモ句ラベル排除 / 同一labelのtype二重をcollapse / coverage強化
+- [x] 再生成 facts 679・coverage OK・push
