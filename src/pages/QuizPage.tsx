@@ -27,6 +27,11 @@ import type { ChoiceKey, Question, SubjectId } from '../types'
 
 const IMAGE_MARKER = '<図>'
 
+type SessionAnswer = {
+  selectedKeys: ChoiceKey[]
+  correct: boolean
+}
+
 /** stem 内の <u>...</u> を下線付きで描画(他タグはテキストのまま) */
 function renderRichText(text: string) {
   const nodes: ReactNode[] = []
@@ -126,8 +131,11 @@ export function QuizPage() {
   const [selected, setSelected] = useState<ChoiceKey[]>([])
   const [submitted, setSubmitted] = useState(false)
   const mainRef = useRef<HTMLDivElement>(null)
+  // 苦手モード専用: 進捗に書かず、このセッション内だけ答え合わせ結果を保持
+  const weakSessionAnswers = useRef(new Map<string, SessionAnswer>())
 
   const subject = subjectId as SubjectId
+  const isWeakMode = mode === 'weak'
 
   function scrollMainToTop() {
     mainRef.current?.scrollTo(0, 0)
@@ -145,8 +153,10 @@ export function QuizPage() {
         const qs = await fetchQuestions(file)
         if (cancelled) return
 
+        weakSessionAnswers.current = new Map()
+
         let queue = qs
-        if (mode === 'weak') {
+        if (isWeakMode) {
           const weakIds = new Set(
             getUnansweredOrWrongIds(progress, yearId, subject, qs),
           )
@@ -191,9 +201,22 @@ export function QuizPage() {
     setSearchParams(next, { replace: true })
   }, [question, searchParams, setSearchParams])
 
-  // 問題切替時: 保存済みの直近解答があれば復元(結果画面で手動リセットするまで保持)
+  // 問題切替時の解答復元
+  // 苦手モード: セッション内の答え合わせのみ(進捗は見ない → 出題時に正答を出さない)
+  // 全問演習: 保存済みの直近解答があれば復元
   useEffect(() => {
     if (!question) return
+    if (isWeakMode) {
+      const session = weakSessionAnswers.current.get(question.id)
+      if (session) {
+        setSelected([...session.selectedKeys])
+        setSubmitted(true)
+      } else {
+        setSelected([])
+        setSubmitted(false)
+      }
+      return
+    }
     const latest = latestAttempt(
       progress[yearId]?.[subject]?.[question.id],
     )
@@ -205,7 +228,7 @@ export function QuizPage() {
       setSubmitted(false)
     }
     // progress は復元のソース。record 直後も同じ選択で上書きされるだけ
-  }, [question, yearId, subject, progress])
+  }, [question, yearId, subject, progress, isWeakMode])
 
   const isCorrect = useMemo(
     () =>
@@ -227,18 +250,39 @@ export function QuizPage() {
   function handleCheck() {
     if (!question || selected.length === 0 || submitted) return
     const ok = isAnswerCorrect(question, selected)
-    record(yearId, subject, question.id, selected, ok)
+    if (isWeakMode) {
+      // 苦手練習は正答済み扱いにしない(キューから外れない / ホーム正答率も変えない)
+      weakSessionAnswers.current.set(question.id, {
+        selectedKeys: [...selected],
+        correct: ok,
+      })
+    } else {
+      record(yearId, subject, question.id, selected, ok)
+    }
     setSubmitted(true)
   }
 
   function navigateToResult() {
-    // recordAttempt は localStorage に同期書き込み済みなので、最新状態から集計
-    const stats = calcQueueSessionStats(
-      loadProgress(),
-      yearId,
-      subject,
-      allQuestions,
-    )
+    let stats: { correct: number; answered: number; total: number }
+    if (isWeakMode) {
+      let answered = 0
+      let correct = 0
+      for (const q of allQuestions) {
+        const a = weakSessionAnswers.current.get(q.id)
+        if (!a) continue
+        answered += 1
+        if (a.correct) correct += 1
+      }
+      stats = { correct, answered, total: allQuestions.length }
+    } else {
+      // recordAttempt は localStorage に同期書き込み済みなので、最新状態から集計
+      stats = calcQueueSessionStats(
+        loadProgress(),
+        yearId,
+        subject,
+        allQuestions,
+      )
+    }
     navigate(`/result/${yearId}/${subject}`, {
       state: {
         ...stats,
@@ -313,7 +357,7 @@ export function QuizPage() {
             <main className="mx-auto w-full max-w-2xl px-4 py-6">
               <p className="mb-1 text-xs font-medium text-muted">
                 {yearMeta?.label} · {subjectMeta?.label}
-                {mode === 'weak' ? ' · 苦手優先' : ''}
+                {isWeakMode ? ' · 苦手優先' : ''}
               </p>
               <h1 className="mb-4 flex items-start gap-2 text-base font-bold text-gray-900">
                 <span aria-hidden className="mt-0.5 text-brand">

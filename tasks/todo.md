@@ -403,3 +403,15 @@
 ## Progress(dedupeコース吸収の修正)
 - [x] curated/コースは独立維持、coverageは埋め込み不可
 - [x] 欠落カード補完・再生成 facts 727・coverage OK・push
+
+## Progress(苦手だけ・進捗非連動)
+- [x] QuizPage: weak 用セッション解答 Map・record スキップ
+- [x] QuizPage: weak 時は progress 復元せず Map/空から開始
+- [x] QuizPage: weak 結果遷移を Map 集計に切替
+- [x] npm run build
+
+## Review(苦手だけ・進捗非連動)
+- QuizPage のみ変更。苦手モードは session Map で答え合わせし `record` しない
+- 出題時は過去解答を復元せず、確認後のみ ○/×・解説を表示
+- 結果の「今回」は Map 集計。ホーム正答率・次回苦手キューは変化なし
+- 検証: `npm run build` OK
